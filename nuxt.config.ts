@@ -11,6 +11,12 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     modules: ["@nuxt/fonts", "@nuxtjs/sitemap"],
 
+    runtimeConfig: {
+        spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
+        spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+        spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+    },
+
     css: ["~/styles/globals.css"],
 
     vite: {
