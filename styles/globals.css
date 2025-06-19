@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+    --color-true-black: #000000;
+    --color-true-white: #ffffff;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-mono);
+}
+
+body {
+    @apply bg-true-black text-true-white min-h-screen font-mono;
+}
+
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    @apply outline-2 outline-white outline-offset-2;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+a:focus-visible {
+    @apply ring-2 ring-white ring-offset-2 ring-offset-true-black;
+}
+
+a {
+    @apply transition-colors duration-200;
+}
+
+a:hover {
+    @apply text-white;
+}
+
+::selection {
+    @apply bg-white text-true-black;
+}
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}

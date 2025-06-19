@@ -1,0 +1,13 @@
+# root domains i own (at registry-level)
+# anything outside this list is likely not mine
+# if parsing skip lines starting with # and empty ones
+
+# last updated: 2025-06-12
+
+# you're here
+diogo.wtf
+diogocastro.me
+diogocastro.dev
+
+meeows.net
+meeows.cloud
