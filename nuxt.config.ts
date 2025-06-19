@@ -95,6 +95,7 @@ export default defineNuxtConfig({
         preset: "cloudflare_module",
         cloudflare: {
             deployConfig: true,
+            nodeCompat: true,
             wrangler: {
                 name: "website",
             },
