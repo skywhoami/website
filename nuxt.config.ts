@@ -21,6 +21,10 @@ export default defineNuxtConfig({
         families: [{name: "JetBrains Mono", provider: "google"}],
     },
 
+    experimental: {
+        viewTransition: true,
+    },
+
     app: {
         head: {
             script: [{src: "/oneko/oneko.js", tagPosition: "bodyOpen"}],
