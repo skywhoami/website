@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
+                'Authorization': `Basic ${btoa(`${clientId}:${clientSecret}`)}`
             },
             body: new URLSearchParams({
                 grant_type: 'refresh_token',
