@@ -63,6 +63,8 @@ const getDisplayText = (item: SocialItem) => {
     </p>
   </section>
 
+  <SpotifyNowPlaying/>
+
   <section aria-labelledby="connect" class="mb-16">
     <div
         id="connect"
