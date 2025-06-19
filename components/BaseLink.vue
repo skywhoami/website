@@ -42,6 +42,18 @@ const linkClasses = computed(() => {
   return classes.filter(Boolean).join(" ");
 });
 
+const playPopSound = () => {
+  try {
+    const audio = new Audio('/pop.mp3');
+    audio.volume = 0.5;
+    audio.play().catch(error => {
+      console.warn('Could not play pop sound:', error);
+    });
+  } catch (error) {
+    console.warn('Audio not supported:', error);
+  }
+};
+
 defineExpose({
   isExternal,
 });
@@ -55,6 +67,7 @@ defineExpose({
       :target="isExternal ? '_blank' : undefined"
       :to="to"
       v-bind="$attrs"
+      @click="playPopSound"
   >
     <slot/>
   </NuxtLink>
