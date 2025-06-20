@@ -7,7 +7,7 @@ export default defineNuxtConfig({
         url: "https://diogo.wtf",
     },
 
-    compatibilityDate: "2025-05-15",
+    compatibilityDate: "2025-06-09",
     devtools: {enabled: true},
     modules: ["@nuxt/fonts", "@nuxtjs/sitemap"],
 
@@ -16,6 +16,8 @@ export default defineNuxtConfig({
         spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
         spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
     },
+
+    sourcemap: {client: true, server: false},
 
     css: ["~/styles/globals.css"],
 
@@ -90,7 +92,8 @@ export default defineNuxtConfig({
 
     nitro: {
         prerender: {
-            routes: ["/", "/projects", "/uses", "/privacy"],
+            crawlLinks: true,
+            routes: ["/", "/projects", "/uses", "/privacy", "/domains", "/terms", "/about", "/philosophy"],
         },
         preset: "cloudflare_module",
         cloudflare: {
@@ -98,6 +101,9 @@ export default defineNuxtConfig({
             nodeCompat: true,
             wrangler: {
                 name: "website",
+                observability: {
+                    logs: {enabled: true},
+                },
             },
         },
     },
