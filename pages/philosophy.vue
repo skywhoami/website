@@ -59,5 +59,5 @@ useHead({
     </blockquote>
   </section>
 
-  <Footer note="philosophy, but make it indie"/>
+  <Footer/>
 </template>

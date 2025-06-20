@@ -72,5 +72,9 @@ const domainsList = computed(() => {
     </div>
   </section>
 
-  <Footer note="inspired by erisa.uk/domains"/>
+  <span class="text-zinc-300">inspired by <BaseLink class="underline"
+                                                    to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
+
+
+  <Footer/>
 </template>

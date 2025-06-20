@@ -41,5 +41,7 @@ useHead({
     <p>If you have any questions or concerns about privacy, you’re welcome to reach out directly.</p>
   </section>
 
-  <Footer note="last updated: june 2025"/>
+  <span>last updated: june 2025</span>
+
+  <Footer/>
 </template>
