@@ -7,6 +7,10 @@ export default defineNuxtConfig({
         url: "https://skylar.sh",
     },
 
+    future: {
+        compatibilityVersion: 4,
+    },
+
     compatibilityDate: "2025-06-09",
     devtools: {enabled: true},
     modules: ["@nuxt/fonts", "@nuxtjs/sitemap"],
@@ -19,7 +23,7 @@ export default defineNuxtConfig({
 
     sourcemap: {client: true, server: false},
 
-    css: ["~/styles/globals.css"],
+    css: ["~/assets/main.css"],
 
     vite: {
         plugins: [tailwindcss()],

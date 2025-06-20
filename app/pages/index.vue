@@ -1,0 +1,143 @@
+<script lang="ts" setup>
+const age = Math.floor(
+  (Date.now() - new Date('2006-11-28').getTime()) /
+    (1000 * 60 * 60 * 24 * 365.25)
+)
+
+const socials: {
+  name: string
+  url?: string
+  username?: string
+}[] = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/skywhoami'
+  },
+  {
+    name: 'Discord',
+    url: 'https://discord.com/users/293020630608248832',
+    username: 'skywhoami'
+  },
+  {
+    name: 'Email',
+    url: 'mailto:hi@skylar.sh'
+  },
+  {
+    name: 'Bluesky',
+    url: 'https://bsky.app/profile/skylar.sh'
+  },
+]
+
+const webring: { name: string; url: string; img: string }[] = [
+  { name: 'me', url: '', img: '/buttons/star.png' },
+  { name: 'neru', url: 'https://isneru.meeows.net', img: '/buttons/neru.png' }
+]
+
+const getDisplayText = (item: SocialItem) => {
+  if (item.username || !item.url) {
+    return `@${item.username}`
+  }
+  if (item.url.includes('mailto:')) {
+    return item.url.split(':')[1]
+  }
+
+  return `@${item.url.split('/').pop()}`
+}
+</script>
+
+<template>
+  <Header size="medium" title="sky 💫" class="text-primary mb-2!" />
+
+  <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
+    <p>
+      hiya! i'm a silly wannabe software developer . i'm
+      {{ age }} years old. currently i mostly make stuff for my own use.
+    </p>
+    <details class="space-y-4">
+      <summary class="hover:cursor-pointer">read more</summary>
+      <p>aw, flattered you're actually curious about me.</p>
+      <p>
+        i started coding when i was 9 (yeah, probably shouldn't have been on the
+        internet unsupervised, but here we are).
+      </p>
+      <p>
+        i mostly build weird little things because it's fun and makes me feel
+        like something's alive. i like when software has soul.
+      </p>
+      <p>
+        when i'm not coding, i'm probably lost in some deep-dive, tweaking my
+        setup for the hundredth time, or just vibing with music and games.
+      </p>
+      <p class="mb-4">
+        if you ever just feel like saying hi, seriously, go for it. links are
+        down there.
+      </p>
+    </details>
+  </section>
+
+  <NowPlaying />
+
+  <section aria-labelledby="connect" class="mb-16">
+    <div
+      id="connect"
+      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
+    >
+      where you can find me
+    </div>
+
+    <div class="space-y-2">
+      <BaseLink
+        v-for="social in socials"
+        :key="social.name"
+        :aria-describedby="`desc-${social.name.toLowerCase().replace(/\s+/g, '-')}`"
+        :to="social.url || ''"
+        variant="social"
+      >
+        <div class="flex items-center space-x-4">
+          <span class="text-base font-medium">{{ social.name }}</span>
+          <span
+            :id="social.name.toLowerCase().replace(/\s+/g, '-')"
+            class="font-mono text-sm text-zinc-400"
+          >
+            {{ getDisplayText(social) }}
+          </span>
+        </div>
+        <div
+          aria-hidden="true"
+          class="text-zinc-600 transition-colors duration-200 group-hover:text-white"
+        >
+          →
+        </div>
+      </BaseLink>
+    </div>
+  </section>
+
+  <section aria-labelledby="friends" class="mb-16">
+    <div
+      id="friends"
+      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
+    >
+      friends
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+      <BaseLink v-for="friend in webring" :key="friend.name" :to="friend.url">
+        <img
+          :src="friend.img"
+          :alt="friend.name"
+          width="88"
+          height="31"
+          class="pixelated"
+        />
+      </BaseLink>
+    </div>
+  </section>
+
+  <Footer show-navigation />
+</template>
+
+<style scoped>
+.pixelated {
+  image-rendering: pixelated;
+}
+</style>
