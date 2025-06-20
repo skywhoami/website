@@ -59,7 +59,7 @@ const getDisplayText = (item: SocialItem) => {
     <p>I build weird little tools, break things for fun, and overengineer everything I can.</p>
     <p>Sometimes it works. Most times looks like spaghetti. Either way, I'm having fun.</p>
     <p>→
-      <BaseLink class="underline" to="/about">Read me about me</BaseLink>
+      <BaseLink class="underline" to="/about">Read more about me</BaseLink>
     </p>
   </section>
 
