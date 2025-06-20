@@ -93,7 +93,7 @@ export default defineNuxtConfig({
     nitro: {
         prerender: {
             crawlLinks: true,
-            routes: ["/", "/projects", "/uses", "/privacy", "/domains", "/terms", "/about", "/philosophy"],
+            routes: ["/", "/projects", "/uses", "/privacy", "/domains", "/terms", "/me", "/philosophy"],
         },
         preset: "cloudflare_module",
         cloudflare: {
