@@ -100,5 +100,5 @@ const getDisplayText = (item: SocialItem) => {
     </div>
   </section>
 
-  <Footer note="💜" show-navigation/>
+  <Footer show-navigation/>
 </template>

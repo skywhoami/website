@@ -5,7 +5,6 @@ interface NavigationLink {
 }
 
 interface Props {
-  note?: string
   showNavigation?: boolean
 }
 
@@ -21,7 +20,9 @@ const navigationLinks: NavigationLink[] = [
   <footer class="mt-auto pt-8 border-t border-white/10">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-2 md:space-y-0">
       <div class="text-xs text-zinc-500">
-        {{ note }}
+        <BaseLink class="underline" to="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</BaseLink>
+        {{ new Date().getFullYear() }}
+        &copy; Diogo Castro
       </div>
 
       <nav v-if="showNavigation" aria-label="Footer navigation">
