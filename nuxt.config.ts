@@ -13,12 +13,14 @@ export default defineNuxtConfig({
 
     compatibilityDate: "2025-06-09",
     devtools: {enabled: true},
-    modules: ["@nuxt/fonts", "@nuxtjs/sitemap"],
+    modules: ["@nuxt/fonts", "@nuxtjs/sitemap", "@nuxt/icon"],
 
     runtimeConfig: {
         spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
         spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
         spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+        appleMusicToken: process.env.APPLE_MUSIC_TOKEN,
+        appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
     },
 
     sourcemap: {client: true, server: false},
