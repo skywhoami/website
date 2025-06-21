@@ -43,13 +43,13 @@ const domainsList = computed(() => {
     <template #subtitle>
       <div class="text-zinc-400 text-sm md:text-base space-y-1">
         <div>
-          raw file
-          <a
+          <BaseLink
               class="underline hover:text-white transition-colors"
-              href="/domains.txt"
               rel="noopener noreferrer"
               target="_blank"
-          >here</a
+              to="/domains.txt"
+          >raw file
+          </BaseLink
           >
         </div>
       </div>
@@ -72,9 +72,8 @@ const domainsList = computed(() => {
     </div>
   </section>
 
-  <span class="text-zinc-300">inspired by <BaseLink class="underline"
-                                                    to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
-
+  <span class="text-zinc-300 first-letter:capitalize">inspired by <BaseLink class="underline text-[#c63b65]"
+                                                                            to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
 
   <Footer/>
 </template>

@@ -30,12 +30,9 @@ const hardware: UsesSection[] = [
     items: [
       {
         name: "MacBook Pro 16'' M3 Pro 18GB",
-        description: "my daily driver",
+        description: "daily driver",
       },
-      {
-        name: "MacBook Air 13'' M1 8GB",
-        description: "my first ever mac, used for university",
-      },
+      {name: "MacBook Air 13'' M1 8GB"},
       {name: "Apple Magic Mouse"},
       {
         name: "Logitech G PRO X SUPERLIGHT",
@@ -93,17 +90,17 @@ const software: UsesSection[] = [
         items: [
           {
             name: "Wipr 2",
-            description: "the best ad and tracker blocker for safari",
+            description: "ad and tracker blocker for Safari",
             url: "https://kaylees.site/wipr2.html",
           },
           {
             name: "Refined GitHub",
-            description: "enhanced github experience",
+            description: "enhanced GitHub experience",
             url: "https://github.com/refined-github/refined-github",
           },
           {
             name: "SponsorBlock",
-            description: "skip youtube sponsor segments",
+            description: "skip YouTube sponsor segments",
             url: "https://github.com/ajayyy/SponsorBlock",
           },
           {
@@ -113,13 +110,13 @@ const software: UsesSection[] = [
           },
           {
             name: "Userscripts",
-            description: "userscript manager for safari",
+            description: "userscript manager for Safari",
             url: "https://apps.apple.com/pt/app/userscripts/id1463298887?l=en-GB",
           },
         ],
       },
       {
-        category: "apps",
+        category: "applications",
         items: [
           {
             name: "Ghostty",
@@ -139,7 +136,7 @@ const software: UsesSection[] = [
           {name: "zsh", description: "shell"},
           {
             name: "Bun",
-            description: "javascript runtime and package manager",
+            description: "JavaScript runtime and package manager",
             url: "https://bun.sh",
           },
           {
@@ -177,7 +174,7 @@ const getItemDescId = (item: UsesItem) =>
 
   <section class="space-y-12 text-sm md:text-base">
     <div v-for="section in [...hardware, ...software]" :key="section.category || 'hardware'">
-      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white">
+      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white capitalize">
         {{ section.category || "hardware" }}
       </h2>
 
@@ -188,7 +185,7 @@ const getItemDescId = (item: UsesItem) =>
             : getSectionId(section)
             ">
           <h3 v-if="subsection.category" :id="getSubsectionId(subsection)"
-              class="text-lg font-semibold mb-4 text-zinc-300">
+              class="text-lg font-semibold mb-4 text-zinc-300 capitalize">
             {{ subsection.category }}
           </h3>
 
@@ -206,7 +203,8 @@ const getItemDescId = (item: UsesItem) =>
                   {{ item.name }}
                 </span>
 
-                <div v-if="item.description" :id="getItemDescId(item)" class="text-zinc-400 text-sm mt-1">
+                <div v-if="item.description" :id="getItemDescId(item)"
+                     class="text-zinc-400 text-sm mt-1 first-letter:capitalize">
                   {{ item.description }}
                 </div>
               </div>

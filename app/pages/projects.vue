@@ -28,22 +28,9 @@ const projects: ProjectSection[] = [
     items: [
       {
         name: "latte",
-        description: "a tiny programming language born from boredom",
+        description: "tiny programming language born from boredom",
         url: "https://github.com/st6rdustx/latte",
         tech: ["C++", "LLVM"],
-        status: "archived",
-      },
-    ],
-  },
-  {
-    category: "university",
-    items: [
-      {
-        name: "bwb",
-        description:
-            "a web app for managing your smart water bottle [note: this is not a real product, it only includes auth, and a  dashboard with no real functionality]",
-        url: "https://github.com/st6rdustx/bwb",
-        tech: ["PHP", "MySQL"],
         status: "archived",
       },
     ],
@@ -55,7 +42,7 @@ const projects: ProjectSection[] = [
   <Header show-back-link size="medium" title="projects"
   >
     <template #subtitle
-    >things I've built, maintain, or experiment with
+    >featured things I've built, maintain, or experiment with
     </template
     >
   </Header
@@ -69,7 +56,7 @@ const projects: ProjectSection[] = [
           class="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
           to="https://github.com/st6rdustx?tab=repositories"
       >
-        <span>view all my repos on github</span>
+        <span class="first-letter:capitalize">view all my repos on GitHub</span>
         <span aria-hidden="true">→</span>
       </BaseLink>
     </div>

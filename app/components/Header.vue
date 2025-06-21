@@ -33,7 +33,7 @@ const titleClass = computed(() => {
       {{ title }}
     </h1>
 
-    <div v-if="$slots.subtitle" class="text-zinc-400 text-sm md:text-base">
+    <div v-if="$slots.subtitle" class="text-zinc-400 text-sm md:text-base first-letter:capitalize">
       <slot name="subtitle"/>
     </div>
   </header>
