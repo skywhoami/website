@@ -42,7 +42,6 @@ export default defineNuxtConfig({
     app: {
         head: {
             script: [{src: "/oneko/oneko.js", tagPosition: "bodyOpen"}],
-            title: "star's site",
             htmlAttrs: {
                 lang: "en",
             },
