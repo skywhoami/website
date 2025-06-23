@@ -7,25 +7,65 @@ const {data: currentTrack, pending, error, refresh} = await useFetch<{
   url: string;
   isPlaying: boolean;
   service: 'spotify' | 'apple-music';
+  progress_ms?: number;
+  duration_ms?: number;
 } | null>('/api/now-playing', {
   default: () => null,
   server: false,
 });
 
 let refreshInterval: NodeJS.Timeout | null = null;
+let progressInterval: NodeJS.Timeout | null = null;
+const localProgress = ref<number | null>(null);
+const lastUpdatedAt = ref<number | null>(null);
+
+watch(() => currentTrack.value?.progress_ms, (newProgress) => {
+  if (newProgress !== undefined) {
+    localProgress.value = newProgress;
+    lastUpdatedAt.value = Date.now();
+  }
+}, {immediate: true});
 
 onMounted(() => {
   refreshInterval = setInterval(() => {
     if (!pending.value) {
       refresh();
     }
-  }, 30000);
+  }, 5000);
+
+  progressInterval = setInterval(() => {
+    if (currentTrack.value?.isPlaying && localProgress.value !== null && lastUpdatedAt.value !== null && currentTrack.value?.duration_ms) {
+      const now = Date.now();
+      const elapsed = now - lastUpdatedAt.value;
+
+      localProgress.value = Math.min(
+          currentTrack.value.progress_ms! + elapsed,
+          currentTrack.value.duration_ms
+      );
+    }
+  }, 100);
 });
 
 onUnmounted(() => {
   if (refreshInterval) {
     clearInterval(refreshInterval);
   }
+  if (progressInterval) {
+    clearInterval(progressInterval);
+  }
+});
+
+const formatTime = (ms: number | null) => {
+  if (ms === null) return '0:00';
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+};
+
+const progressPercentage = computed(() => {
+  if (!currentTrack.value?.duration_ms || !localProgress.value) return 0;
+  return Math.min((localProgress.value / currentTrack.value.duration_ms) * 100, 100);
 });
 
 const getServiceInfo = (service: 'spotify' | 'apple-music') => {
@@ -64,7 +104,7 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
     </div>
 
     <div
-        class="group rounded-xl flex items-center space-x-4 py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200">
+        class="group relative rounded-xl flex items-center space-x-4 py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200">
       <div class="flex-shrink-0">
         <img
             :alt="`${currentTrack.album} album cover`"
@@ -96,6 +136,23 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
 
       <div class="flex-shrink-0 text-zinc-600 group-hover:text-white transition-colors duration-200">
         <Icon :name="getServiceInfo(currentTrack.service).icon" class="w-5 h-5"/>
+      </div>
+
+      <div
+          v-if="currentTrack.isPlaying && currentTrack.service === 'spotify' && currentTrack.duration_ms"
+          class="absolute bottom-0 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 px-4 pb-2 pt-1 bg-gradient-to-t from-black/50 to-transparent"
+      >
+        <div class="flex items-center justify-between text-xs text-white mb-1.5">
+          <span>{{ formatTime(localProgress) }}</span>
+          <span>{{ formatTime(currentTrack.duration_ms) }}</span>
+        </div>
+        <div class="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
+          <div
+              :class="getServiceInfo(currentTrack.service).color"
+              :style="`width: ${progressPercentage}%`"
+              class="h-full rounded-full transition-all ease-linear"
+          ></div>
+        </div>
       </div>
     </div>
   </section>
