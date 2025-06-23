@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import {onMounted, onUnmounted, ref} from 'vue';
+
 interface NavigationLink {
   to: string;
   label: string;
