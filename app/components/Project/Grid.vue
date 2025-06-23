@@ -1,7 +1,7 @@
 <template>
   <section class="space-y-12 text-sm md:text-base mb-16">
     <div v-for="section in sections" :key="section.category">
-      <h2 class="text-lg md:text-xl font-semibold mb-6 text-zinc-300 capitalize">
+      <h2 class="text-lg md:text-xl font-semibold mb-6 text-zinc-300">
         {{ section.category }}
       </h2>
       <div class="space-y-4">
@@ -32,7 +32,7 @@
 
                 <div
                     :id="getDescriptionId(project)"
-                    class="text-zinc-400 text-sm mb-3 first-letter:capitalize"
+                    class="text-zinc-400 text-sm mb-3"
                 >
                   {{ project.description }}
                 </div>

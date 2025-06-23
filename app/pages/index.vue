@@ -56,10 +56,10 @@ const getDisplayText = (item: SocialItem) => {
   </Header>
 
   <section class="mb-12 space-y-4 text-sm md:text-base leading-relaxed">
-    <p>I build weird little tools, break things for fun, and overengineer everything I can.</p>
-    <p>Sometimes it works. Most times looks like spaghetti. Either way, I'm having fun.</p>
+    <p>i build weird little tools, break things for fun, and overengineer everything i can.</p>
+    <p>sometimes it works. most times looks like spaghetti. either way, i'm having fun.</p>
     <p>→
-      <BaseLink class="underline" to="/me">Read more about me</BaseLink>
+      <BaseLink class="underline" to="/me">read more about me</BaseLink>
     </p>
   </section>
 

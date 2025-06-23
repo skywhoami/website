@@ -56,7 +56,7 @@ const projects: ProjectSection[] = [
           class="inline-flex items-center space-x-2 text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
           to="https://github.com/st6rdustx?tab=repositories"
       >
-        <span class="first-letter:capitalize">view all my repos on GitHub</span>
+        <span>view all my repos on GitHub</span>
         <span aria-hidden="true">→</span>
       </BaseLink>
     </div>

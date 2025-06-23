@@ -72,8 +72,8 @@ const domainsList = computed(() => {
     </div>
   </section>
 
-  <span class="text-zinc-300 first-letter:capitalize">inspired by <BaseLink class="underline text-[#c63b65]"
-                                                                            to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
+  <span class="text-zinc-300">inspired by <BaseLink class="underline text-[#c63b65]"
+                                                    to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
 
   <Footer/>
 </template>
