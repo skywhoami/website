@@ -19,38 +19,37 @@ useHead({
   </Header>
 
   <section class="mb-12 space-y-6 text-sm md:text-base leading-relaxed">
-    <h2 class="font-semibold text-lg capitalize">why i build</h2>
+    <h2 class="font-semibold text-lg">why i build</h2>
     <p>
-      Because it's fun (or weird, or both). Because I want to see what happens.
-      I don't care if it scales or makes money, I care if it feels alive.
+      because it's fun (or weird, or both). because I want to see what happens.
+      i don't care if it scales or makes money, i care if it feels alive.
     </p>
 
-    <h2 class="font-semibold text-lg capitalize">how i work</h2>
+    <h2 class="font-semibold text-lg">how i work</h2>
     <ul class="list-disc ml-6">
-      <li>Minimal setups</li>
-      <li>Max control</li>
-      <li>I break things on purpose</li>
-      <li>I learn by building</li>
-      <li>No plans, no pipelines</li>
+      <li>minimal setups</li>
+      <li>max control</li>
+      <li>break things on purpose</li>
+      <li>learn by building</li>
     </ul>
 
-    <h2 class="font-semibold text-lg capitalize">what i value</h2>
+    <h2 class="font-semibold text-lg">what i value</h2>
     <ul class="list-disc ml-6">
-      <li>Privacy, security, and digital freedom</li>
-      <li>Open-source</li>
-      <li>Radical transparency</li>
-      <li>Community over competition</li>
-      <li>Celebrating the weird</li>
-      <li>People over profit, always</li>
-      <li>Supporting indie creators</li>
+      <li>privacy, security, and digital freedom</li>
+      <li>open-source</li>
+      <li>radical transparency</li>
+      <li>community over competition</li>
+      <li>celebrating the weird</li>
+      <li>people over profit, always</li>
+      <li>supporting indie creators</li>
     </ul>
 
-    <h2 class="font-semibold text-lg capitalize">what i reject</h2>
+    <h2 class="font-semibold text-lg">what i reject</h2>
     <ul class="list-disc ml-6">
-      <li>Nonsense and bullshit</li>
-      <li>Egos, elitism, gatekeeping</li>
-      <li>Unnecessary competition</li>
-      <li>Hype over impact</li>
+      <li>nonsense and bullshit</li>
+      <li>egos, elitism, gatekeeping</li>
+      <li>unnecessary competition</li>
+      <li>hype over impact</li>
     </ul>
 
     <blockquote class="border-l-4 pl-4 text-zinc-400 italic flex items-center">

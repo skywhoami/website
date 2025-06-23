@@ -90,17 +90,17 @@ const software: UsesSection[] = [
         items: [
           {
             name: "Wipr 2",
-            description: "ad and tracker blocker for Safari",
+            description: "ad and tracker blocker for safari",
             url: "https://kaylees.site/wipr2.html",
           },
           {
             name: "Refined GitHub",
-            description: "enhanced GitHub experience",
+            description: "enhanced github experience",
             url: "https://github.com/refined-github/refined-github",
           },
           {
             name: "SponsorBlock",
-            description: "skip YouTube sponsor segments",
+            description: "skip youtube sponsor segments",
             url: "https://github.com/ajayyy/SponsorBlock",
           },
           {
@@ -110,7 +110,7 @@ const software: UsesSection[] = [
           },
           {
             name: "Userscripts",
-            description: "userscript manager for Safari",
+            description: "userscript manager for safari",
             url: "https://apps.apple.com/pt/app/userscripts/id1463298887?l=en-GB",
           },
         ],
@@ -136,7 +136,7 @@ const software: UsesSection[] = [
           {name: "zsh", description: "shell"},
           {
             name: "Bun",
-            description: "JavaScript runtime and package manager",
+            description: "javascript runtime and package manager",
             url: "https://bun.sh",
           },
           {
@@ -174,7 +174,7 @@ const getItemDescId = (item: UsesItem) =>
 
   <section class="space-y-12 text-sm md:text-base">
     <div v-for="section in [...hardware, ...software]" :key="section.category || 'hardware'">
-      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white capitalize">
+      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white">
         {{ section.category || "hardware" }}
       </h2>
 
@@ -185,7 +185,7 @@ const getItemDescId = (item: UsesItem) =>
             : getSectionId(section)
             ">
           <h3 v-if="subsection.category" :id="getSubsectionId(subsection)"
-              class="text-lg font-semibold mb-4 text-zinc-300 capitalize">
+              class="text-lg font-semibold mb-4 text-zinc-300">
             {{ subsection.category }}
           </h3>
 
@@ -204,7 +204,7 @@ const getItemDescId = (item: UsesItem) =>
                 </span>
 
                 <div v-if="item.description" :id="getItemDescId(item)"
-                     class="text-zinc-400 text-sm mt-1 first-letter:capitalize">
+                     class="text-zinc-400 text-sm mt-1">
                   {{ item.description }}
                 </div>
               </div>
