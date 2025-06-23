@@ -110,6 +110,7 @@ export default defineNuxtConfig({
                 observability: {
                     logs: {enabled: true},
                 },
+                keep_vars: true,
             },
         },
     },
