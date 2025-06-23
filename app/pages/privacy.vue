@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 useHead({
+  title: "privacy",
   link: [
     {
       rel: "canonical",

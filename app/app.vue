@@ -1,5 +1,6 @@
 <script setup>
 useHead({
+  titleTemplate: title => title ? `${title} · star` : 'star\'s site',
   script: [
     {
       type: "application/ld+json",

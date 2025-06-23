@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 useHead({
+  title: "uses",
   link: [
     {
       rel: "canonical",

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 useHead({
+  title: "philosophy",
   link: [
     {
       rel: "canonical",
