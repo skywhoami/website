@@ -6,6 +6,8 @@ interface NowPlayingTrack {
     url: string;
     isPlaying: boolean;
     service: 'spotify' | 'apple-music';
+    progress_ms?: number;
+    duration_ms?: number;
 }
 
 async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTrack | null> {
@@ -58,7 +60,9 @@ async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTr
             image: image,
             url: track.external_urls.spotify,
             isPlaying: currentlyPlaying.is_playing,
-            service: 'spotify'
+            service: 'spotify',
+            progress_ms: currentlyPlaying.progress_ms,
+            duration_ms: track.duration_ms
         };
 
     } catch (error) {
