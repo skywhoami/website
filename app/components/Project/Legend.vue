@@ -7,7 +7,7 @@ interface Props {
 
 const { title = 'labels' } = defineProps<Props>();
 
-const sectionId = `legend-${ Math.random().toString(36).substr(2, 9) }`;
+const sectionId = `legend-${ Math.random().toString(36).slice(2, 9) }`;
 
 const statusLabels: Record<ProjectStatus, string> = {
   active: 'actively developed',
