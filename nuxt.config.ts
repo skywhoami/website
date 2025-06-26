@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    families: [ { name: 'JetBrains Mono', provider: 'google' } ]
+    families: [ { name: 'Maple Mono', provider: 'fontsource' } ]
   },
 
   experimental: {
