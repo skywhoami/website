@@ -22,11 +22,11 @@ const linkClasses = computed(() => {
     'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-true-black';
 
   const variants = {
-    default: 'hover:text-white rounded-xl',
+    default: 'hover:text-zinc-300 rounded-xl',
     button: 'hover:text-zinc-300',
     card: 'group border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200',
     social:
-      'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200'
+      'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 hover:scale-102 transition-all duration-500 ease-in-out'
   };
 
   const classes = [ baseClasses, variants[variant] ];
