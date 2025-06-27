@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="nuxt" type="NodeJSConfigurationType" application-parameters="dev -o"
+                   path-to-js-file="node_modules/nuxt/bin/nuxt.mjs" working-dir="$PROJECT_DIR$">
+        <method v="2"/>
+    </configuration>
+</component>
