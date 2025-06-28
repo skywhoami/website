@@ -1,4 +1,4 @@
-**[skylar.sh](https://skylar.sh)**
+🦄 **[skylar.sh](https://skylar.sh)**
 
 inspired by [Anthony Fu](https://github.com/antfu/antfu.me), code is licensed
 under [MIT](./LICENSE), my words and original images
