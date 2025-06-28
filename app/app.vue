@@ -11,7 +11,7 @@ useHead({
         alternateName: 'star',
         description: 'Software Developer',
         url: 'https://diogo.wtf',
-        sameAs: [ 'https://github.com/st6rdustx' ]
+        sameAs: [ 'https://github.com/st6rdustx']
       })
     }
   ]
@@ -19,7 +19,7 @@ useHead({
 </script>
 
 <template>
-<NuxtLayout>
-  <NuxtPage/>
-</NuxtLayout>
+  <NuxtLayout>
+    <NuxtPage/>
+  </NuxtLayout>
 </template>
