@@ -16,7 +16,7 @@ async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTr
     const clientSecret = config.spotifyClientSecret;
     const refreshToken = config.spotifyRefreshToken;
 
-    if(!clientId || !clientSecret || !refreshToken) {
+    if (!clientId || !clientSecret || !refreshToken) {
       return null;
     }
 
@@ -29,7 +29,7 @@ async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTr
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Basic ${ btoa(`${ clientId }:${ clientSecret }`) }`
+        'Authorization': `Basic ${btoa(`${clientId}:${clientSecret}`)}`
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
@@ -41,11 +41,11 @@ async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTr
 
     const currentlyPlaying = await $fetch('https://api.spotify.com/v1/me/player/currently-playing', {
       headers: {
-        'Authorization': `Bearer ${ accessToken }`
+        'Authorization': `Bearer ${accessToken}`
       }
     }).catch(() => null) as any;
 
-    if(!currentlyPlaying || !currentlyPlaying.is_playing || !currentlyPlaying.item) {
+    if (!currentlyPlaying || !currentlyPlaying.is_playing || !currentlyPlaying.item) {
       return null;
     }
 
@@ -65,7 +65,7 @@ async function getSpotifyNowPlaying(config: RuntimeConfig): Promise<NowPlayingTr
       duration_ms: track.duration_ms
     };
 
-  } catch(error) {
+  } catch (error) {
     console.error('Spotify API error:', error);
     return null;
   }
@@ -76,18 +76,18 @@ async function getAppleMusicNowPlaying(config: RuntimeConfig): Promise<NowPlayin
     const token = config.appleMusicToken;
     const userToken = config.appleMusicUserToken;
 
-    if(!token || !userToken) {
+    if (!token || !userToken) {
       return null;
     }
 
     const currentlyPlaying = await $fetch('https://api.music.apple.com/v1/me/recent/played/tracks?limit=1', {
       headers: {
-        'Authorization': `Bearer ${ token }`,
+        'Authorization': `Bearer ${token}`,
         'Music-User-Token': userToken
       }
     }).catch(() => null) as any;
 
-    if(!currentlyPlaying || currentlyPlaying.data.length === 0) {
+    if (!currentlyPlaying || currentlyPlaying.data.length === 0) {
       return null;
     }
 
@@ -102,7 +102,7 @@ async function getAppleMusicNowPlaying(config: RuntimeConfig): Promise<NowPlayin
       isPlaying: false,
       service: 'apple-music'
     };
-  } catch(error) {
+  } catch (error) {
     console.error('Apple Music API error:', error);
     return null;
   }
@@ -111,7 +111,7 @@ async function getAppleMusicNowPlaying(config: RuntimeConfig): Promise<NowPlayin
 export default defineEventHandler(async (event) => {
   try {
     const config = useRuntimeConfig();
-    const [ spotifyResult, appleResult ] = await Promise.allSettled([
+    const [spotifyResult, appleResult] = await Promise.allSettled([
       getSpotifyNowPlaying(config),
       getAppleMusicNowPlaying(config)
     ]);
@@ -120,7 +120,7 @@ export default defineEventHandler(async (event) => {
     const appleMusicTrack = appleResult.status === 'fulfilled' ? appleResult.value : null;
 
     return spotifyTrack || appleMusicTrack || null;
-  } catch(error) {
+  } catch (error) {
     console.error('Now playing API error:', error);
     return null;
   }

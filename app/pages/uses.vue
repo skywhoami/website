@@ -52,7 +52,10 @@ const hardware: UsesSection[] = [
         name: 'Apple Watch Series 8',
         description: 'fitness and notifications'
       },
-      { name: 'AOC 32\'\' 240Hz (32G2WG8)', description: 'secondary monitor' },
+      {
+        name: 'AOC 32\'\' 240Hz (32G2WG8)',
+        description: 'secondary monitor'
+      },
       {
         name: 'FlexiSpot E1',
         description: 'standing desk',
@@ -78,13 +81,19 @@ const software: UsesSection[] = [
             name: 'WebStorm',
             url: 'https://www.jetbrains.com/webstorm/'
           },
-          { name: 'Xcode', description: 'for iOS & macOS development' },
-          { name: 'Maple Mono', url: 'https://github.com/subframe7536/maple-font' }
+          {
+            name: 'Xcode',
+            description: 'for iOS & macOS development'
+          },
+          {
+            name: 'Maple Mono',
+            url: 'https://github.com/subframe7536/maple-font'
+          }
         ]
       },
       {
         category: 'browser',
-        items: [ { name: 'Safari' } ]
+        items: [ { name: 'Safari' }]
       },
       {
         category: 'browser extensions',
@@ -157,68 +166,74 @@ const software: UsesSection[] = [
 ];
 
 const getSectionId = (section: UsesSection) =>
-  `section-${ (section.category || 'hardware')
+  `section-${
+(section.category || 'hardware')
     .toLowerCase()
-    .replace(/\s+/g, '-') }`;
+    .replace(/\s+/g, '-')
+}`;
 
 const getSubsectionId = (subsection: UsesSubsection | UsesSection) =>
-  `subsection-${ subsection.category!.toLowerCase().replace(/\s+/g, '-') }`;
+  `subsection-${
+subsection.category!.toLowerCase().replace(/\s+/g, '-')
+}`;
 
 const getItemDescId = (item: UsesItem) =>
-  `desc-${ item.name.toLowerCase().replace(/\s+/g, '-') }`;
+  `desc-${
+item.name.toLowerCase().replace(/\s+/g, '-')
+}`;
 </script>
 
 <template>
-<Header show-back-link size="medium" title="uses">
-  <template #subtitle>software and hardware that power my workflow</template>
-</Header>
+  <Header show-back-link size="medium" title="uses">
+    <template #subtitle>software and hardware that power my workflow</template>
+  </Header>
 
-<section class="space-y-12 text-sm md:text-base">
-  <div v-for="section in [...hardware, ...software]" :key="section.category || 'hardware'">
-    <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white">
-      {{ section.category || 'hardware' }}
-    </h2>
+  <section class="space-y-12 text-sm md:text-base">
+    <div v-for="section in [...hardware, ...software]" :key="section.category || 'hardware'">
+      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white">
+        {{ section.category || 'hardware' }}
+      </h2>
 
-    <div class="space-y-8">
-      <div v-for="subsection in section.subsections || [section]" :key="subsection.category || 'items'"
-           :aria-labelledby="subsection.category
-            ? getSubsectionId(subsection)
-            : getSectionId(section)
-            ">
-        <h3 v-if="subsection.category" :id="getSubsectionId(subsection)"
-            class="text-lg font-semibold mb-4 text-zinc-300">
-          {{ subsection.category }}
-        </h3>
+      <div class="space-y-8">
+        <div v-for="subsection in section.subsections || [section]" :key="subsection.category || 'items'"
+             :aria-labelledby="subsection.category
+             ? getSubsectionId(subsection)
+             : getSectionId(section)
+             ">
+          <h3 v-if="subsection.category" :id="getSubsectionId(subsection)"
+              class="text-lg font-semibold mb-4 text-zinc-300">
+            {{ subsection.category }}
+          </h3>
 
-        <div class="space-y-3" role="list">
-          <div v-for="item in subsection.items" :key="item.name"
-               class="flex items-start justify-between py-2 border-b border-white/10" role="listitem">
-            <div class="flex-1">
-              <BaseLink v-if="item.url" :aria-describedby="item.description ? getItemDescId(item) : undefined
-                    " :to="item.url" class="font-medium hover:text-zinc-300"
-                        variant="button">
-                {{ item.name }}
-              </BaseLink>
-              <span v-else :aria-describedby="item.description ? getItemDescId(item) : undefined
-                  " class="font-medium">
+          <div class="space-y-3" role="list">
+            <div v-for="item in subsection.items" :key="item.name"
+                 class="flex items-start justify-between py-2 border-b border-white/10" role="listitem">
+              <div class="flex-1">
+                <BaseLink v-if="item.url" :aria-describedby="item.description ? getItemDescId(item) : undefined
+                          " :to="item.url" class="font-medium hover:text-zinc-300"
+                          variant="button">
+                  {{ item.name }}
+                </BaseLink>
+                <span v-else :aria-describedby="item.description ? getItemDescId(item) : undefined
+                      " class="font-medium">
                   {{ item.name }}
                 </span>
 
-              <div v-if="item.description" :id="getItemDescId(item)"
-                   class="text-zinc-400 text-sm mt-1">
-                {{ item.description }}
+                <div v-if="item.description" :id="getItemDescId(item)"
+                     class="text-zinc-400 text-sm mt-1">
+                  {{ item.description }}
+                </div>
               </div>
-            </div>
 
-            <div v-if="item.url" aria-hidden="true" class="text-zinc-600 ml-4">
-              →
+              <div v-if="item.url" aria-hidden="true" class="text-zinc-600 ml-4">
+                →
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<Footer/>
+  <Footer/>
 </template>

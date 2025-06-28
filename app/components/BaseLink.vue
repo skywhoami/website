@@ -29,13 +29,13 @@ const linkClasses = computed(() => {
       'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 hover:scale-102 transition-all duration-500 ease-in-out'
   };
 
-  const classes = [ baseClasses, variants[variant] ];
+  const classes = [ baseClasses, variants[variant]];
 
-  if(underline) {
+  if (underline) {
     classes.push('underline');
   }
 
-  if(customClass) {
+  if (customClass) {
     classes.push(customClass);
   }
 
@@ -60,15 +60,15 @@ defineExpose({
 </script>
 
 <template>
-<NuxtLink
-  :class="linkClasses"
-  :external="isExternal"
-  :rel="isExternal ? 'noopener noreferrer' : undefined"
-  :target="isExternal ? '_blank' : undefined"
-  :to="to"
-  v-bind="$attrs"
-  @click="playPopSound"
->
-  <slot/>
-</NuxtLink>
+  <NuxtLink
+    :class="linkClasses"
+    :external="isExternal"
+    :rel="isExternal ? 'noopener noreferrer' : undefined"
+    :target="isExternal ? '_blank' : undefined"
+    :to="to"
+    v-bind="$attrs"
+    @click="playPopSound"
+  >
+    <slot/>
+  </NuxtLink>
 </template>

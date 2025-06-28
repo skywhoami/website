@@ -7,7 +7,9 @@ interface Props {
 
 const { title = 'labels' } = defineProps<Props>();
 
-const sectionId = `legend-${ Math.random().toString(36).slice(2, 9) }`;
+const sectionId = `legend-${
+Math.random().toString(36).slice(2, 9)
+}`;
 
 const statusLabels: Record<ProjectStatus, string> = {
   active: 'actively developed',
@@ -18,24 +20,24 @@ const statusLabels: Record<ProjectStatus, string> = {
 </script>
 
 <template>
-<section :aria-labelledby="sectionId" class="mb-16">
-  <div
-    :id="sectionId"
-    class="text-xs text-zinc-400 mb-4 uppercase tracking-wider"
-  >
-    {{ title }}
-  </div>
-
-  <div class="grid grid-cols-2 gap-4 text-xs" role="list">
+  <section :aria-labelledby="sectionId" class="mb-16">
     <div
-      v-for="(label, status) in statusLabels"
-      :key="status"
-      class="flex items-center space-x-2"
-      role="listitem"
+      :id="sectionId"
+      class="text-xs text-zinc-400 mb-4 uppercase tracking-wider"
     >
-      <ProjectStatusBadge :status="status as ProjectStatus"/>
-      <span class="text-zinc-400">{{ label }}</span>
+      {{ title }}
     </div>
-  </div>
-</section>
+
+    <div class="grid grid-cols-2 gap-4 text-xs" role="list">
+      <div
+        v-for="(label, status) in statusLabels"
+        :key="status"
+        class="flex items-center space-x-2"
+        role="listitem"
+      >
+        <ProjectStatusBadge :status="status as ProjectStatus"/>
+        <span class="text-zinc-400">{{ label }}</span>
+      </div>
+    </div>
+  </section>
 </template>

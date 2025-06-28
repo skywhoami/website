@@ -11,7 +11,7 @@ useHead({
         alternateName: 'star',
         description: 'Software Developer',
         url: 'https://skylar.sh',
-        sameAs: [ 'https://github.com/skywhoami' ]
+        sameAs: [ 'https://github.com/skywhoami']
       })
     }
   ]
@@ -19,7 +19,7 @@ useHead({
 </script>
 
 <template>
-<NuxtLayout>
-  <NuxtPage/>
-</NuxtLayout>
+  <NuxtLayout>
+    <NuxtPage/>
+  </NuxtLayout>
 </template>

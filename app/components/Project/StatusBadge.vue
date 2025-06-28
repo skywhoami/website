@@ -30,11 +30,11 @@ const statusLabels: Record<ProjectStatus, string> = {
 </script>
 
 <template>
-<span
-  :aria-label="statusLabels[status]"
-  :class="statusColors[status]"
-  class="text-xs"
->
+  <span
+    :aria-label="statusLabels[status]"
+    :class="statusColors[status]"
+    class="text-xs"
+  >
     {{ statusSymbols[status] }}
   </span>
 </template>

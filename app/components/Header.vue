@@ -5,7 +5,9 @@ interface Props {
   size?: 'small' | 'medium' | 'large';
 }
 
-const { title, showBackLink = false, size = 'medium' } = defineProps<Props>();
+const {
+  title, showBackLink = false, size = 'medium'
+} = defineProps<Props>();
 
 const titleClass = computed(() => {
   const sizes = {
@@ -18,23 +20,23 @@ const titleClass = computed(() => {
 </script>
 
 <template>
-<header class="mb-8">
-  <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-8">
-    <BaseLink
-      aria-label="Go back to homepage"
-      class="text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
-      to="/"
-    >
-      ← back
-    </BaseLink>
-  </nav>
+  <header class="mb-8">
+    <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-8">
+      <BaseLink
+        aria-label="Go back to homepage"
+        class="text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
+        to="/"
+      >
+        ← back
+      </BaseLink>
+    </nav>
 
-  <h1 :class="titleClass" class="font-bold mb-4 tracking-tight">
-    {{ title }}
-  </h1>
+    <h1 :class="titleClass" class="font-bold mb-4 tracking-tight">
+      {{ title }}
+    </h1>
 
-  <div v-if="$slots.subtitle" class="text-zinc-400 text-sm md:text-base">
-    <slot name="subtitle"/>
-  </div>
-</header>
+    <div v-if="$slots.subtitle" class="text-zinc-400 text-sm md:text-base">
+      <slot name="subtitle"/>
+    </div>
+  </header>
 </template>
