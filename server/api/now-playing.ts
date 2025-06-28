@@ -111,7 +111,7 @@ async function getAppleMusicNowPlaying(config: RuntimeConfig): Promise<NowPlayin
 export default defineEventHandler(async (event) => {
   try {
     const config = useRuntimeConfig();
-    const [spotifyResult, appleResult] = await Promise.allSettled([
+    /*const [spotifyResult, appleResult] = await Promise.allSettled([
       getSpotifyNowPlaying(config),
       getAppleMusicNowPlaying(config)
     ]);
@@ -119,7 +119,8 @@ export default defineEventHandler(async (event) => {
     const spotifyTrack = spotifyResult.status === 'fulfilled' ? spotifyResult.value : null;
     const appleMusicTrack = appleResult.status === 'fulfilled' ? appleResult.value : null;
 
-    return spotifyTrack || appleMusicTrack || null;
+    return spotifyTrack || appleMusicTrack || null;*/
+    return getSpotifyNowPlaying(config);
   } catch (error) {
     console.error('Now playing API error:', error);
     return null;
