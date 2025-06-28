@@ -1,4 +1,4 @@
-**[diogo.wtf](https://diogo.wtf)**
+🦄 **[diogo.wtf](https://diogo.wtf)**
 
 inspired by [Anthony Fu](https://github.com/antfu/antfu.me), code is licensed
 under [MIT](./LICENSE), my words and original images
