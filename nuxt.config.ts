@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   site: {
-    name: "star's site",
+    name: "sky's site",
     url: 'https://skylar.sh'
   },
 
@@ -52,36 +52,36 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'dark' },
         {
           name: 'description',
-          content: "star's site"
+          content: "sky's site"
         },
-        { name: 'author', content: 'skywhoami' },
+        { name: 'author', content: 'Skylar' },
         {
           name: 'keywords',
           content: 'star, sky, sky castro, software developer, meeows'
         },
 
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: "star's site" },
-        { property: 'og:title', content: "star's site" },
+        { property: 'og:site_name', content: "sky's site" },
+        { property: 'og:title', content: "sky's site" },
         {
           property: 'og:description',
-          content: "star's site"
+          content: "sky's site"
         },
         { property: 'og:url', content: 'https://skylar.sh' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: "star's site" },
+        { property: 'og:image:alt', content: "sky's site" },
         { property: 'og:locale', content: 'en_US' },
 
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@skywhoami' },
         { name: 'twitter:creator', content: '@skywhoami' },
-        { name: 'twitter:title', content: "star's site" },
+        { name: 'twitter:title', content: "sky's site" },
         {
           name: 'twitter:description',
-          content: "star's site"
+          content: "sky's site"
         },
-        { name: 'twitter:image:alt', content: "star's site" }
+        { name: 'twitter:image:alt', content: "sky's site" }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
