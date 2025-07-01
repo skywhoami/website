@@ -1,9 +1,9 @@
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   site: {
-    name: 'star\'s site',
+    name: "star's site",
     url: 'https://diogo.wtf'
   },
 
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-06-09',
-  devtools: {enabled: true},
+  devtools: { enabled: true },
   modules: ['@nuxt/fonts', '@nuxtjs/sitemap', '@nuxt/icon'],
 
   runtimeConfig: {
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN
   },
 
-  sourcemap: {client: true, server: false},
+  sourcemap: { client: true, server: false },
 
   css: ['~/assets/main.css'],
 
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    families: [{name: 'Maple Mono', provider: 'fontsource'}]
+    families: [{ name: 'Maple Mono', provider: 'fontsource' }]
   },
 
   experimental: {
@@ -41,52 +41,52 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      script: [{src: '/oneko/oneko.js', tagPosition: 'bodyOpen'}],
+      script: [{ src: '/oneko/oneko.js', tagPosition: 'bodyOpen' }],
       htmlAttrs: {
         lang: 'en'
       },
       meta: [
-        {charset: 'utf-8'},
-        {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-        {name: 'theme-color', content: '#000000'},
-        {name: 'color-scheme', content: 'dark'},
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'theme-color', content: '#000000' },
+        { name: 'color-scheme', content: 'dark' },
         {
           name: 'description',
-          content: 'star\'s site'
+          content: "star's site"
         },
-        {name: 'author', content: 'st6rdustx'},
+        { name: 'author', content: 'st6rdustx' },
         {
           name: 'keywords',
           content: 'star, diogo, diogo castro, software developer, meeows'
         },
 
-        {property: 'og:type', content: 'website'},
-        {property: 'og:site_name', content: 'star\'s site'},
-        {property: 'og:title', content: 'star\'s site'},
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: "star's site" },
+        { property: 'og:title', content: "star's site" },
         {
           property: 'og:description',
-          content: 'star\'s site'
+          content: "star's site"
         },
-        {property: 'og:url', content: 'https://diogo.wtf'},
-        {property: 'og:image:width', content: '1200'},
-        {property: 'og:image:height', content: '630'},
-        {property: 'og:image:alt', content: 'star\'s site'},
-        {property: 'og:locale', content: 'en_US'},
+        { property: 'og:url', content: 'https://diogo.wtf' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: "star's site" },
+        { property: 'og:locale', content: 'en_US' },
 
-        {name: 'twitter:card', content: 'summary_large_image'},
-        {name: 'twitter:site', content: '@st6rdustx'},
-        {name: 'twitter:creator', content: '@st6rdustx'},
-        {name: 'twitter:title', content: 'star\'s site'},
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@st6rdustx' },
+        { name: 'twitter:creator', content: '@st6rdustx' },
+        { name: 'twitter:title', content: "star's site" },
         {
           name: 'twitter:description',
-          content: 'star\'s site'
+          content: "star's site"
         },
-        {name: 'twitter:image:alt', content: 'star\'s site'}
+        { name: 'twitter:image:alt', content: "star's site" }
       ],
       link: [
-        {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-        {rel: 'canonical', href: 'https://diogo.wtf/'},
-        {rel: 'sitemap', type: 'application/xml', href: '/sitemap.xml'}
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://diogo.wtf/' },
+        { rel: 'sitemap', type: 'application/xml', href: '/sitemap.xml' }
       ]
     },
 
@@ -98,7 +98,16 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/projects', '/uses', '/privacy', '/domains', '/terms', '/me', '/philosophy']
+      routes: [
+        '/',
+        '/projects',
+        '/uses',
+        '/privacy',
+        '/domains',
+        '/terms',
+        '/me',
+        '/philosophy'
+      ]
     },
     preset: 'cloudflare_module',
     cloudflare: {
@@ -107,10 +116,10 @@ export default defineNuxtConfig({
       wrangler: {
         name: 'website',
         observability: {
-          logs: {enabled: true}
+          logs: { enabled: true }
         },
         keep_vars: true
       }
     }
   }
-});
+})

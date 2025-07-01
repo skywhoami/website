@@ -1,29 +1,27 @@
 <script lang="ts" setup>
-import type { ProjectStatus } from './Grid.vue';
+import type { ProjectStatus } from './Grid.vue'
 
 interface Props {
-  title?: string;
+  title?: string
 }
 
-const { title = 'labels' } = defineProps<Props>();
+const { title = 'labels' } = defineProps<Props>()
 
-const sectionId = `legend-${
-Math.random().toString(36).slice(2, 9)
-}`;
+const sectionId = `legend-${Math.random().toString(36).slice(2, 9)}`
 
 const statusLabels: Record<ProjectStatus, string> = {
   active: 'actively developed',
   wip: 'work in progress',
   maintained: 'maintained',
   archived: 'archived'
-};
+}
 </script>
 
 <template>
   <section :aria-labelledby="sectionId" class="mb-16">
     <div
       :id="sectionId"
-      class="text-xs text-zinc-400 mb-4 uppercase tracking-wider"
+      class="mb-4 text-xs tracking-wider text-zinc-400 uppercase"
     >
       {{ title }}
     </div>
@@ -35,7 +33,7 @@ const statusLabels: Record<ProjectStatus, string> = {
         class="flex items-center space-x-2"
         role="listitem"
       >
-        <ProjectStatusBadge :status="status as ProjectStatus"/>
+        <ProjectStatusBadge :status="status as ProjectStatus" />
         <span class="text-zinc-400">{{ label }}</span>
       </div>
     </div>

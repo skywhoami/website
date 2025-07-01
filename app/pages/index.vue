@@ -1,57 +1,57 @@
 <script lang="ts" setup>
 const age = Math.floor(
   (Date.now() - new Date('2006-11-28').getTime()) /
-  (1000 * 60 * 60 * 24 * 365.25)
-);
+    (1000 * 60 * 60 * 24 * 365.25)
+)
 
 const socials: {
-    name: string, url?: string, username?: string
-  }[] = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/st6rdustx'
-    },
-    {
-      name: 'Discord',
-      url: 'https://discord.com/users/293020630608248832',
-      username: 'st6rdustx'
-    },
-    {
-      name: 'Email',
-      url: 'mailto:hi@diogo.wtf'
-    },
-    {
-      name: 'Bluesky',
-      url: 'https://bsky.app/profile/diogo.wtf'
-    },
-    {
-      name: 'Signal',
-      url: 'https://signal.me/#eu/pFCjcZ8ENJmnG2Jf49vhI1MPE_eyU_T5rw4YZ1KWP3uJ8WKykx9Ma6xJHMdkm2Q5',
-      username: 'st6rdustx.01'
-    }
-  ];
+  name: string
+  url?: string
+  username?: string
+}[] = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/st6rdustx'
+  },
+  {
+    name: 'Discord',
+    url: 'https://discord.com/users/293020630608248832',
+    username: 'st6rdustx'
+  },
+  {
+    name: 'Email',
+    url: 'mailto:hi@diogo.wtf'
+  },
+  {
+    name: 'Bluesky',
+    url: 'https://bsky.app/profile/diogo.wtf'
+  },
+  {
+    name: 'Signal',
+    url: 'https://signal.me/#eu/pFCjcZ8ENJmnG2Jf49vhI1MPE_eyU_T5rw4YZ1KWP3uJ8WKykx9Ma6xJHMdkm2Q5',
+    username: 'st6rdustx.01'
+  }
+]
 
 const getDescriptionId = (item: SocialItem) =>
-  `desc-${
-item.name.toLowerCase().replace(/\s+/g, '-')
-}`;
+  `desc-${item.name.toLowerCase().replace(/\s+/g, '-')}`
 
 const getDisplayText = (item: SocialItem) => {
   if (item.username || !item.url) {
-    return `@${ item.username }`;
+    return `@${item.username}`
   }
   if (item.url.includes('mailto:')) {
-    return item.url.split(':')[1];
+    return item.url.split(':')[1]
   }
 
-  return `@${ item.url.split('/').pop() }`;
-};
+  return `@${item.url.split('/').pop()}`
+}
 </script>
 
 <template>
   <Header size="large" title="star">
     <template #subtitle>
-      <div class="text-zinc-400 text-sm md:text-base space-y-1">
+      <div class="space-y-1 text-sm text-zinc-400 md:text-base">
         <div>portugal</div>
         <div>{{ age }}yo</div>
         <div>silly wannabe programmer</div>
@@ -59,20 +59,27 @@ const getDisplayText = (item: SocialItem) => {
     </template>
   </Header>
 
-  <section class="mb-12 space-y-4 text-sm md:text-base leading-relaxed">
-    <p>i build weird little tools, break things for fun, and overengineer everything i can.</p>
-    <p>sometimes it works. most times looks like spaghetti. either way, i'm having fun.</p>
-    <p>→
+  <section class="mb-12 space-y-4 text-sm leading-relaxed md:text-base">
+    <p>
+      i build weird little tools, break things for fun, and overengineer
+      everything i can.
+    </p>
+    <p>
+      sometimes it works. most times looks like spaghetti. either way, i'm
+      having fun.
+    </p>
+    <p>
+      →
       <BaseLink class="underline" to="/me">read more about me</BaseLink>
     </p>
   </section>
 
-  <NowPlaying/>
+  <NowPlaying />
 
   <section aria-labelledby="connect" class="mb-16">
     <div
       id="connect"
-      class="text-xs text-zinc-400 mb-6 uppercase tracking-wider"
+      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
     >
       where you can find me
     </div>
@@ -89,14 +96,14 @@ const getDisplayText = (item: SocialItem) => {
           <span class="text-base font-medium">{{ social.name }}</span>
           <span
             :id="getDescriptionId(social)"
-            class="text-sm text-zinc-400 font-mono"
+            class="font-mono text-sm text-zinc-400"
           >
             {{ getDisplayText(social) }}
           </span>
         </div>
         <div
           aria-hidden="true"
-          class="text-zinc-600 group-hover:text-white transition-colors duration-200"
+          class="text-zinc-600 transition-colors duration-200 group-hover:text-white"
         >
           →
         </div>
@@ -104,5 +111,5 @@ const getDisplayText = (item: SocialItem) => {
     </div>
   </section>
 
-  <Footer show-navigation/>
+  <Footer show-navigation />
 </template>

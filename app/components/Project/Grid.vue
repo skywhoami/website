@@ -2,39 +2,35 @@
 export type ProjectStatus = 'active' | 'wip' | 'maintained' | 'archived'
 
 export interface Project {
-  name: string;
-  description?: string;
-  url?: string;
-  tech?: string[];
-  status: ProjectStatus;
+  name: string
+  description?: string
+  url?: string
+  tech?: string[]
+  status: ProjectStatus
 }
 
 export interface ProjectSection {
-  category: string;
-  items: Project[];
+  category: string
+  items: Project[]
 }
 
 interface Props {
-  sections: ProjectSection[];
+  sections: ProjectSection[]
 }
 
-const { sections } = defineProps<Props>();
+const { sections } = defineProps<Props>()
 
 const getProjectId = (project: Project) =>
-  `project-${
-project.name.toLowerCase().replace(/\s+/g, '-')
-}`;
+  `project-${project.name.toLowerCase().replace(/\s+/g, '-')}`
 
 const getDescriptionId = (project: Project) =>
-  `desc-${
-project.name.toLowerCase().replace(/\s+/g, '-')
-}`;
+  `desc-${project.name.toLowerCase().replace(/\s+/g, '-')}`
 </script>
 
 <template>
-  <section class="space-y-12 text-sm md:text-base mb-16">
+  <section class="mb-16 space-y-12 text-sm md:text-base">
     <div v-for="section in sections" :key="section.category">
-      <h2 class="text-lg md:text-xl font-semibold mb-6 text-zinc-300">
+      <h2 class="mb-6 text-lg font-semibold text-zinc-300 md:text-xl">
         {{ section.category }}
       </h2>
       <div class="space-y-4">
@@ -43,13 +39,13 @@ project.name.toLowerCase().replace(/\s+/g, '-')
             v-if="project.url"
             :aria-labelledby="getProjectId(project)"
             :to="project.url"
-            class="block border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200 p-4 relative"
+            class="relative block border border-transparent p-4 transition-all duration-200 hover:border-white/20 hover:bg-white/5"
             role="article"
             variant="default"
           >
             <div class="flex items-start justify-between">
               <div class="flex-1">
-                <div class="flex items-center space-x-3 mb-2">
+                <div class="mb-2 flex items-center space-x-3">
                   <h3
                     :id="getProjectId(project)"
                     class="font-medium text-white"
@@ -65,7 +61,7 @@ project.name.toLowerCase().replace(/\s+/g, '-')
 
                 <div
                   :id="getDescriptionId(project)"
-                  class="text-zinc-400 text-sm mb-3"
+                  class="mb-3 text-sm text-zinc-400"
                 >
                   {{ project.description }}
                 </div>
@@ -79,7 +75,7 @@ project.name.toLowerCase().replace(/\s+/g, '-')
                   <span
                     v-for="tech in project.tech"
                     :key="tech"
-                    class="text-xs px-2 py-1 bg-white/10 text-zinc-300 rounded"
+                    class="rounded bg-white/10 px-2 py-1 text-xs text-zinc-300"
                     role="listitem"
                   >
                     {{ tech }}
@@ -89,7 +85,7 @@ project.name.toLowerCase().replace(/\s+/g, '-')
 
               <div
                 aria-hidden="true"
-                class="text-zinc-600 group-hover:text-white transition-colors duration-200 ml-4"
+                class="ml-4 text-zinc-600 transition-colors duration-200 group-hover:text-white"
               >
                 →
               </div>
@@ -99,12 +95,12 @@ project.name.toLowerCase().replace(/\s+/g, '-')
           <div
             v-else
             :aria-labelledby="getProjectId(project)"
-            class="group border rounded-xl border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200 p-4"
+            class="group rounded-xl border border-transparent p-4 transition-all duration-200 hover:border-white/20 hover:bg-white/5"
             role="article"
           >
             <div class="flex items-start justify-between">
               <div class="flex-1">
-                <div class="flex items-center space-x-3 mb-2">
+                <div class="mb-2 flex items-center space-x-3">
                   <h3
                     :id="getProjectId(project)"
                     class="font-medium text-white"
@@ -120,7 +116,7 @@ project.name.toLowerCase().replace(/\s+/g, '-')
 
                 <div
                   :id="getDescriptionId(project)"
-                  class="text-zinc-400 text-sm mb-3"
+                  class="mb-3 text-sm text-zinc-400"
                 >
                   {{ project.description }}
                 </div>
@@ -134,7 +130,7 @@ project.name.toLowerCase().replace(/\s+/g, '-')
                   <span
                     v-for="tech in project.tech"
                     :key="tech"
-                    class="text-xs px-2 py-1 bg-white/10 text-zinc-300 rounded"
+                    class="rounded bg-white/10 px-2 py-1 text-xs text-zinc-300"
                     role="listitem"
                   >
                     {{ tech }}

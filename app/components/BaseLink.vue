@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 interface Props {
-  to: string;
-  variant?: 'default' | 'button' | 'card' | 'social';
-  class?: string;
-  underline?: boolean;
+  to: string
+  variant?: 'default' | 'button' | 'card' | 'social'
+  class?: string
+  underline?: boolean
 }
 
 const {
@@ -11,15 +11,15 @@ const {
   variant = 'default',
   class: customClass = '',
   underline = false
-} = defineProps<Props>();
+} = defineProps<Props>()
 
 const isExternal = computed(
   () => to.startsWith('http') || to.startsWith('mailto:')
-);
+)
 
 const linkClasses = computed(() => {
   const baseClasses =
-    'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-true-black';
+    'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-true-black'
 
   const variants = {
     default: 'hover:text-zinc-300 rounded-xl',
@@ -27,36 +27,36 @@ const linkClasses = computed(() => {
     card: 'group border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200',
     social:
       'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 hover:scale-102 transition-all duration-500 ease-in-out'
-  };
+  }
 
-  const classes = [ baseClasses, variants[variant]];
+  const classes = [baseClasses, variants[variant]]
 
   if (underline) {
-    classes.push('underline');
+    classes.push('underline')
   }
 
   if (customClass) {
-    classes.push(customClass);
+    classes.push(customClass)
   }
 
-  return classes.filter(Boolean).join(' ');
-});
+  return classes.filter(Boolean).join(' ')
+})
 
 const playPopSound = () => {
   try {
-    const audio = new Audio('/pop.mp3');
-    audio.volume = 0.5;
+    const audio = new Audio('/pop.mp3')
+    audio.volume = 0.5
     audio.play().catch(error => {
-      console.warn('Could not play pop sound:', error);
-    });
-  } catch(error) {
-    console.warn('Audio not supported:', error);
+      console.warn('Could not play pop sound:', error)
+    })
+  } catch (error) {
+    console.warn('Audio not supported:', error)
   }
-};
+}
 
 defineExpose({
   isExternal
-});
+})
 </script>
 
 <template>
@@ -69,6 +69,6 @@ defineExpose({
     v-bind="$attrs"
     @click="playPopSound"
   >
-    <slot/>
+    <slot />
   </NuxtLink>
 </template>

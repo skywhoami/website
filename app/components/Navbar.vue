@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue'
 
 interface NavigationLink {
-  to: string;
-  label: string;
+  to: string
+  label: string
 }
 
-const isMenuOpen = ref(false);
-const scrolled = ref(false);
+const isMenuOpen = ref(false)
+const scrolled = ref(false)
 
 const navigationLinks: NavigationLink[] = [
   {
@@ -17,48 +17,48 @@ const navigationLinks: NavigationLink[] = [
   { to: '/uses', label: 'uses' },
   { to: '/projects', label: 'projects' },
   { to: '/domains', label: 'domains' }
-];
+]
 
 function handleScroll() {
-  scrolled.value = window.scrollY > 20;
+  scrolled.value = window.scrollY > 20
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
+  window.addEventListener('scroll', handleScroll)
+})
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
-  <div class="fixed top-0 left-0 right-0 z-50 px-6 pt-6 flex justify-center">
+  <div class="fixed top-0 right-0 left-0 z-50 flex justify-center px-6 pt-6">
     <nav
-      :class=" { 'bg-black/70 shadow-lg': scrolled }"
+      :class="{ 'bg-black/70 shadow-lg': scrolled }"
       aria-label="Main navigation"
-      class="backdrop-blur-md bg-black/40 border border-white/10 rounded-xl py-3 px-6 md:px-8 w-full md:w-[calc(100%-2rem)] lg:w-[calc(100%-8rem)] xl:max-w-4xl transition-all duration-300 ease-in-out"
+      class="w-full rounded-xl border border-white/10 bg-black/40 px-6 py-3 backdrop-blur-md transition-all duration-300 ease-in-out md:w-[calc(100%-2rem)] md:px-8 lg:w-[calc(100%-8rem)] xl:max-w-4xl"
       role="navigation"
     >
       <div class="flex items-center justify-between">
         <BaseLink
           aria-label="Home"
-          class="font-bold text-white hover:opacity-80 transition-opacity duration-200"
+          class="font-bold text-white transition-opacity duration-200 hover:opacity-80"
           to="/"
         >
           diogo.wtf
         </BaseLink>
 
-        <ul class="hidden md:flex items-center space-x-1">
+        <ul class="hidden items-center space-x-1 md:flex">
           <li v-for="link in navigationLinks" :key="link.to">
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
-              class="py-1 px-3 rounded-xl hover:bg-white/10 text-sm relative group"
+              class="group relative rounded-xl px-3 py-1 text-sm hover:bg-white/10"
             >
               <span>{{ link.label }}</span>
               <span
-                class="absolute bottom-0 left-1/2 w-0 h-px bg-white transform -translate-x-1/2 transition-all duration-300 ease-in-out group-hover:w-4/5"
+                class="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 transform bg-white transition-all duration-300 ease-in-out group-hover:w-4/5"
               ></span>
             </BaseLink>
           </li>
@@ -68,7 +68,7 @@ onUnmounted(() => {
           :aria-expanded="isMenuOpen"
           aria-controls="mobile-menu"
           aria-label="Toggle menu"
-          class="md:hidden p-1 rounded-xl hover:bg-white/10 transition-colors duration-200"
+          class="rounded-xl p-1 transition-colors duration-200 hover:bg-white/10 md:hidden"
           @click="isMenuOpen = !isMenuOpen"
         >
           <span class="sr-only">Menu</span>
@@ -100,19 +100,19 @@ onUnmounted(() => {
       <div
         v-show="isMenuOpen"
         id="mobile-menu"
-        class="md:hidden mt-3 pt-3 border-t border-white/10"
+        class="mt-3 border-t border-white/10 pt-3 md:hidden"
       >
         <ul class="flex flex-col space-y-2">
           <li v-for="link in navigationLinks" :key="link.to">
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
-              class="block py-2 px-3 rounded-md hover:bg-white/10 text-sm relative group"
+              class="group relative block rounded-md px-3 py-2 text-sm hover:bg-white/10"
               @click="isMenuOpen = false"
             >
               <span>{{ link.label }}</span>
               <span
-                class="absolute bottom-0 left-1/2 w-0 h-px bg-white transform -translate-x-1/2 transition-all duration-300 ease-in-out group-hover:w-4/5"
+                class="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 transform bg-white transition-all duration-300 ease-in-out group-hover:w-4/5"
               ></span>
             </BaseLink>
           </li>

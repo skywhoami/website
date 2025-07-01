@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  titleTemplate: title => title ? `${ title } · star` : 'star\'s site',
+  titleTemplate: title => (title ? `${title} · star` : "star's site"),
   script: [
     {
       type: 'application/ld+json',
@@ -11,15 +11,15 @@ useHead({
         alternateName: 'star',
         description: 'Software Developer',
         url: 'https://diogo.wtf',
-        sameAs: [ 'https://github.com/st6rdustx']
+        sameAs: ['https://github.com/st6rdustx']
       })
     }
   ]
-});
+})
 </script>
 
 <template>
   <NuxtLayout>
-    <NuxtPage/>
+    <NuxtPage />
   </NuxtLayout>
 </template>

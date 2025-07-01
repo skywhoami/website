@@ -7,73 +7,77 @@ useHead({
       href: 'https://diogo.wtf/domains'
     }
   ]
-});
+})
 
 const {
-    data: domainsContent,
-    pending,
-    error,
-    refresh
-  } = await useFetch('/domains.txt', {
-    headers: {
-      'Cache-Control': 'no-cache'
-    },
-    key: 'domains-content-' + Date.now(),
-    responseType: 'text'
-  });
+  data: domainsContent,
+  pending,
+  error,
+  refresh
+} = await useFetch('/domains.txt', {
+  headers: {
+    'Cache-Control': 'no-cache'
+  },
+  key: 'domains-content-' + Date.now(),
+  responseType: 'text'
+})
 
 watch(error, (newError: Error) => {
   if (newError) {
-    console.error('Error fetching domains.txt, retrying...', newError);
-    refresh();
+    console.error('Error fetching domains.txt, retrying...', newError)
+    refresh()
   }
-});
+})
 
 const domainsList = computed(() => {
-  if (!domainsContent.value) return [];
+  if (!domainsContent.value) return []
   const content =
     typeof domainsContent.value === 'string'
-    ? domainsContent.value
-    : String(domainsContent.value);
-  return content.split('\n');
-});
+      ? domainsContent.value
+      : String(domainsContent.value)
+  return content.split('\n')
+})
 </script>
 
 <template>
   <Header show-back-link size="medium" title="domain list">
     <template #subtitle>
-      <div class="text-zinc-400 text-sm md:text-base space-y-1">
+      <div class="space-y-1 text-sm text-zinc-400 md:text-base">
         <div>
           <BaseLink
-            class="underline hover:text-white transition-colors"
+            class="underline transition-colors hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             to="/domains.txt"
-          >raw file
-          </BaseLink
-          >
+            >raw file
+          </BaseLink>
         </div>
       </div>
     </template>
   </Header>
 
-  <section class="space-y-6 text-sm md:text-base leading-loose mb-16">
+  <section class="mb-16 space-y-6 text-sm leading-loose md:text-base">
     <div>
       <div
-        class="bg-zinc-950 border-2 border-zinc-800 rounded-lg p-4 font-mono text-sm overflow-x-auto shadow-lg"
+        class="overflow-x-auto rounded-lg border-2 border-zinc-800 bg-zinc-950 p-4 font-mono text-sm shadow-lg"
       >
         <div v-for="(line, index) in domainsList" :key="index" class="py-1">
           <div v-if="line.startsWith('#')" class="text-zinc-400 italic">
             {{ line }}
           </div>
           <div v-else-if="line.trim() === ''" class="h-2"></div>
-          <div v-else class="text-emerald-400 font-medium">{{ line }}</div>
+          <div v-else class="font-medium text-emerald-400">{{ line }}</div>
         </div>
       </div>
     </div>
   </section>
 
-  <span class="text-zinc-300">inspired by <BaseLink class="underline text-[#c63b65]" to="https://erisa.uk/domains">erisa.uk/domains</BaseLink></span>
+  <span class="text-zinc-300"
+    >inspired by
+    <BaseLink class="text-[#c63b65] underline" to="https://erisa.uk/domains"
+      >erisa.uk/domains</BaseLink
+    ></span
+  >
 
-  <Footer/>
+  <Footer />
 </template>
