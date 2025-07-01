@@ -42,7 +42,7 @@ const projects: ProjectSection[] = [
 <template>
   <Header show-back-link size="medium" title="projects">
     <template #subtitle
-      >featured things I've built, maintain, or experiment with
+      >featured things i've built, maintain, or experiment with
     </template>
   </Header>
 

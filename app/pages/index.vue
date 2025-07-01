@@ -61,12 +61,8 @@ const getDisplayText = (item: SocialItem) => {
 
   <section class="mb-12 space-y-4 text-sm leading-relaxed md:text-base">
     <p>
-      i build weird little tools, break things for fun, and overengineer
-      everything i can.
-    </p>
-    <p>
-      sometimes it works. most times looks like spaghetti. either way, i'm
-      having fun.
+      i write spaghetti code, build personal stuff - small, weird and sometimes
+      unfinished.
     </p>
     <p>
       →
