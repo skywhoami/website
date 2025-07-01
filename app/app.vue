@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  titleTemplate: title => title ? `${ title } · star` : 'star\'s site',
+  titleTemplate: title => (title ? `${title} · star` : "star's site"),
   script: [
     {
       type: 'application/ld+json',
@@ -11,15 +11,15 @@ useHead({
         alternateName: 'star',
         description: 'Software Developer',
         url: 'https://skylar.sh',
-        sameAs: [ 'https://github.com/skywhoami']
+        sameAs: ['https://github.com/skywhoami']
       })
     }
   ]
-});
+})
 </script>
 
 <template>
   <NuxtLayout>
-    <NuxtPage/>
+    <NuxtPage />
   </NuxtLayout>
 </template>

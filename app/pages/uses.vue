@@ -7,33 +7,33 @@ useHead({
       href: 'https://skylar.sh/uses'
     }
   ]
-});
+})
 
 interface UsesItem {
-  name: string;
-  description?: string;
-  url?: string;
+  name: string
+  description?: string
+  url?: string
 }
 
 interface UsesSubsection {
-  category?: string;
-  items: UsesItem[];
+  category?: string
+  items: UsesItem[]
 }
 
 interface UsesSection {
-  category?: string;
-  items?: UsesItem[];
-  subsections?: UsesSubsection[];
+  category?: string
+  items?: UsesItem[]
+  subsections?: UsesSubsection[]
 }
 
 const hardware: UsesSection[] = [
   {
     items: [
       {
-        name: 'MacBook Pro 16\'\' M3 Pro 18GB',
+        name: "MacBook Pro 16'' M3 Pro 18GB",
         description: 'daily driver'
       },
-      { name: 'MacBook Air 13\'\' M1 8GB' },
+      { name: "MacBook Air 13'' M1 8GB" },
       { name: 'Apple Magic Mouse' },
       {
         name: 'Logitech G PRO X SUPERLIGHT',
@@ -44,7 +44,7 @@ const hardware: UsesSection[] = [
       { name: 'Razer BlackShark V2 X' },
       { name: 'iPhone 15 Pro' },
       {
-        name: 'iPad Air 11\'\' M2',
+        name: "iPad Air 11'' M2",
         description: 'reading, sketching and entertainment'
       },
       { name: 'Apple Pencil Pro' },
@@ -53,7 +53,7 @@ const hardware: UsesSection[] = [
         description: 'fitness and notifications'
       },
       {
-        name: 'AOC 32\'\' 240Hz (32G2WG8)',
+        name: "AOC 32'' 240Hz (32G2WG8)",
         description: 'secondary monitor'
       },
       {
@@ -68,7 +68,7 @@ const hardware: UsesSection[] = [
       }
     ]
   }
-];
+]
 
 const software: UsesSection[] = [
   {
@@ -93,7 +93,7 @@ const software: UsesSection[] = [
       },
       {
         category: 'browser',
-        items: [ { name: 'Safari' }]
+        items: [{ name: 'Safari' }]
       },
       {
         category: 'browser extensions',
@@ -163,24 +163,18 @@ const software: UsesSection[] = [
       }
     ]
   }
-];
+]
 
 const getSectionId = (section: UsesSection) =>
-  `section-${
-(section.category || 'hardware')
+  `section-${(section.category || 'hardware')
     .toLowerCase()
-    .replace(/\s+/g, '-')
-}`;
+    .replace(/\s+/g, '-')}`
 
 const getSubsectionId = (subsection: UsesSubsection | UsesSection) =>
-  `subsection-${
-subsection.category!.toLowerCase().replace(/\s+/g, '-')
-}`;
+  `subsection-${subsection.category!.toLowerCase().replace(/\s+/g, '-')}`
 
 const getItemDescId = (item: UsesItem) =>
-  `desc-${
-item.name.toLowerCase().replace(/\s+/g, '-')
-}`;
+  `desc-${item.name.toLowerCase().replace(/\s+/g, '-')}`
 </script>
 
 <template>
@@ -189,43 +183,78 @@ item.name.toLowerCase().replace(/\s+/g, '-')
   </Header>
 
   <section class="space-y-12 text-sm md:text-base">
-    <div v-for="section in [...hardware, ...software]" :key="section.category || 'hardware'">
-      <h2 :id="getSectionId(section)" class="text-xl md:text-2xl font-bold mb-8 text-white">
+    <div
+      v-for="section in [...hardware, ...software]"
+      :key="section.category || 'hardware'"
+    >
+      <h2
+        :id="getSectionId(section)"
+        class="mb-8 text-xl font-bold text-white md:text-2xl"
+      >
         {{ section.category || 'hardware' }}
       </h2>
 
       <div class="space-y-8">
-        <div v-for="subsection in section.subsections || [section]" :key="subsection.category || 'items'"
-             :aria-labelledby="subsection.category
-             ? getSubsectionId(subsection)
-             : getSectionId(section)
-             ">
-          <h3 v-if="subsection.category" :id="getSubsectionId(subsection)"
-              class="text-lg font-semibold mb-4 text-zinc-300">
+        <div
+          v-for="subsection in section.subsections || [section]"
+          :key="subsection.category || 'items'"
+          :aria-labelledby="
+            subsection.category
+              ? getSubsectionId(subsection)
+              : getSectionId(section)
+          "
+        >
+          <h3
+            v-if="subsection.category"
+            :id="getSubsectionId(subsection)"
+            class="mb-4 text-lg font-semibold text-zinc-300"
+          >
             {{ subsection.category }}
           </h3>
 
           <div class="space-y-3" role="list">
-            <div v-for="item in subsection.items" :key="item.name"
-                 class="flex items-start justify-between py-2 border-b border-white/10" role="listitem">
+            <div
+              v-for="item in subsection.items"
+              :key="item.name"
+              class="flex items-start justify-between border-b border-white/10 py-2"
+              role="listitem"
+            >
               <div class="flex-1">
-                <BaseLink v-if="item.url" :aria-describedby="item.description ? getItemDescId(item) : undefined
-                          " :to="item.url" class="font-medium hover:text-zinc-300"
-                          variant="button">
+                <BaseLink
+                  v-if="item.url"
+                  :aria-describedby="
+                    item.description ? getItemDescId(item) : undefined
+                  "
+                  :to="item.url"
+                  class="font-medium hover:text-zinc-300"
+                  variant="button"
+                >
                   {{ item.name }}
                 </BaseLink>
-                <span v-else :aria-describedby="item.description ? getItemDescId(item) : undefined
-                      " class="font-medium">
+                <span
+                  v-else
+                  :aria-describedby="
+                    item.description ? getItemDescId(item) : undefined
+                  "
+                  class="font-medium"
+                >
                   {{ item.name }}
                 </span>
 
-                <div v-if="item.description" :id="getItemDescId(item)"
-                     class="text-zinc-400 text-sm mt-1">
+                <div
+                  v-if="item.description"
+                  :id="getItemDescId(item)"
+                  class="mt-1 text-sm text-zinc-400"
+                >
                   {{ item.description }}
                 </div>
               </div>
 
-              <div v-if="item.url" aria-hidden="true" class="text-zinc-600 ml-4">
+              <div
+                v-if="item.url"
+                aria-hidden="true"
+                class="ml-4 text-zinc-600"
+              >
                 →
               </div>
             </div>
@@ -235,5 +264,5 @@ item.name.toLowerCase().replace(/\s+/g, '-')
     </div>
   </section>
 
-  <Footer/>
+  <Footer />
 </template>

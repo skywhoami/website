@@ -1,9 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-true-black: #000000;
   --color-true-white: #ffffff;
-  --font-mono: "Maple Mono", monospace;
+  --font-mono: 'Maple Mono', monospace;
 }
 
 html {
@@ -20,13 +20,13 @@ body {
 }
 
 *:focus-visible {
-  @apply outline-2 outline-white outline-offset-2;
+  @apply outline-2 outline-offset-2 outline-white;
 }
 
 button:focus-visible,
-[role="button"]:focus-visible,
+[role='button']:focus-visible,
 a:focus-visible {
-  @apply ring-2 ring-white ring-offset-2 ring-offset-true-black;
+  @apply ring-offset-true-black ring-2 ring-white ring-offset-2;
 }
 
 a {
@@ -38,10 +38,10 @@ a:hover {
 }
 
 ::selection {
-  @apply bg-white text-true-black;
+  @apply text-true-black bg-white;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
