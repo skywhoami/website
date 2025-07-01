@@ -19,6 +19,10 @@ const navigationLinks: NavigationLink[] = [
   { to: '/domains', label: 'domains' }
 ];
 
+function handleScroll() {
+  scrolled.value = window.scrollY > 20;
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
@@ -26,10 +30,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
-
-function handleScroll() {
-  scrolled.value = window.scrollY > 20;
-}
 </script>
 
 <template>
