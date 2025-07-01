@@ -25,8 +25,8 @@ const navigationLinks: NavigationLink[] = [
         <BaseLink
           class="underline"
           to="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >CC BY-NC-SA 4.0
-        </BaseLink>
+          >CC BY-NC-SA 4.0</BaseLink
+        >
         {{ new Date().getFullYear() }}
         &copy; Skylar
       </div>

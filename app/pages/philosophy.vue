@@ -22,8 +22,8 @@ useHead({
   <section class="mb-12 space-y-6 text-sm leading-relaxed md:text-base">
     <h2 class="text-lg font-semibold">why i build</h2>
     <p>
-      because it's fun (or weird, or both). because I want to see what happens.
-      i don't care if it scales or makes money, i care if it feels alive.
+      because it's fun (or weird, or both). because i want to see what happens.
+      i don't care if it scales or makes money.
     </p>
 
     <h2 class="text-lg font-semibold">how i work</h2>
@@ -40,7 +40,6 @@ useHead({
       <li>open-source</li>
       <li>radical transparency</li>
       <li>community over competition</li>
-      <li>celebrating the weird</li>
       <li>people over profit, always</li>
       <li>supporting indie creators</li>
     </ul>
