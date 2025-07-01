@@ -49,7 +49,7 @@ const getDisplayText = (item: SocialItem) => {
 </script>
 
 <template>
-  <Header size="large" title="star">
+  <Header size="large" title="diogo">
     <template #subtitle>
       <div class="space-y-1 text-sm text-zinc-400 md:text-base">
         <div>portugal</div>

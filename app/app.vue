@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  titleTemplate: title => (title ? `${title} · star` : "star's site"),
+  titleTemplate: title => (title ? `${title} · diogo.wtf` : "diogo's site"),
   script: [
     {
       type: 'application/ld+json',
@@ -8,7 +8,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Diogo Castro',
-        alternateName: 'star',
+        alternateName: 'st6rdustx',
         description: 'Software Developer',
         url: 'https://diogo.wtf',
         sameAs: ['https://github.com/st6rdustx']

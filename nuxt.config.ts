@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   site: {
-    name: "star's site",
+    name: "diogo's site",
     url: 'https://diogo.wtf'
   },
 
@@ -52,36 +52,36 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'dark' },
         {
           name: 'description',
-          content: "star's site"
+          content: "diogo's site"
         },
-        { name: 'author', content: 'st6rdustx' },
+        { name: 'author', content: 'Diogo Castro' },
         {
           name: 'keywords',
           content: 'star, diogo, diogo castro, software developer, meeows'
         },
 
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: "star's site" },
-        { property: 'og:title', content: "star's site" },
+        { property: 'og:site_name', content: "diogo's site" },
+        { property: 'og:title', content: "diogo's site" },
         {
           property: 'og:description',
-          content: "star's site"
+          content: "diogo's site"
         },
         { property: 'og:url', content: 'https://diogo.wtf' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: "star's site" },
+        { property: 'og:image:alt', content: "diogo's site" },
         { property: 'og:locale', content: 'en_US' },
 
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@st6rdustx' },
         { name: 'twitter:creator', content: '@st6rdustx' },
-        { name: 'twitter:title', content: "star's site" },
+        { name: 'twitter:title', content: "diogo's site" },
         {
           name: 'twitter:description',
-          content: "star's site"
+          content: "diogo's site"
         },
-        { name: 'twitter:image:alt', content: "star's site" }
+        { name: 'twitter:image:alt', content: "diogo's site" }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
