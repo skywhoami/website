@@ -102,12 +102,9 @@ const software: UsesSection[] = [
         ]
       },
       {
-        category: 'browser',
-        items: [{ name: 'Safari' }]
-      },
-      {
-        category: 'browser extensions',
+        category: 'browser & extensions',
         items: [
+          { name: 'Safari' },
           {
             name: 'Wipr 2',
             description: 'ad and tracker blocker for safari',
@@ -163,6 +160,11 @@ const software: UsesSection[] = [
             name: 'Oh My Posh',
             description: 'prompt theme engine',
             url: 'https://ohmyposh.dev'
+          },
+          {
+            name: 'colima',
+            description: 'container runtimes on macOS',
+            url: 'https://github.com/abiosoft/colima'
           }
         ]
       }
