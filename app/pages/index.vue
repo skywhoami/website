@@ -29,12 +29,9 @@ const socials: {
   {
     name: 'Signal',
     url: 'https://signal.me/#eu/pFCjcZ8ENJmnG2Jf49vhI1MPE_eyU_T5rw4YZ1KWP3uJ8WKykx9Ma6xJHMdkm2Q5',
-    username: 'st6rdustx.01'
+    username: 'diogo.06'
   }
 ]
-
-const getDescriptionId = (item: SocialItem) =>
-  `desc-${item.name.toLowerCase().replace(/\s+/g, '-')}`
 
 const getDisplayText = (item: SocialItem) => {
   if (item.username || !item.url) {
@@ -49,25 +46,33 @@ const getDisplayText = (item: SocialItem) => {
 </script>
 
 <template>
-  <Header size="large" title="diogo">
-    <template #subtitle>
-      <div class="space-y-1 text-sm text-zinc-400 md:text-base">
-        <div>portugal</div>
-        <div>{{ age }}yo</div>
-        <div>silly wannabe programmer</div>
-      </div>
-    </template>
-  </Header>
+  <Header size="medium" title="diogo 💫" />
 
-  <section class="mb-12 space-y-4 text-sm leading-relaxed md:text-base">
+  <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
     <p>
-      i write spaghetti code, build personal stuff - small, weird and sometimes
-      unfinished.
+      hiya! i'm a silly wannabe software developer from portugal. i'm
+      {{ age }} years old. currently i mostly make stuff for my own use.
     </p>
-    <p>
-      →
-      <BaseLink class="underline" to="/me">read more about me</BaseLink>
-    </p>
+    <details class="space-y-4">
+      <summary class="hover:cursor-pointer">read more</summary>
+      <p>aw, flattered you're actually curious about me.</p>
+      <p>
+        i started coding when i was 9 (yeah, probably shouldn't have been on the
+        internet unsupervised, but here we are).
+      </p>
+      <p>
+        i mostly build weird little things because it's fun and makes me feel
+        like something's alive. i like when software has soul.
+      </p>
+      <p>
+        when i'm not coding, i'm probably lost in some deep-dive, tweaking my
+        setup for the hundredth time, or just vibing with music and games.
+      </p>
+      <p class="mb-4">
+        if you ever just feel like saying hi, seriously, go for it. links are
+        down there.
+      </p>
+    </details>
   </section>
 
   <NowPlaying />
@@ -84,14 +89,14 @@ const getDisplayText = (item: SocialItem) => {
       <BaseLink
         v-for="social in socials"
         :key="social.name"
-        :aria-describedby="getDescriptionId(social)"
+        :aria-describedby="`desc-${social.name.toLowerCase().replace(/\s+/g, '-')}`"
         :to="social.url || ''"
         variant="social"
       >
         <div class="flex items-center space-x-4">
           <span class="text-base font-medium">{{ social.name }}</span>
           <span
-            :id="getDescriptionId(social)"
+            :id="social.name.toLowerCase().replace(/\s+/g, '-')"
             class="font-mono text-sm text-zinc-400"
           >
             {{ getDisplayText(social) }}

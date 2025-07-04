@@ -96,7 +96,7 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
 </script>
 
 <template>
-  <section v-if="currentTrack" aria-labelledby="now-playing" class="mb-12">
+  <section v-if="currentTrack" aria-labelledby="now-playing" class="mb-8">
     <div
       v-if="currentTrack.isPlaying"
       id="now-playing"
