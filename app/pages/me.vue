@@ -28,12 +28,6 @@ useHead({
       playing games, tinkering with my setup, or just getting lost in some
       rabbit hole online.
     </p>
-    <p>
-      if you're wondering why i build the way i do,
-      <BaseLink class="underline" to="/philosophy"
-        >here's my philosophy</BaseLink
-      >.
-    </p>
   </section>
   <Footer />
 </template>

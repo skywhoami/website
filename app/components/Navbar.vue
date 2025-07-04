@@ -10,10 +10,6 @@ const isMenuOpen = ref(false)
 const scrolled = ref(false)
 
 const navigationLinks: NavigationLink[] = [
-  {
-    to: '/philosophy',
-    label: 'philosophy'
-  },
   { to: '/uses', label: 'uses' },
   { to: '/projects', label: 'projects' },
   { to: '/domains', label: 'domains' }
