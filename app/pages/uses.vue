@@ -33,8 +33,16 @@ const hardware: UsesSection[] = [
         name: "MacBook Pro 16'' M3 Pro 18GB",
         description: 'daily driver'
       },
-      { name: "MacBook Air 13'' M1 8GB" },
-      { name: 'Apple Magic Mouse' },
+      {
+        name: "MacBook Air 13'' M1 8GB",
+        description:
+          'the laptop i use for uni and also serving as my home server'
+      },
+      {
+        name: 'Apple Magic Mouse',
+        description:
+          "yes it's not ergonomic, but i love the gestures and the design"
+      },
       {
         name: 'Logitech G PRO X SUPERLIGHT',
         description: 'gaming mouse',
@@ -78,8 +86,10 @@ const software: UsesSection[] = [
         category: 'editor',
         items: [
           {
-            name: 'WebStorm',
-            url: 'https://www.jetbrains.com/webstorm/'
+            name: 'Neovim',
+            url: 'https://neovim.io/',
+            description:
+              "it's been a back and forth relationship for a while, but i really want to learn it and use it as my main editor"
           },
           {
             name: 'Xcode',
@@ -117,11 +127,6 @@ const software: UsesSection[] = [
             name: '1Password',
             description: 'password manager',
             url: 'https://1password.com/'
-          },
-          {
-            name: 'Userscripts',
-            description: 'userscript manager for safari',
-            url: 'https://apps.apple.com/pt/app/userscripts/id1463298887?l=en-GB'
           }
         ]
       },

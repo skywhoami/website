@@ -105,8 +105,7 @@ export default defineNuxtConfig({
         '/privacy',
         '/domains',
         '/terms',
-        '/me',
-        '/philosophy'
+        '/me'
       ]
     },
     preset: 'cloudflare_module',
