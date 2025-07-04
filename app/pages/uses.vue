@@ -71,7 +71,7 @@ const hardware: UsesSection[] = [
       },
       {
         name: 'FlexiSpot BS5',
-        description: 'ergonomic chair',
+        description: 'ergonomic chair, i think it\'s a bit overpriced but doesn\'t make my back hurt so',
         url: 'https://flexispot.co.uk/colorful-ergonomic-chair-bs5'
       }
     ]
@@ -83,7 +83,7 @@ const software: UsesSection[] = [
     category: 'software',
     subsections: [
       {
-        category: 'editor',
+        category: 'editor & terminal',
         items: [
           {
             name: 'Neovim',
@@ -97,8 +97,15 @@ const software: UsesSection[] = [
           },
           {
             name: 'Maple Mono',
-            url: 'https://github.com/subframe7536/maple-font'
-          }
+            url: 'https://github.com/subframe7536/maple-font',
+            description: "my font of choice"
+          },
+          {name: "zsh"},
+          {name: "Ghostty", url: "https://ghostty.org/", description: "terminal emulator"},
+          {name: "Bun", url: "https://bun.sh", description: "javascript runtime and package manager"},
+          {name: "Homebrew", url: "https://brew.sh", description: "package manager for macOS"},
+          {name: "Oh My Posh", url: "https://ohmyposh.dev/", description: "prompt theme engine"},
+          {name: "colima", url: "https://github.com/abiosoft/colima", description: "container runtime"}
         ]
       },
       {
@@ -128,13 +135,8 @@ const software: UsesSection[] = [
         ]
       },
       {
-        category: 'applications',
+        category: 'desktop applications',
         items: [
-          {
-            name: 'Ghostty',
-            description: 'fast and modern terminal emulator',
-            url: 'https://ghostty.org'
-          },
           {
             name: 'Sketch',
             description: 'design tool',
@@ -142,32 +144,6 @@ const software: UsesSection[] = [
           }
         ]
       },
-      {
-        category: 'terminal',
-        items: [
-          { name: 'zsh', description: 'shell' },
-          {
-            name: 'Bun',
-            description: 'javascript runtime and package manager',
-            url: 'https://bun.sh'
-          },
-          {
-            name: 'Homebrew',
-            description: 'package manager',
-            url: 'https://brew.sh'
-          },
-          {
-            name: 'Oh My Posh',
-            description: 'prompt theme engine',
-            url: 'https://ohmyposh.dev'
-          },
-          {
-            name: 'colima',
-            description: 'container runtimes on macOS',
-            url: 'https://github.com/abiosoft/colima'
-          }
-        ]
-      }
     ]
   }
 ]
@@ -189,19 +165,19 @@ const getItemDescId = (item: UsesItem) =>
     <template #subtitle>software and hardware that power my workflow</template>
   </Header>
 
-  <section class="space-y-12 text-sm md:text-base">
+  <section class="space-y-24 text-sm md:text-base mb-16">
     <div
       v-for="section in [...hardware, ...software]"
       :key="section.category || 'hardware'"
     >
       <h2
         :id="getSectionId(section)"
-        class="mb-8 text-xl font-bold text-white md:text-2xl"
+        class="mb-6 text-2xl font-bold tracking-tight text-white"
       >
         {{ section.category || 'hardware' }}
       </h2>
 
-      <div class="space-y-8">
+      <div class="space-y-16">
         <div
           v-for="subsection in section.subsections || [section]"
           :key="subsection.category || 'items'"
@@ -214,58 +190,54 @@ const getItemDescId = (item: UsesItem) =>
           <h3
             v-if="subsection.category"
             :id="getSubsectionId(subsection)"
-            class="mb-4 text-lg font-semibold text-zinc-300"
+            class="mb-4 text-lg font-semibold text-zinc-400"
           >
             {{ subsection.category }}
           </h3>
 
-          <div class="space-y-3" role="list">
-            <div
+          <ul class="divide-y divide-white/10">
+            <li
               v-for="item in subsection.items"
               :key="item.name"
-              class="flex items-start justify-between border-b border-white/10 py-2"
+              class="py-4 md:py-3"
               role="listitem"
             >
-              <div class="flex-1">
-                <BaseLink
-                  v-if="item.url"
-                  :aria-describedby="
-                    item.description ? getItemDescId(item) : undefined
-                  "
-                  :to="item.url"
-                  class="font-medium hover:text-zinc-300"
-                  variant="button"
-                >
-                  {{ item.name }}
-                </BaseLink>
-                <span
-                  v-else
-                  :aria-describedby="
-                    item.description ? getItemDescId(item) : undefined
-                  "
-                  class="font-medium"
-                >
-                  {{ item.name }}
-                </span>
+              <div class="grid md:grid-cols-2 md:gap-8">
+                <div class="flex items-center justify-between md:block">
+                  <template v-if="item.url">
+                    <div class="flex items-center gap-1.5">
+                      <BaseLink
+                        :aria-describedby="item.description ? getItemDescId(item) : undefined"
+                        :to="item.url"
+                        class="font-medium text-white hover:text-zinc-300 transition-colors"
+                        variant="button"
+                        underline
+                      >
+                        {{ item.name }}
+                      </BaseLink>
+                    </div>
+                  </template>
 
-                <div
+                  <template v-else>
+                    <span
+                      :aria-describedby="item.description ? getItemDescId(item) : undefined"
+                      class="font-medium text-white"
+                    >
+                      {{ item.name }}
+                    </span>
+                  </template>
+                </div>
+
+                <p
                   v-if="item.description"
                   :id="getItemDescId(item)"
-                  class="mt-1 text-sm text-zinc-400"
+                  class="text-zinc-400 text-sm leading-snug mt-1 md:mt-0"
                 >
                   {{ item.description }}
-                </div>
+                </p>
               </div>
-
-              <div
-                v-if="item.url"
-                aria-hidden="true"
-                class="ml-4 text-zinc-600"
-              >
-                →
-              </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
