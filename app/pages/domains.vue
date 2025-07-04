@@ -45,10 +45,11 @@ const domainsList = computed(() => {
       <div class="space-y-1 text-sm text-zinc-400 md:text-base">
         <div>
           <BaseLink
-            class="underline transition-colors hover:text-white"
+            class="transition-colors hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             to="/domains.txt"
+            underline
             >raw file
           </BaseLink>
         </div>
@@ -74,7 +75,7 @@ const domainsList = computed(() => {
 
   <span class="text-zinc-300"
     >inspired by
-    <BaseLink class="text-[#c63b65] underline" to="https://erisa.uk/domains"
+    <BaseLink class="text-[#c63b65]" underline to="https://erisa.uk/domains"
       >erisa.uk/domains</BaseLink
     ></span
   >

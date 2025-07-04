@@ -32,7 +32,7 @@ const linkClasses = computed(() => {
   const classes = [baseClasses, variants[variant]]
 
   if (underline) {
-    classes.push('underline')
+    classes.push('underline underline-offset-4')
   }
 
   if (customClass) {

@@ -23,7 +23,7 @@ const navigationLinks: NavigationLink[] = [
     >
       <div class="text-xs text-zinc-500">
         <BaseLink
-          class="underline"
+          underline
           to="https://creativecommons.org/licenses/by-nc-sa/4.0/"
           >CC BY-NC-SA 4.0</BaseLink
         >
