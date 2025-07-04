@@ -71,7 +71,8 @@ const hardware: UsesSection[] = [
       },
       {
         name: 'FlexiSpot BS5',
-        description: 'ergonomic chair, i think it\'s a bit overpriced but doesn\'t make my back hurt so',
+        description:
+          "ergonomic chair, i think it's a bit overpriced but doesn't make my back hurt so",
         url: 'https://flexispot.co.uk/colorful-ergonomic-chair-bs5'
       }
     ]
@@ -98,14 +99,34 @@ const software: UsesSection[] = [
           {
             name: 'Maple Mono',
             url: 'https://github.com/subframe7536/maple-font',
-            description: "my font of choice"
+            description: 'my font of choice'
           },
-          {name: "zsh"},
-          {name: "Ghostty", url: "https://ghostty.org/", description: "terminal emulator"},
-          {name: "Bun", url: "https://bun.sh", description: "javascript runtime and package manager"},
-          {name: "Homebrew", url: "https://brew.sh", description: "package manager for macOS"},
-          {name: "Oh My Posh", url: "https://ohmyposh.dev/", description: "prompt theme engine"},
-          {name: "colima", url: "https://github.com/abiosoft/colima", description: "container runtime"}
+          { name: 'zsh' },
+          {
+            name: 'Ghostty',
+            url: 'https://ghostty.org/',
+            description: 'terminal emulator'
+          },
+          {
+            name: 'Bun',
+            url: 'https://bun.sh',
+            description: 'javascript runtime and package manager'
+          },
+          {
+            name: 'Homebrew',
+            url: 'https://brew.sh',
+            description: 'package manager for macOS'
+          },
+          {
+            name: 'Oh My Posh',
+            url: 'https://ohmyposh.dev/',
+            description: 'prompt theme engine'
+          },
+          {
+            name: 'colima',
+            url: 'https://github.com/abiosoft/colima',
+            description: 'container runtime'
+          }
         ]
       },
       {
@@ -143,7 +164,7 @@ const software: UsesSection[] = [
             url: 'https://www.sketch.com'
           }
         ]
-      },
+      }
     ]
   }
 ]
@@ -165,7 +186,7 @@ const getItemDescId = (item: UsesItem) =>
     <template #subtitle>software and hardware that power my workflow</template>
   </Header>
 
-  <section class="space-y-24 text-sm md:text-base mb-16">
+  <section class="mb-16 space-y-24 text-sm md:text-base">
     <div
       v-for="section in [...hardware, ...software]"
       :key="section.category || 'hardware'"
@@ -207,9 +228,11 @@ const getItemDescId = (item: UsesItem) =>
                   <template v-if="item.url">
                     <div class="flex items-center gap-1.5">
                       <BaseLink
-                        :aria-describedby="item.description ? getItemDescId(item) : undefined"
+                        :aria-describedby="
+                          item.description ? getItemDescId(item) : undefined
+                        "
                         :to="item.url"
-                        class="font-medium text-white hover:text-zinc-300 transition-colors"
+                        class="font-medium text-white transition-colors hover:text-zinc-300"
                         variant="button"
                         underline
                       >
@@ -220,7 +243,9 @@ const getItemDescId = (item: UsesItem) =>
 
                   <template v-else>
                     <span
-                      :aria-describedby="item.description ? getItemDescId(item) : undefined"
+                      :aria-describedby="
+                        item.description ? getItemDescId(item) : undefined
+                      "
                       class="font-medium text-white"
                     >
                       {{ item.name }}
@@ -231,7 +256,7 @@ const getItemDescId = (item: UsesItem) =>
                 <p
                   v-if="item.description"
                   :id="getItemDescId(item)"
-                  class="text-zinc-400 text-sm leading-snug mt-1 md:mt-0"
+                  class="mt-1 text-sm leading-snug text-zinc-400 md:mt-0"
                 >
                   {{ item.description }}
                 </p>
