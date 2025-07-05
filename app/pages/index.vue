@@ -46,7 +46,7 @@ const getDisplayText = (item: SocialItem) => {
 </script>
 
 <template>
-  <Header size="medium" title="diogo 💫" />
+  <Header size="medium" title="diogo 💫" class="mb-2!" />
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
     <p>
