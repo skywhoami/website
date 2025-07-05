@@ -113,7 +113,7 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
     </div>
 
     <div
-      class="group relative flex items-center space-x-4 rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:border-white/20 hover:bg-white/5"
+      class="group relative flex items-center hover:scale-102 space-x-4 rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:border-white/20 hover:bg-white/5"
     >
       <div class="flex-shrink-0">
         <img
