@@ -11,7 +11,6 @@ const scrolled = ref(false)
 
 const navigationLinks: NavigationLink[] = [
   { to: '/uses', label: 'uses' },
-  { to: '/projects', label: 'projects' },
   { to: '/domains', label: 'domains' }
 ]
 
@@ -33,7 +32,7 @@ onUnmounted(() => {
     <nav
       :class="{ 'bg-black/70 shadow-lg': scrolled }"
       aria-label="Main navigation"
-      class="w-full rounded-xl border border-white/10 bg-black/40 px-6 py-3 backdrop-blur-md transition-all duration-300 ease-in-out md:w-[calc(100%-2rem)] md:px-8 lg:w-[calc(100%-8rem)] xl:max-w-4xl"
+      class="w-full rounded-xl border border-white/10 bg-black/40 px-6 py-3 backdrop-blur-md transition-all duration-300 ease-in-out md:w-[calc(100%-1rem)] md:px-8 lg:w-[calc(100%-4rem)] xl:max-w-3xl"
       role="navigation"
     >
       <div class="flex items-center justify-between">
