@@ -67,7 +67,7 @@ const domainsList = computed(() => {
             {{ line }}
           </div>
           <div v-else-if="line.trim() === ''" class="h-2"></div>
-          <div v-else class="font-medium text-emerald-400">{{ line }}</div>
+          <div v-else class="text-primary font-medium">{{ line }}</div>
         </div>
       </div>
     </div>
