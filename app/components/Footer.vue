@@ -34,7 +34,7 @@ const navigationLinks: NavigationLink[] = [{ to: '/privacy', label: 'privacy' }]
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
-              class="text-zinc-500 transition-colors duration-200 hover:text-white"
+              class="text-zinc-500 transition-colors duration-200"
             >
               {{ link.label }}
             </BaseLink>
@@ -51,11 +51,7 @@ const navigationLinks: NavigationLink[] = [{ to: '/privacy', label: 'privacy' }]
       </nav>
 
       <div v-else class="text-xs">
-        <BaseLink
-          aria-label="Go back to homepage"
-          class="text-zinc-500 transition-colors duration-200 hover:text-white"
-          to="/"
-        >
+        <BaseLink aria-label="Go back to homepage" class="text-zinc-500" to="/">
           cd ..
         </BaseLink>
       </div>

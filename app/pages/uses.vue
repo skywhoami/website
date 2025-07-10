@@ -232,7 +232,7 @@ const getItemDescId = (item: UsesItem) =>
                           item.description ? getItemDescId(item) : undefined
                         "
                         :to="item.url"
-                        class="font-medium text-white transition-colors hover:text-zinc-300"
+                        class="font-medium text-white transition-colors"
                         variant="button"
                         underline
                       >
