@@ -33,6 +33,11 @@ const socials: {
   }
 ]
 
+const webring: { name: string; url: string; img: string }[] = [
+  { name: 'me', url: '', img: '/buttons/star.png' },
+  { name: 'neru', url: 'https://isneru.meeows.net', img: '/buttons/neru.png' }
+]
+
 const getDisplayText = (item: SocialItem) => {
   if (item.username || !item.url) {
     return `@${item.username}`
@@ -112,5 +117,32 @@ const getDisplayText = (item: SocialItem) => {
     </div>
   </section>
 
+  <section aria-labelledby="friends" class="mb-16">
+    <div
+      id="friends"
+      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
+    >
+      friends
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+      <BaseLink v-for="friend in webring" :key="friend.name" :to="friend.url">
+        <img
+          :src="friend.img"
+          :alt="friend.name"
+          width="88"
+          height="31"
+          class="pixelated"
+        />
+      </BaseLink>
+    </div>
+  </section>
+
   <Footer show-navigation />
 </template>
+
+<style scoped>
+.pixelated {
+  image-rendering: pixelated;
+}
+</style>
