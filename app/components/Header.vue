@@ -22,7 +22,7 @@ const titleClass = computed(() => {
     <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-8">
       <BaseLink
         aria-label="Go back to homepage"
-        class="text-sm text-zinc-400 transition-colors duration-200 hover:text-white"
+        class="text-sm text-zinc-400 transition-colors duration-200"
         to="/"
       >
         ← back

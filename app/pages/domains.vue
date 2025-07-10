@@ -45,7 +45,6 @@ const domainsList = computed(() => {
       <div class="space-y-1 text-sm text-zinc-400 md:text-base">
         <div>
           <BaseLink
-            class="transition-colors hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             to="/domains.txt"
