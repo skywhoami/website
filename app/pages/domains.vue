@@ -35,7 +35,7 @@ const domainsList = computed(() => {
     typeof domainsContent.value === 'string'
       ? domainsContent.value
       : String(domainsContent.value)
-  return content.split('\n')
+  return content.trimEnd().split('\n')
 })
 </script>
 
