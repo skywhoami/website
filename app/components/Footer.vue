@@ -10,7 +10,9 @@ interface Props {
 
 const { showNavigation = false } = defineProps<Props>()
 
-const navigationLinks: NavigationLink[] = [{ to: '/privacy', label: 'privacy' }]
+const navigationLinks: NavigationLink[] = [
+  { to: '/legal/privacy', label: 'privacy' }
+]
 </script>
 
 <template>
