@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-06-09',
   devtools: { enabled: true },
-  modules: ['@nuxt/fonts', '@nuxtjs/sitemap', '@nuxt/icon'],
+  modules: ['@nuxt/fonts', '@nuxtjs/sitemap', '@nuxt/icon', '@nuxt/content'],
 
   runtimeConfig: {
     spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
@@ -95,10 +95,16 @@ export default defineNuxtConfig({
     }
   },
 
+  content: {
+    renderer: {
+      anchorLinks: { h1: true, h2: true, h3: false }
+    }
+  },
+
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/uses', '/privacy', '/domains']
+      routes: ['/', '/uses', '/legal/privacy', '/domains']
     },
     preset: 'cloudflare_module',
     cloudflare: {
@@ -109,7 +115,14 @@ export default defineNuxtConfig({
         observability: {
           logs: { enabled: true }
         },
-        keep_vars: true
+        keep_vars: true,
+        d1_databases: [
+          {
+            binding: 'DB',
+            database_name: 'website',
+            database_id: 'b544c2a3-2e53-474e-848f-e6ecc1fa8d3c'
+          }
+        ]
       }
     }
   }
