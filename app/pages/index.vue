@@ -29,7 +29,7 @@ const socials: {
 ]
 
 const webring: { name: string; url: string; img: string }[] = [
-  { name: 'me', url: '', img: '/buttons/star.png' },
+  { name: 'me', url: '', img: '/buttons/sky.png' },
   { name: 'neru', url: 'https://isneru.meeows.net', img: '/buttons/neru.png' }
 ]
 
