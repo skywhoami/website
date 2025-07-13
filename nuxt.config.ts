@@ -57,7 +57,7 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Skylar' },
         {
           name: 'keywords',
-          content: 'star, sky, sky castro, software developer, meeows'
+          content: 'sky, skylar, , software developer, meeows'
         },
 
         { property: 'og:type', content: 'website' },
@@ -91,7 +91,7 @@ export default defineNuxtConfig({
     },
 
     rootAttrs: {
-      id: 'star' // <3
+      id: 'sky' // <3
     }
   },
 
