@@ -8,24 +8,29 @@ const socials: {
   name: string
   url?: string
   username?: string
+  icon: string
 }[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com/skywhoami'
+    url: 'https://github.com/skywhoami',
+    icon: 'mdi:github'
   },
   {
     name: 'Discord',
     url: 'https://discord.com/users/293020630608248832',
-    username: 'skywhoami'
+    username: 'skywhoami',
+    icon: 'ic:baseline-discord'
   },
   {
     name: 'Email',
-    url: 'mailto:hi@skylar.sh'
+    url: 'mailto:hi@skylar.sh',
+    icon: 'material-symbols:alternate-email'
   },
   {
     name: 'Bluesky',
-    url: 'https://bsky.app/profile/skylar.sh'
-  },
+    url: 'https://bsky.app/profile/skylar.sh',
+    icon: 'tabler:brand-bluesky'
+  }
 ]
 
 const webring: { name: string; url: string; img: string }[] = [
@@ -33,7 +38,7 @@ const webring: { name: string; url: string; img: string }[] = [
   { name: 'neru', url: 'https://isneru.meeows.net', img: '/buttons/neru.png' }
 ]
 
-const getDisplayText = (item: SocialItem) => {
+const getDisplayText = (item: (typeof socials)[number]) => {
   if (item.username || !item.url) {
     return `@${item.username}`
   }
@@ -94,13 +99,18 @@ const getDisplayText = (item: SocialItem) => {
         variant="social"
       >
         <div class="flex items-center space-x-4">
-          <span class="text-base font-medium">{{ social.name }}</span>
-          <span
-            :id="social.name.toLowerCase().replace(/\s+/g, '-')"
-            class="font-mono text-sm text-zinc-400"
-          >
-            {{ getDisplayText(social) }}
-          </span>
+          <Icon :name="social.icon" class="size-8!" />
+          <div class="flex flex-col">
+            <span class="text-base leading-tight font-medium">{{
+              social.name
+            }}</span>
+            <span
+              :id="social.name.toLowerCase().replace(/\s+/g, '-')"
+              class="font-mono text-sm leading-tight text-zinc-400"
+            >
+              {{ getDisplayText(social) }}
+            </span>
+          </div>
         </div>
         <div
           aria-hidden="true"
