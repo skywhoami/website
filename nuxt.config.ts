@@ -19,7 +19,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/content',
     '@nuxtjs/turnstile',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    'nitro-cloudflare-dev'
   ],
 
   runtimeConfig: {
@@ -114,6 +115,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+    compatibilityDate: '2025-06-09',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/uses', '/legal/privacy', '/domains']
@@ -130,8 +132,8 @@ export default defineNuxtConfig({
         d1_databases: [
           {
             binding: 'DB',
-            database_name: 'website',
-            database_id: 'b544c2a3-2e53-474e-848f-e6ecc1fa8d3c'
+            database_name: 'DB',
+            database_id: '2e6393fb-3f43-41f4-bc03-2f76d98e92a2'
           }
         ]
       }
