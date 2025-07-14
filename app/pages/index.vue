@@ -51,7 +51,11 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 </script>
 
 <template>
-  <Header size="medium" title="sky 💫" class="text-primary mb-2!" />
+  <Header size="medium" title="sky 💫" class="text-primary mb-2!">
+    <template #subtitle>
+      <p class="text-zinc-400 italic">she/they</p>
+    </template>
+  </Header>
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
     <p>
@@ -71,11 +75,11 @@ const getDisplayText = (item: (typeof socials)[number]) => {
       </p>
       <p>
         when i'm not coding, i'm probably lost in some deep-dive, tweaking my
-        setup for the hundredth time, or just vibing with music and games.
+        dotfiles, or just vibing with music and games.
       </p>
       <p class="mb-4">
-        if you ever just feel like saying hi, seriously, go for it. links are
-        down there.
+        if you ever just feel like saying hi, seriously, go for it. i won't bite
+        :3
       </p>
     </details>
   </section>
@@ -123,14 +127,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
   </section>
 
   <section aria-labelledby="friends" class="mb-16">
-    <div
-      id="friends"
-      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
-    >
-      friends
-    </div>
-
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap justify-center gap-2">
       <BaseLink v-for="friend in webring" :key="friend.name" :to="friend.url">
         <img
           :src="friend.img"

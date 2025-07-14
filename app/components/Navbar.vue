@@ -11,7 +11,8 @@ const scrolled = ref(false)
 
 const navigationLinks: NavigationLink[] = [
   { to: '/uses', label: 'uses' },
-  { to: '/domains', label: 'domains' }
+  { to: '/domains', label: 'domains' },
+  { to: '/guestbook', label: 'guestbook' }
 ]
 
 function handleScroll() {
