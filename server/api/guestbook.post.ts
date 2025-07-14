@@ -18,7 +18,7 @@ export default defineEventHandler(async event => {
     })
   }
 
-  const db = useDatabase()
+  const db = useDatabase('DB')
   await db.sql`INSERT INTO guestbook (name, message) VALUES (${name}, ${message})`
 
   return { success: true }

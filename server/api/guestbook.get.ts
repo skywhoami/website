@@ -1,5 +1,5 @@
 export default defineEventHandler(async event => {
-  const db = useDatabase()
+  const db = useDatabase('DB')
 
   await db.sql`
   CREATE TABLE IF NOT EXISTS guestbook (
