@@ -122,17 +122,6 @@ export default defineNuxtConfig({
     },
     experimental: { database: true, tasks: true },
 
-    $production: {
-      database: {
-        default: {
-          connector: 'cloudflare-d1',
-          options: {
-            bindingName: 'DB'
-          }
-        }
-      }
-    },
-
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
@@ -147,6 +136,19 @@ export default defineNuxtConfig({
             database_id: '2e6393fb-3f43-41f4-bc03-2f76d98e92a2'
           }
         ]
+      }
+    }
+  },
+
+  $production: {
+    nitro: {
+      database: {
+        default: {
+          connector: 'cloudflare-d1',
+          options: {
+            bindingName: 'DB'
+          }
+        }
       }
     }
   }
