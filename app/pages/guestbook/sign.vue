@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+useHead({ title: 'sign guestbook' })
+
 import { ref } from 'vue'
 
 const name = ref('')

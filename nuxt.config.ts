@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
-  compatibilityDate: '2025-06-09',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: [
     '@nuxt/fonts',

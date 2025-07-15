@@ -5,6 +5,10 @@ const { data } = await useAsyncData(route.path, () => {
 })
 if (!data.value)
   throw createError({ statusCode: 404, statusMessage: 'Not found' })
+
+useHead({
+  title: data.value.title || 'Legal'
+})
 </script>
 
 <template>

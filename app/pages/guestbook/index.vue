@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+useHead({ title: 'guestbook' })
+
 const {
   data: entries,
   error,
