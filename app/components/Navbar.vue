@@ -39,8 +39,9 @@ onUnmounted(() => {
       <div class="flex items-center justify-between">
         <BaseLink
           aria-label="Home"
-          class="font-bold text-white transition-opacity duration-200 hover:opacity-80"
+          class="font-bold transition-opacity duration-200 hover:opacity-80"
           to="/"
+          active-class="text-primary"
         >
           skylar.sh
         </BaseLink>
@@ -50,6 +51,7 @@ onUnmounted(() => {
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
+              active-class="text-primary"
               class="group relative rounded-xl px-3 py-1 text-sm hover:bg-white/10"
             >
               <span>{{ link.label }}</span>
@@ -103,6 +105,7 @@ onUnmounted(() => {
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
+              active-class="text-primary"
               class="group relative block rounded-md px-3 py-2 text-sm hover:bg-white/10"
               @click="isMenuOpen = false"
             >

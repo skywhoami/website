@@ -43,7 +43,9 @@ const timeAgo = (input: string | number | Date) => {
   <section class="mb-16 space-y-6 text-sm leading-relaxed md:text-base">
     <p v-if="pending" class="text-zinc-400">loading...</p>
 
-    <p v-else-if="error" class="text-red-400">something went wrong. try again later :(</p>
+    <p v-else-if="error" class="text-red-400">
+      something went wrong. try again later :(
+    </p>
 
     <div v-else>
       <p v-if="!entries?.length" class="text-zinc-400">
