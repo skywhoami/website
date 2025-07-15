@@ -122,11 +122,13 @@ export default defineNuxtConfig({
     },
     experimental: { database: true },
 
-    database: {
-      default: {
-        connector: 'cloudflare-d1',
-        options: {
-          bindingName: "DB"
+    $production: {
+      database: {
+        default: {
+          connector: 'cloudflare-d1',
+          options: {
+            bindingName: 'DB'
+          }
         }
       }
     },
@@ -140,9 +142,9 @@ export default defineNuxtConfig({
         keep_vars: true,
         d1_databases: [
           {
-            binding: "DB",
-            database_name: "DB",
-            database_id: "2e6393fb-3f43-41f4-bc03-2f76d98e92a2"
+            binding: 'DB',
+            database_name: 'DB',
+            database_id: '2e6393fb-3f43-41f4-bc03-2f76d98e92a2'
           }
         ]
       }
