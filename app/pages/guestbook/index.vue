@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: entries, pending, error } = await useFetch('/api/guestbook')
+  const { data: entries, error, status } = await useLazyFetch('/api/guestbook', {server: false})
 
 const timeAgo = (input: string | number | Date) => {
   const utc =
@@ -41,7 +41,7 @@ const timeAgo = (input: string | number | Date) => {
   </section>
 
   <section class="mb-16 space-y-6 text-sm leading-relaxed md:text-base">
-    <p v-if="pending" class="text-zinc-400">loading...</p>
+    <p v-if="status !== 'success' && !error" class="text-zinc-400">loading...</p>
 
     <p v-else-if="error" class="text-red-400">
       something went wrong. try again later :(

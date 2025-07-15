@@ -114,13 +114,13 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    compatibilityDate: '2025-07-15',
     preset: 'cloudflare_module',
-    compatibilityDate: '2025-06-09',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/uses', '/legal/privacy', '/domains']
     },
-    experimental: { database: true },
+    experimental: { database: true, tasks: true },
 
     $production: {
       database: {
