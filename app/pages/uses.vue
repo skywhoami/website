@@ -233,7 +233,6 @@ const getItemDescId = (item: UsesItem) =>
                         "
                         :to="item.url"
                         class="font-medium text-white transition-colors"
-                        variant="button"
                         underline
                       >
                         {{ item.name }}

@@ -33,30 +33,31 @@ const timeAgo = (input: string | number | Date) => {
 <template>
   <Header show-back-link size="medium" title="guestbook">
     <template #subtitle>
-      <p class="text-zinc-400 italic">messages from lovely people 💌</p>
+      <p class="italic">messages from lovely people 💌</p>
     </template>
   </Header>
 
   <section class="mb-8">
     <BaseLink
       to="/guestbook/sign"
-      class="inline-block rounded-md border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-900"
+      class="border-lithium-white/10 inline-block border px-4 py-2 text-sm font-medium"
+      variant="button"
     >
       sign the guestbook →
     </BaseLink>
   </section>
 
   <section class="mb-16 space-y-6 text-sm leading-relaxed md:text-base">
-    <p v-if="status !== 'success' && !error" class="text-zinc-400">
+    <p v-if="status !== 'success' && !error" class="text-lithium-white/60">
       loading...
     </p>
 
-    <p v-else-if="error" class="text-red-400">
+    <p v-else-if="error" class="text-cherry-soda">
       something went wrong. try again later :(
     </p>
 
     <div v-else>
-      <p v-if="!entries?.length" class="text-zinc-400">
+      <p v-if="!entries?.length" class="text-lithium-white/60">
         no entries yet, be the first to say hi!
       </p>
 
@@ -64,11 +65,13 @@ const timeAgo = (input: string | number | Date) => {
         <div
           v-for="entry in entries"
           :key="entry.id"
-          class="rounded-md border border-zinc-800 bg-zinc-950 p-4"
+          class="border-lithium-white/10 bg-velvet-black rounded-lg border-2 p-4"
         >
-          <p class="mb-1 font-medium text-white">{{ entry.name }}</p>
-          <p class="whitespace-pre-wrap text-zinc-300">{{ entry.message }}</p>
-          <p class="mt-2 text-xs text-zinc-500">
+          <p class="text-lithium-white mb-1 font-medium">{{ entry.name }}</p>
+          <p class="text-lithium-white/80 whitespace-pre-wrap">
+            {{ entry.message }}
+          </p>
+          <p class="text-lithium-white/50 mt-2 text-xs">
             {{ timeAgo(entry.created_at) }}
           </p>
         </div>

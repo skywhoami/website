@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-true-black text-true-white min-h-screen font-mono">
+  <div class="bg-velvet-black text-lithium-white min-h-screen font-mono">
     <Navbar />
 
     <main

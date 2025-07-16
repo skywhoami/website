@@ -12,69 +12,19 @@ const {
 })
 
 let refreshInterval: NodeJS.Timeout | null = null
-let progressInterval: NodeJS.Timeout | null = null
-const localProgress = ref<number | null>(null)
-const lastUpdatedAt = ref<number | null>(null)
-
-watch(
-  () => currentTrack.value?.progress_ms,
-  (newProgress: number | undefined) => {
-    if (newProgress !== undefined) {
-      localProgress.value = newProgress
-      lastUpdatedAt.value = Date.now()
-    }
-  },
-  { immediate: true }
-)
 
 onMounted(() => {
   refreshInterval = setInterval(() => {
     if (!pending.value) {
       refresh()
     }
-  }, 5000)
-
-  progressInterval = setInterval(() => {
-    if (
-      currentTrack.value?.isPlaying &&
-      localProgress.value !== null &&
-      lastUpdatedAt.value !== null &&
-      currentTrack.value?.duration_ms
-    ) {
-      const now = Date.now()
-      const elapsed = now - lastUpdatedAt.value
-
-      localProgress.value = Math.min(
-        currentTrack.value.progress_ms! + elapsed,
-        currentTrack.value.duration_ms
-      )
-    }
-  }, 100)
+  }, 30000)
 })
 
 onUnmounted(() => {
   if (refreshInterval) {
     clearInterval(refreshInterval)
   }
-  if (progressInterval) {
-    clearInterval(progressInterval)
-  }
-})
-
-const formatTime = (ms: number | null) => {
-  if (ms === null) return '0:00'
-  const totalSeconds = Math.floor(ms / 1000)
-  const minutes = Math.floor(totalSeconds / 60)
-  const seconds = totalSeconds % 60
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`
-}
-
-const progressPercentage = computed(() => {
-  if (!currentTrack.value?.duration_ms || !localProgress.value) return 0
-  return Math.min(
-    (localProgress.value / currentTrack.value.duration_ms) * 100,
-    100
-  )
 })
 
 const getServiceInfo = (service: 'spotify' | 'apple-music') => {
@@ -98,22 +48,16 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
 <template>
   <section v-if="currentTrack" aria-labelledby="now-playing" class="mb-8">
     <div
-      v-if="currentTrack.isPlaying"
       id="now-playing"
-      class="mb-4 text-xs tracking-wider text-zinc-400 uppercase"
+      class="text-lithium-white/60 mb-4 text-xs tracking-wider uppercase"
     >
-      currently listening to
-    </div>
-    <div
-      v-else
-      id="now-playing"
-      class="mb-4 text-xs tracking-wider text-zinc-400 uppercase"
-    >
-      recently played
+      {{
+        currentTrack.isPlaying ? 'currently listening to' : 'recently played'
+      }}
     </div>
 
     <div
-      class="group relative flex items-center space-x-4 rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:scale-102 hover:border-white/20 hover:bg-white/5"
+      class="group hover:border-lithium-white/20 hover:bg-lithium-white/5 relative flex items-center space-x-4 rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:scale-102"
     >
       <div class="flex-shrink-0">
         <img
@@ -144,49 +88,23 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
           }}</span>
         </div>
 
-        <BaseLink
-          :to="currentTrack.url"
-          class="block transition-colors duration-200 group-hover:text-white"
-        >
+        <BaseLink :to="currentTrack.url" class="block">
           <div class="truncate text-sm font-medium md:text-base">
             {{ currentTrack.name }}
           </div>
-          <div class="truncate text-xs text-zinc-400 md:text-sm">
+          <div class="text-lithium-white/60 truncate text-xs md:text-sm">
             by {{ currentTrack.artist }}
           </div>
         </BaseLink>
       </div>
 
       <div
-        class="flex-shrink-0 text-zinc-600 transition-colors duration-200 group-hover:text-white"
+        class="group-hover:text-lithium-white flex-shrink-0 text-zinc-600 transition-colors duration-200"
       >
         <Icon
           :name="getServiceInfo(currentTrack.service).icon"
           class="h-5 w-5"
         />
-      </div>
-
-      <div
-        v-if="
-          currentTrack.isPlaying &&
-          currentTrack.service === 'spotify' &&
-          currentTrack.duration_ms
-        "
-        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/50 to-transparent px-4 pt-1 pb-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-      >
-        <div
-          class="mb-1.5 flex items-center justify-between text-xs text-white"
-        >
-          <span>{{ formatTime(localProgress) }}</span>
-          <span>{{ formatTime(currentTrack.duration_ms) }}</span>
-        </div>
-        <div class="h-1.5 w-full overflow-hidden rounded-full bg-white/20">
-          <div
-            :class="getServiceInfo(currentTrack.service).color"
-            :style="`width: ${progressPercentage}%`"
-            class="h-full rounded-full transition-all ease-linear"
-          ></div>
-        </div>
       </div>
     </div>
   </section>

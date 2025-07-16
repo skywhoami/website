@@ -42,37 +42,33 @@ const domainsList = computed(() => {
 <template>
   <Header show-back-link size="medium" title="domain list">
     <template #subtitle>
-      <div class="space-y-1 text-sm text-zinc-400 md:text-base">
-        <div>
-          <BaseLink
-            rel="noopener noreferrer"
-            target="_blank"
-            to="/domains.txt"
-            underline
-            >raw file
-          </BaseLink>
-        </div>
-      </div>
+      <BaseLink
+        rel="noopener noreferrer"
+        target="_blank"
+        to="/domains.txt"
+        underline
+        >raw file
+      </BaseLink>
     </template>
   </Header>
 
-  <section class="mb-16 space-y-6 text-sm leading-loose md:text-base">
+  <section class="mb-6 space-y-6 text-sm leading-loose md:text-base">
     <div>
       <div
-        class="overflow-x-auto rounded-lg border-2 border-zinc-800 bg-zinc-950 p-4 font-mono text-sm shadow-lg"
+        class="border-lithium-white/10 bg-velvet-black overflow-x-auto rounded-lg border-2 p-4 font-mono text-sm shadow-lg"
       >
         <div v-for="(line, index) in domainsList" :key="index" class="py-1">
           <div v-if="line.startsWith('#')" class="text-zinc-400 italic">
             {{ line }}
           </div>
           <div v-else-if="line.trim() === ''" class="h-2"></div>
-          <div v-else class="text-primary font-medium">{{ line }}</div>
+          <div v-else class="text-bubblegum font-medium">{{ line }}</div>
         </div>
       </div>
     </div>
   </section>
 
-  <span class="text-zinc-300"
+  <span class="text-lithium-white/80"
     >inspired by
     <BaseLink class="text-[#c63b65]" underline to="https://erisa.uk/domains"
       >erisa.uk/domains</BaseLink

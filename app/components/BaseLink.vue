@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 interface Props {
   to: string
-  variant?: 'default' | 'button' | 'card' | 'social'
+  variant?: 'default' | 'button' | 'social'
   class?: string
   underline?: boolean
 }
@@ -19,14 +19,13 @@ const isExternal = computed(
 
 const linkClasses = computed(() => {
   const baseClasses =
-    'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-true-black'
+    'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lithium-white focus-visible:ring-offset-2 focus-visible:ring-offset-velvet-black'
 
   const variants = {
-    default: 'hover:text-primary! rounded-xl',
-    button: 'hover:text-primary!',
-    card: 'group border border-transparent hover:border-white/20 hover:bg-white/5 transition-all duration-200',
+    default: 'hover:text-purple! rounded-xl',
+    button: 'hover:bg-zinc-900 rounded-xl',
     social:
-      'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/20 hover:bg-white/5 hover:scale-102 transition-all duration-500 ease-in-out'
+      'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-lithium-white/20 hover:bg-lithium-white/5 hover:scale-102 transition-all duration-200'
   }
 
   const classes = [baseClasses, variants[variant]]
@@ -68,6 +67,7 @@ defineExpose({
     :to="to"
     v-bind="$attrs"
     @click="playPopSound"
+    active-class="text-bubblegum"
   >
     <slot />
   </NuxtLink>

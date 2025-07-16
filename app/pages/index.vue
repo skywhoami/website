@@ -51,9 +51,9 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 </script>
 
 <template>
-  <Header size="medium" title="sky 💫" class="text-primary mb-2!">
+  <Header size="medium" title="sky 💫" class="text-purple mb-2!">
     <template #subtitle>
-      <p class="text-zinc-400 italic">she/they</p>
+      <p class="italic">she/her</p>
     </template>
   </Header>
 
@@ -62,7 +62,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
       hiya! i'm a silly wannabe software developer . i'm
       {{ age }} years old. currently i mostly make stuff for my own use.
     </p>
-    <details class="space-y-4">
+    <details class="space-y-2">
       <summary class="hover:cursor-pointer">read more</summary>
       <p>aw, flattered you're actually curious about me.</p>
       <p>
@@ -89,7 +89,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
   <section aria-labelledby="connect" class="mb-16">
     <div
       id="connect"
-      class="mb-6 text-xs tracking-wider text-zinc-400 uppercase"
+      class="text-lithium-white/60 mb-6 text-xs tracking-wider uppercase"
     >
       where you can find me
     </div>
@@ -103,14 +103,15 @@ const getDisplayText = (item: (typeof socials)[number]) => {
         variant="social"
       >
         <div class="flex items-center space-x-4">
-          <Icon :name="social.icon" class="size-8!" />
+          <Icon :name="social.icon" class="text-lemon-drop size-8!" />
           <div class="flex flex-col">
-            <span class="text-base leading-tight font-medium">{{
-              social.name
-            }}</span>
+            <span
+              class="group-hover:text-purple text-base leading-tight font-medium transition-colors duration-200"
+              >{{ social.name }}</span
+            >
             <span
               :id="social.name.toLowerCase().replace(/\s+/g, '-')"
-              class="font-mono text-sm leading-tight text-zinc-400"
+              class="text-lithium-white/60 font-mono text-sm leading-tight"
             >
               {{ getDisplayText(social) }}
             </span>
@@ -118,7 +119,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
         </div>
         <div
           aria-hidden="true"
-          class="text-zinc-600 transition-colors duration-200 group-hover:text-white"
+          class="group-hover:text-lithium-white text-zinc-600 transition-colors duration-200"
         >
           →
         </div>

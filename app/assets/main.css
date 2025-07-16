@@ -2,9 +2,12 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-true-black: #000000;
-  --color-true-white: #ffffff;
-  --color-primary: #cba6f7;
+  --color-bubblegum: #ff5599;
+  --color-cherry-soda: #ff445c;
+  --color-lemon-drop: #ffe066;
+  --color-lithium-white: #fafaf9;
+  --color-purple: #aa66ff;
+  --color-velvet-black: #111111;
   --font-mono: 'Maple Mono', monospace;
 }
 
@@ -14,7 +17,7 @@ html {
 }
 
 body {
-  @apply bg-true-black text-true-white min-h-screen font-mono;
+  @apply bg-velvet-black text-lithium-white min-h-screen font-mono;
 }
 
 *:focus {
@@ -28,7 +31,7 @@ body {
 button:focus-visible,
 [role='button']:focus-visible,
 a:focus-visible {
-  @apply ring-offset-true-black ring-2 ring-white ring-offset-2;
+  @apply ring-offset-velvet-black ring-lithium-white ring-2 ring-offset-2;
 }
 
 a {
@@ -36,11 +39,11 @@ a {
 }
 
 a:hover {
-  @apply text-white;
+  @apply text-lithium-white;
 }
 
 ::selection {
-  @apply text-true-black bg-white;
+  @apply text-velvet-black bg-lithium-white;
 }
 
 ul[role='list'],

@@ -22,7 +22,7 @@ const titleClass = computed(() => {
     <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-8">
       <BaseLink
         aria-label="Go back to homepage"
-        class="text-sm text-zinc-400 transition-colors duration-200"
+        class="text-lithium-white/60 text-sm"
         to="/"
       >
         ← back
@@ -33,7 +33,10 @@ const titleClass = computed(() => {
       {{ title }}
     </h1>
 
-    <div v-if="$slots.subtitle" class="text-sm text-zinc-400 md:text-base">
+    <div
+      v-if="$slots.subtitle"
+      class="text-lithium-white/60 text-sm md:text-base"
+    >
       <slot name="subtitle" />
     </div>
   </header>

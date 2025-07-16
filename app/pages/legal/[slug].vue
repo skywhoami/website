@@ -14,7 +14,7 @@ useHead({
 <template>
   <Header show-back-link size="medium" class="-mb-4!" :title="data.title" />
 
-  <article class="prose prose-invert text-true-white leading-relaxed">
+  <article class="prose prose-invert text-lithium-white leading-relaxed">
     <ContentRenderer :value="data.body" />
   </article>
 

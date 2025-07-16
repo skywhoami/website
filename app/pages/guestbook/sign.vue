@@ -35,32 +35,39 @@ const submit = async () => {
   }
 
   submitting.value = false
+  navigateTo({ path: '/guestbook/' })
 }
 </script>
 
 <template>
   <Header show-back-link size="medium" title="sign the guestbook 💌">
     <template #subtitle>
-      <p class="text-zinc-400 italic">say something kind or silly :)</p>
+      <p class="italic">say something kind or silly :)</p>
     </template>
   </Header>
 
   <section class="mb-16 space-y-6 text-sm leading-relaxed md:text-base">
     <form @submit.prevent="submit" class="space-y-6">
       <div class="space-y-2">
-        <label for="name" class="block text-sm font-medium text-zinc-400">
+        <label
+          for="name"
+          class="text-lithium-white/60 block text-sm font-medium"
+        >
           name
         </label>
         <input
           id="name"
           v-model="name"
           placeholder="your name"
-          class="w-full rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-white transition placeholder:text-zinc-500 focus:ring-2 focus:ring-zinc-800 focus:outline-none"
+          class="border-lithium-white/10 bg-velvet-black w-full rounded-lg border-2 px-3 py-2 transition placeholder:text-zinc-500 focus:ring-2 focus:ring-zinc-800 focus:outline-none"
         />
       </div>
 
       <div class="space-y-2">
-        <label for="message" class="block text-sm font-medium text-zinc-400">
+        <label
+          for="message"
+          class="text-lithium-white/60 block text-sm font-medium"
+        >
           message
         </label>
         <textarea
@@ -68,7 +75,7 @@ const submit = async () => {
           v-model="message"
           rows="4"
           placeholder="say something nice :)"
-          class="w-full rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-white transition placeholder:text-zinc-500 focus:ring-2 focus:ring-zinc-800 focus:outline-none"
+          class="border-lithium-white/10 bg-velvet-black w-full rounded-lg border-2 px-3 py-2 transition placeholder:text-zinc-500 focus:ring-2 focus:ring-zinc-800 focus:outline-none"
         ></textarea>
       </div>
 
@@ -77,17 +84,13 @@ const submit = async () => {
       <button
         type="submit"
         :disabled="submitting"
-        class="w-full rounded-md border border-zinc-800 bg-zinc-950 px-4 py-2 font-medium text-white transition hover:bg-zinc-900 focus:ring-2 focus:ring-zinc-800 focus:outline-none disabled:opacity-50"
+        class="border-lithium-white/10 bg-velvet-black w-full rounded-lg border-2 px-4 py-2 font-medium text-white transition hover:bg-zinc-900 focus:ring-2 focus:ring-zinc-800 focus:outline-none disabled:opacity-50"
+        variant="button"
       >
         {{ submitting ? 'sending...' : 'submit' }}
       </button>
 
-      <p v-if="error" class="text-sm text-red-400">{{ error }}</p>
-
-      <p v-if="success" class="text-sm text-green-400">
-        thank you 💜<br />
-        <BaseLink to="/guestbook" class="underline">back to guestbook</BaseLink>
-      </p>
+      <p v-if="error" class="text-cherry-soda text-sm">{{ error }}</p>
     </form>
   </section>
 
