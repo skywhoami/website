@@ -16,20 +16,30 @@ const socials: {
     icon: 'mdi:github'
   },
   {
-    name: 'Discord',
-    url: 'https://discord.com/users/293020630608248832',
-    username: 'skywhoami',
-    icon: 'ic:baseline-discord'
+    name: 'Steam',
+    url: 'https://steamcommunity.com/id/skywhoami',
+    icon: 'mdi:steam'
   },
   {
-    name: 'Email',
-    url: 'mailto:hi@skylar.sh',
-    icon: 'material-symbols:alternate-email'
+    name: 'Signal',
+    url: 'https://signal.me/#eu/Ivfw7s4QOC5HiEV1F9etrB3_iZe0k0kiZKHkcEexftl6zGRNaulHRYB1PVCn_l8c',
+    username: 'skywhoami.01',
+    icon: 'simple-icons:signal'
+  },
+  {
+    name: 'Twitch',
+    url: 'https://www.twitch.tv/skywhoami',
+    icon: 'mdi:twitch'
   },
   {
     name: 'Bluesky',
     url: 'https://bsky.app/profile/skylar.sh',
     icon: 'tabler:brand-bluesky'
+  },
+  {
+    name: 'Email',
+    url: 'mailto:hi@skylar.sh',
+    icon: 'mdi:mail-ru'
   }
 ]
 
