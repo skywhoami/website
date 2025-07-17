@@ -35,7 +35,5 @@ const props = defineProps({
         ← go back home
       </BaseLink>
     </section>
-
-    <Footer />
   </NuxtLayout>
 </template>

@@ -16,9 +16,9 @@ const navigationLinks: NavigationLink[] = [
 </script>
 
 <template>
-  <footer class="mt-auto border-t border-white/10 pt-8">
+  <footer class="mt-auto border-t border-white/10 pt-2 pb-0!">
     <div
-      class="flex flex-col items-start justify-between space-y-2 md:flex-row md:items-center md:space-y-0"
+      class="flex flex-col items-start justify-between space-y-2 pt-4 md:flex-row md:items-center md:space-y-0"
     >
       <div class="text-xs text-zinc-500">
         <BaseLink
@@ -30,7 +30,7 @@ const navigationLinks: NavigationLink[] = [
         &copy; Skylar
       </div>
 
-      <nav v-if="showNavigation" aria-label="Footer navigation">
+      <nav aria-label="Footer navigation">
         <div class="flex flex-wrap items-center gap-1 text-xs">
           <template v-for="(link, index) in navigationLinks" :key="link.to">
             <BaseLink
@@ -51,12 +51,6 @@ const navigationLinks: NavigationLink[] = [
           </template>
         </div>
       </nav>
-
-      <div v-else class="text-xs">
-        <BaseLink aria-label="Go back to homepage" class="text-zinc-500" to="/">
-          cd ..
-        </BaseLink>
-      </div>
     </div>
   </footer>
 </template>

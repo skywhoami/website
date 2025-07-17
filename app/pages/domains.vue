@@ -74,6 +74,4 @@ const domainsList = computed(() => {
       >erisa.uk/domains</BaseLink
     ></span
   >
-
-  <Footer />
 </template>

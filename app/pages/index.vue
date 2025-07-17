@@ -137,7 +137,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
     </div>
   </section>
 
-  <section aria-labelledby="friends" class="mb-16">
+  <section aria-labelledby="friends">
     <div class="flex flex-wrap justify-center gap-2">
       <BaseLink v-for="friend in webring" :key="friend.name" :to="friend.url">
         <img
@@ -150,8 +150,6 @@ const getDisplayText = (item: (typeof socials)[number]) => {
       </BaseLink>
     </div>
   </section>
-
-  <Footer show-navigation />
 </template>
 
 <style scoped>

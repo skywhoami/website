@@ -19,6 +19,4 @@ useHead({
   </article>
 
   <span class="mt-6! mb-6">Last updated on: {{ data.lastUpdated }}</span>
-
-  <Footer />
 </template>

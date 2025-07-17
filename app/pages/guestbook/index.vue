@@ -78,6 +78,4 @@ const timeAgo = (input: string | number | Date) => {
       </div>
     </div>
   </section>
-
-  <Footer />
 </template>

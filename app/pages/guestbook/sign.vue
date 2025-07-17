@@ -93,6 +93,4 @@ const submit = async () => {
       <p v-if="error" class="text-cherry-soda text-sm">{{ error }}</p>
     </form>
   </section>
-
-  <Footer />
 </template>

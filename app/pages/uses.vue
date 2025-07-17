@@ -266,6 +266,4 @@ const getItemDescId = (item: UsesItem) =>
       </div>
     </div>
   </section>
-
-  <Footer />
 </template>
