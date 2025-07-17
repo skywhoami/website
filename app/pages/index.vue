@@ -69,7 +69,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
     <p>
-      hiya! i'm a silly wannabe software developer . i'm
+      hiya! i'm a silly wannabe software developer. i'm
       {{ age }} years old. currently i mostly make stuff for my own use.
     </p>
     <details class="space-y-2">
