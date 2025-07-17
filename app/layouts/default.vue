@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-velvet-black text-lithium-white max-h-screen min-h-screen font-mono"
-  >
+  <div class="bg-velvet-black text-lithium-white max-h-screen min-h-screen">
     <Navbar />
     <main
       id="main-content"

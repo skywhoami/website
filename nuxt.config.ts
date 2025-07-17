@@ -40,7 +40,10 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    families: [{ name: 'Maple Mono', provider: 'fontsource' }]
+    families: [
+      { name: 'Atkinson Hyperlegible Next', provider: 'fontsource' },
+      { name: 'Maple Mono', provider: 'fontsource' }
+    ]
   },
 
   experimental: {

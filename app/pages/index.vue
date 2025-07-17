@@ -121,7 +121,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
             >
             <span
               :id="social.name.toLowerCase().replace(/\s+/g, '-')"
-              class="text-lithium-white/60 font-mono text-sm leading-tight"
+              class="text-lithium-white/60 text-sm leading-tight"
             >
               {{ getDisplayText(social) }}
             </span>

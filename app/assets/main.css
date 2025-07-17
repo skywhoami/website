@@ -8,16 +8,17 @@
   --color-lithium-white: #fafaf9;
   --color-purple: #aa66ff;
   --color-velvet-black: #111111;
+  --font-sans: 'Atkinson Hyperlegible Next', sans-serif;
   --font-mono: 'Maple Mono', monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 body {
-  @apply bg-velvet-black text-lithium-white min-h-screen font-mono;
+  @apply bg-velvet-black text-lithium-white min-h-screen font-sans;
 }
 
 *:focus {
