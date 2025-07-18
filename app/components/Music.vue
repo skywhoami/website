@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import type { NowPlayingTrack } from '~~/server/api/now-playing'
+import type { Track } from '~~/server/api/music'
 
 const {
   data: currentTrack,
   pending,
   error,
   refresh
-} = await useFetch<NowPlayingTrack | null>('/api/now-playing', {
+} = await useFetch<Track | null>('/api/music', {
   default: () => null,
   server: false
 })
@@ -46,9 +46,9 @@ const getServiceInfo = (service: 'spotify' | 'apple-music') => {
 </script>
 
 <template>
-  <section v-if="currentTrack" aria-labelledby="now-playing" class="mb-8">
+  <section v-if="currentTrack" aria-labelledby="music" class="mb-8">
     <div
-      id="now-playing"
+      id="music"
       class="text-lithium-white/60 mb-4 text-xs tracking-wider uppercase"
     >
       {{

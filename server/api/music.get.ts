@@ -1,4 +1,4 @@
-export interface NowPlayingTrack {
+export interface Track {
   name: string
   artist: string
   album: string
@@ -10,13 +10,13 @@ export interface NowPlayingTrack {
   duration_ms?: number
 }
 
-let appleMusicCache: NowPlayingTrack | null = null
+let appleMusicCache: Track | null = null
 let appleMusicCacheTimestamp = 0
 const CACHE_DURATION_MS = 1000 * 60 * 5
 
 async function getSpotifyNowPlaying(
   config: RuntimeConfig
-): Promise<NowPlayingTrack | null> {
+): Promise<Track | null> {
   try {
     const clientId = config.spotifyClientId
     const clientSecret = config.spotifyClientSecret
@@ -85,7 +85,7 @@ async function getSpotifyNowPlaying(
 
 async function getAppleMusicRecent(
   config: RuntimeConfig
-): Promise<NowPlayingTrack | null> {
+): Promise<Track | null> {
   const now = Date.now()
 
   if (appleMusicCache && now - appleMusicCacheTimestamp < CACHE_DURATION_MS) {
