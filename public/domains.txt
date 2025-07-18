@@ -2,7 +2,7 @@
 # anything outside this list is likely not mine
 # if parsing skip lines starting with # and empty ones
 
-# last updated: 2025-06-12
+# last updated: 2025-07-18 19:34:48 +0100 
 
 # you're here
 skylar.sh

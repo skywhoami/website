@@ -61,7 +61,7 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 </script>
 
 <template>
-  <Header size="medium" title="sky 💫" class="text-purple mb-2!">
+  <Header size="medium" title="sky" class="text-purple mb-2!">
     <template #subtitle>
       <p class="italic">she/her</p>
     </template>

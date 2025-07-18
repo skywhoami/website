@@ -7,11 +7,7 @@ export default defineNuxtConfig({
     url: 'https://skylar.sh'
   },
 
-  future: {
-    compatibilityVersion: 4
-  },
-
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: '2025-07-18',
   devtools: { enabled: true },
   modules: [
     '@nuxt/fonts',
@@ -63,39 +59,36 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'dark' },
         {
           name: 'description',
-          content: "sky's site"
+          content:
+            'Skylar is an experimental software developer building weird digital things. This is her home on the webs.'
         },
         { name: 'author', content: 'Skylar' },
         {
           name: 'keywords',
-          content: 'sky, skylar, , software developer, meeows'
+          content:
+            'sky, skylar, skylar.sh, indie dev, experimental software, software developer, personal site, digital playground'
         },
 
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: "sky's site" },
+        { property: 'og:site_name', content: 'skylar.sh' },
         { property: 'og:title', content: "sky's site" },
         {
           property: 'og:description',
-          content: "sky's site"
+          content: 'Skylar builds weird digital projects.'
         },
         { property: 'og:url', content: 'https://skylar.sh' },
-        { property: 'og:image:width', content: '1200' },
-        { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: "sky's site" },
-        { property: 'og:locale', content: 'en_US' },
+        { property: 'og:locale', content: 'en_UK' },
 
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@skywhoami' },
-        { name: 'twitter:creator', content: '@skywhoami' },
-        { name: 'twitter:title', content: "sky's site" },
+        { name: 'twitter:title', content: 'skylar.sh' },
         {
           name: 'twitter:description',
-          content: "sky's site"
-        },
-        { name: 'twitter:image:alt', content: "sky's site" }
+          content:
+            'Skylar is an experimental software developer building weird digital things. This is her home on the webs.'
+        }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'canonical', href: 'https://skylar.sh/' },
         { rel: 'sitemap', type: 'application/xml', href: '/sitemap.xml' }
       ]
@@ -117,7 +110,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    compatibilityDate: '2025-07-15',
+    compatibilityDate: '2025-07-18',
     preset: 'cloudflare_module',
     prerender: {
       crawlLinks: true,
