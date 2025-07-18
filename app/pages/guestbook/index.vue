@@ -43,7 +43,7 @@ const timeAgo = (input: string | number | Date) => {
       class="border-lithium-white/10 inline-block border px-4 py-2 text-sm font-medium"
       variant="button"
     >
-      sign the guestbook →
+      sign the guestbook <span class="font-mono">→</span>
     </BaseLink>
   </section>
 

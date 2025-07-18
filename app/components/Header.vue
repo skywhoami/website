@@ -25,7 +25,7 @@ const titleClass = computed(() => {
         class="text-lithium-white/60 text-sm"
         to="/"
       >
-        ← back
+        <span class="font-mono">←</span> back
       </BaseLink>
     </nav>
 
