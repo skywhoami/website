@@ -45,7 +45,7 @@ const socials: {
 
 const webring: { name: string; url: string; img: string }[] = [
   { name: 'me', url: '', img: '/buttons/sky.png' },
-  { name: 'neru', url: 'https://isneru.meeows.net', img: '/buttons/neru.png' }
+  { name: 'neru', url: 'https://diogo.wtf', img: '/buttons/neru.png' }
 ]
 
 const getDisplayText = (item: (typeof socials)[number]) => {
