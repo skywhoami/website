@@ -44,7 +44,7 @@ const socials: {
 ]
 
 const webring: { name: string; url: string; img: string }[] = [
-  { name: 'me', url: '', img: '/buttons/sky.png' },
+  { name: 'me', url: '/', img: '/buttons/sky.png' },
   { name: 'neru', url: 'https://diogo.wtf', img: '/buttons/neru.png' }
 ]
 
@@ -61,40 +61,40 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 </script>
 
 <template>
-  <Header size="medium" title="sky" class="text-purple mb-2!">
+  <Header size="medium" title="hii, i'm sky" class="text-purple mb-2!">
     <template #subtitle>
+      <p>aka skylar</p>
       <p class="italic">she/her</p>
     </template>
   </Header>
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
-    <p>
-      hiya! i'm a silly wannabe software developer. i'm
-      {{ age }} years old. currently i mostly make stuff for my own use.
-    </p>
+    <p>chaotic anti-productivity princess</p>
     <details class="space-y-2">
       <summary class="hover:cursor-pointer">read more</summary>
-      <p>aw, flattered you're actually curious about me.</p>
+      <p>aw, flattered you're curious about me.</p>
       <p>
-        i started coding when i was 9 (yeah, probably shouldn't have been on the
-        internet unsupervised, but here we are).
+        i started messing with computers when i was 9 (probably shouldn't have
+        been on the internet unsupervised, but here we are).
       </p>
       <p>
-        i mostly build weird little things because it's fun and makes me feel
-        like something's alive. i like when software has soul.
+        i like making little things when i feel like it. no end goal, just that
+        itch to create something because it sounds fun or strange or mildly
+        cursed.
       </p>
       <p>
-        when i'm not coding, i'm probably lost in some deep-dive, tweaking my
-        dotfiles, or just vibing with music and games.
+        outside of code, i'm usually tweaking my dotfiles, turning deep dives
+        into mini obsessions, or vibing to music while forgetting what i was
+        doing.
       </p>
-      <p class="mb-4">
-        if you ever just feel like saying hi, seriously, go for it. i won't bite
+      <p>
+        if you ever just feel like saying hi, seriously, go for it. i don't bite
         :3
       </p>
     </details>
   </section>
 
-  <NowPlaying />
+  <Music />
 
   <section aria-labelledby="connect" class="mb-16">
     <div
@@ -113,23 +113,22 @@ const getDisplayText = (item: (typeof socials)[number]) => {
         variant="social"
       >
         <div class="flex items-center space-x-4">
-          <Icon :name="social.icon" class="text-lemon-drop size-8!" />
+          <Icon :name="social.icon" class="text-lemon-drop size-6!" />
           <div class="flex flex-col">
-            <span
+            <p
               class="group-hover:text-purple text-base leading-tight font-medium transition-colors duration-200"
-              >{{ social.name }}</span
             >
-            <span
-              :id="social.name.toLowerCase().replace(/\s+/g, '-')"
-              class="text-lithium-white/60 text-sm leading-tight"
-            >
-              {{ getDisplayText(social) }}
-            </span>
+              {{ social.name }}
+
+              <span class="text-lithium-white/60 text-sm leading-tight">{{
+                getDisplayText(social)
+              }}</span>
+            </p>
           </div>
         </div>
         <div
           aria-hidden="true"
-          class="group-hover:text-lithium-white text-zinc-600 transition-colors duration-200"
+          class="group-hover:text-lithium-white font-mono text-zinc-600 transition-colors duration-200"
         >
           →
         </div>
