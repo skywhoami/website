@@ -70,6 +70,8 @@ const githubEmojiUnicode = {
 }
 
 const { profile: github } = await useGitHub('skywhoami')
+
+const sponsored = github.data.user.sponsoring?.nodes || []
 </script>
 
 <template>
@@ -112,7 +114,7 @@ const { profile: github } = await useGitHub('skywhoami')
 
   <Music />
 
-  <section aria-labelledby="connect" class="mb-16">
+  <section aria-labelledby="connect" class="mb-8">
     <div
       id="connect"
       class="text-lithium-white/60 mb-6 text-xs tracking-wider uppercase"
@@ -149,6 +151,37 @@ const { profile: github } = await useGitHub('skywhoami')
           →
         </div>
       </BaseLink>
+    </div>
+  </section>
+
+  <section aria-labelledby="sponsored" class="mb-16">
+    <div
+      id="sponsored"
+      class="text-lithium-white/60 mb-6 text-xs tracking-wider uppercase"
+    >
+      cool people i sponsor on github
+    </div>
+
+    <div class="flex space-y-4 space-x-4">
+      <div
+        v-for="person in sponsored"
+        :key="person.login"
+        class="group relative"
+      >
+        <BaseLink :to="`https://github.com/${person.login}`">
+          <img
+            :src="person.avatarUrl"
+            :alt="person.login"
+            class="h-10 w-10 rounded-full transition-transform duration-200 group-hover:scale-110"
+          />
+        </BaseLink>
+
+        <div
+          class="bg-velvet-black text-lithium-white pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 transform rounded px-2 py-1 text-sm whitespace-nowrap opacity-0 transition-opacity group-hover:opacity-100"
+        >
+          {{ person.name }}
+        </div>
+      </div>
     </div>
   </section>
 </template>

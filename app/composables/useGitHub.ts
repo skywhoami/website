@@ -9,6 +9,17 @@ export async function useGitHub(username: string) {
         status {
           emoji
         }
+        ... on Sponsorable {
+          sponsoring(first: 10) {
+            nodes {
+              ... on User {
+                login
+                name
+                avatarUrl
+              }
+            }
+          }
+        }
       }
     }
   `
