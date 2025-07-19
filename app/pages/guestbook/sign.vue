@@ -84,8 +84,7 @@ const submit = async () => {
       <button
         type="submit"
         :disabled="submitting"
-        class="border-lithium-white/10 bg-velvet-black w-full rounded-lg border-2 px-4 py-2 font-medium text-white transition hover:bg-zinc-900 focus:ring-2 focus:ring-zinc-800 focus:outline-none disabled:opacity-50"
-        variant="button"
+        class="border-lithium-white/10 bg-bubblegum hover:bg-bubblegum/60 w-full rounded-lg border-2 px-4 py-2 font-medium text-white transition hover:cursor-pointer hover:underline focus:ring-2 focus:ring-zinc-800 focus:outline-none disabled:opacity-50"
       >
         {{ submitting ? 'sending...' : 'submit' }}
       </button>

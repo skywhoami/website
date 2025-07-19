@@ -34,13 +34,22 @@ const timeAgo = (input: string | number | Date) => {
   <Header show-back-link size="medium" title="guestbook">
     <template #subtitle>
       <p class="italic">messages from lovely people 💌</p>
+      <p>
+        inspired by
+        <BaseLink
+          to="https://sapphic.moe/guestbook"
+          class="text-[rgb(245,194,231)]"
+          underline
+          >Sapphic Angels' /guestbook</BaseLink
+        >
+      </p>
     </template>
   </Header>
 
   <section class="mb-8">
     <BaseLink
       to="/guestbook/sign"
-      class="border-lithium-white/10 inline-block border px-4 py-2 text-sm font-medium"
+      class="border-lithium-white/10 text-md inline-block border px-5 py-3 font-medium"
       variant="button"
     >
       sign the guestbook <span class="font-mono">→</span>
@@ -67,11 +76,11 @@ const timeAgo = (input: string | number | Date) => {
           :key="entry.id"
           class="border-lithium-white/10 bg-velvet-black rounded-lg border-2 p-4"
         >
-          <p class="text-lithium-white mb-1 font-medium">{{ entry.name }}</p>
-          <p class="text-lithium-white/80 whitespace-pre-wrap">
+          <p class="text-lithium-white mb-1 font-semibold">{{ entry.name }}</p>
+          <p class="text-lithium-white whitespace-pre-wrap">
             {{ entry.message }}
           </p>
-          <p class="text-lithium-white/50 mt-2 text-xs">
+          <p class="text-lithium-white/50 text-end text-xs">
             {{ timeAgo(entry.created_at) }}
           </p>
         </div>

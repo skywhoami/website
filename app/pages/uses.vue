@@ -48,7 +48,11 @@ const hardware: UsesSection[] = [
         description: 'gaming mouse',
         url: 'https://www.logitechg.com/en-eu/products/gaming-mice/pro-x-superlight-wireless-mouse.html'
       },
-      { name: 'AirPods Pro (2nd gen)' },
+      {
+        name: 'AirPods Pro (2nd gen)',
+        description:
+          "amazing sound quality and transparency mode for when i'm on the go"
+      },
       { name: 'Razer BlackShark V2 X' },
       { name: 'iPhone 15 Pro' },
       {
@@ -101,7 +105,10 @@ const software: UsesSection[] = [
             url: 'https://github.com/subframe7536/maple-font',
             description: 'my font of choice'
           },
-          { name: 'zsh' },
+          {
+            name: 'zsh',
+            description: "comes bundled with macOS and does it's job perfectly"
+          },
           {
             name: 'Ghostty',
             url: 'https://ghostty.org/',
@@ -123,7 +130,7 @@ const software: UsesSection[] = [
             description: 'prompt theme engine'
           },
           {
-            name: 'colima',
+            name: 'Colima',
             url: 'https://github.com/abiosoft/colima',
             description: 'container runtime'
           }
@@ -139,6 +146,11 @@ const software: UsesSection[] = [
             url: 'https://kaylees.site/wipr2.html'
           },
           {
+            name: '1Password',
+            description: 'browser autofill & integration with desktop app',
+            url: 'https://1password.com'
+          },
+          {
             name: 'Refined GitHub',
             description: 'enhanced github experience',
             url: 'https://github.com/refined-github/refined-github'
@@ -147,21 +159,32 @@ const software: UsesSection[] = [
             name: 'SponsorBlock',
             description: 'skip youtube sponsor segments',
             url: 'https://github.com/ajayyy/SponsorBlock'
-          },
-          {
-            name: '1Password',
-            description: 'password manager',
-            url: 'https://1password.com/'
           }
         ]
       },
       {
         category: 'desktop applications',
         items: [
+          { name: 'Apple Music' },
           {
             name: 'Sketch',
             description: 'design tool',
             url: 'https://www.sketch.com'
+          },
+          {
+            name: '1Password',
+            description: 'password manager',
+            url: 'https://1password.com/'
+          },
+          {
+            name: 'Signal',
+            description: 'open source private messenger',
+            url: 'https://signal.org/'
+          },
+          {
+            name: 'Steam',
+            description: 'that one gaming platform no one can talk bad about',
+            url: 'https://store.steampowered.com/'
           }
         ]
       }
@@ -183,7 +206,18 @@ const getItemDescId = (item: UsesItem) =>
 
 <template>
   <Header show-back-link size="medium" title="uses">
-    <template #subtitle>software and hardware that power my workflow</template>
+    <template #subtitle
+      ><p>software and hardware that power my workflow</p>
+      <p>
+        inspired by
+        <BaseLink
+          to="https://sapphic.moe/uses"
+          class="text-[rgb(245,194,231)]"
+          underline
+          >Sapphic Angels' /uses</BaseLink
+        >
+      </p></template
+    >
   </Header>
 
   <section class="mb-16 space-y-24 text-sm md:text-base">

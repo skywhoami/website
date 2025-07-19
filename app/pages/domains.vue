@@ -42,13 +42,21 @@ const domainsList = computed(() => {
 <template>
   <Header show-back-link size="medium" title="domain list">
     <template #subtitle>
-      <BaseLink
-        rel="noopener noreferrer"
-        target="_blank"
-        to="/domains.txt"
-        underline
-        >raw file
-      </BaseLink>
+      <p>
+        <BaseLink
+          rel="noopener noreferrer"
+          target="_blank"
+          to="/domains.txt"
+          underline
+          >raw file
+        </BaseLink>
+      </p>
+      <p>
+        inspired by
+        <BaseLink class="text-[#c63b65]" underline to="https://erisa.uk/domains"
+          >Erisa's /domains</BaseLink
+        >
+      </p>
     </template>
   </Header>
 
@@ -67,11 +75,4 @@ const domainsList = computed(() => {
       </div>
     </div>
   </section>
-
-  <span class="text-lithium-white/80"
-    >inspired by
-    <BaseLink class="text-[#c63b65]" underline to="https://erisa.uk/domains"
-      >erisa.uk/domains</BaseLink
-    ></span
-  >
 </template>

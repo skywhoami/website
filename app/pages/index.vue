@@ -43,11 +43,6 @@ const socials: {
   }
 ]
 
-const webring: { name: string; url: string; img: string }[] = [
-  { name: 'me', url: '/', img: '/buttons/sky.png' },
-  { name: 'neru', url: 'https://diogo.wtf', img: '/buttons/neru.png' }
-]
-
 const getDisplayText = (item: (typeof socials)[number]) => {
   if (item.username || !item.url) {
     return `@${item.username}`
@@ -135,24 +130,4 @@ const getDisplayText = (item: (typeof socials)[number]) => {
       </BaseLink>
     </div>
   </section>
-
-  <section aria-labelledby="friends">
-    <div class="flex flex-wrap justify-center gap-2">
-      <BaseLink v-for="friend in webring" :key="friend.name" :to="friend.url">
-        <img
-          :src="friend.img"
-          :alt="friend.name"
-          width="88"
-          height="31"
-          class="pixelated"
-        />
-      </BaseLink>
-    </div>
-  </section>
 </template>
-
-<style scoped>
-.pixelated {
-  image-rendering: pixelated;
-}
-</style>

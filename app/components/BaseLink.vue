@@ -23,7 +23,7 @@ const linkClasses = computed(() => {
 
   const variants = {
     default: 'hover:text-purple! rounded-xl',
-    button: 'hover:bg-zinc-900 rounded-xl',
+    button: 'bg-bubblegum hover:bg-bubblegum/60 hover:underline rounded-xl',
     social:
       'group rounded-xl flex items-center justify-between py-3 px-4 border border-transparent hover:border-lithium-white/20 hover:bg-lithium-white/5 hover:scale-102 transition-all duration-200'
   }
