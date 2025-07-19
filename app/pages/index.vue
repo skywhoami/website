@@ -53,18 +53,39 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 
   return `@${item.url.split('/').pop()}`
 }
+
+// there's def a easier way to do this
+// but i can't be bothered to see how
+const githubEmojiUnicode = {
+  ':heart:': '\u2764\uFE0F',
+  ':sparkling_heart:': '💖',
+  ':heartbeat:': '💓',
+  ':heartpulse:': '💗',
+  ':two_hearts:': '💕',
+  ':revolving_hearts:': '💞',
+  ':sparkles:': '✨',
+  ':star:': '⭐',
+  ':star2:': '🌟',
+  ':rainbow_flag:': '🏳️‍🌈'
+}
+
+const { profile: github } = await useGitHub('skywhoami')
 </script>
 
 <template>
-  <Header size="medium" title="hii, i'm sky" class="text-purple mb-2!">
+  <Header
+    size="medium"
+    :title="`hii, i'm sky ${githubEmojiUnicode[github.data.user.status.emoji]}`"
+    class="text-purple mb-2!"
+  >
     <template #subtitle>
       <p>aka skylar</p>
-      <p class="italic">she/her</p>
+      <p class="italic">{{ github.data.user.pronouns }}</p>
     </template>
   </Header>
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
-    <p>chaotic anti-productivity princess</p>
+    <p>{{ github.data.user.bio }}</p>
     <details class="space-y-2">
       <summary class="hover:cursor-pointer">read more</summary>
       <p>aw, flattered you're curious about me.</p>

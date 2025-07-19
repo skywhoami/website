@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
     appleMusicToken: process.env.APPLE_MUSIC_TOKEN,
-    appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN
+    appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
+    githubToken: process.env.GITHUB_TOKEN
   },
 
   sourcemap: { client: true, server: false },
