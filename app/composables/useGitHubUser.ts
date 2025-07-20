@@ -1,4 +1,34 @@
-export async function useGitHub(username: string) {
+export async function useGitHubUser(username: string) {
+  type Data = {
+    data: {
+      user: User
+    }
+  }
+
+  type User = {
+    avatarUrl: string
+    name: string | null | undefined
+    bio: string | null | undefined
+    pronouns: string | null | undefined
+    status: Status
+    sponsoring: Sponsoring
+    totalSponsorshipAmountAsSponsorInCents: number
+  }
+
+  type Sponsoring = {
+    nodes: SponsorNode[]
+  }
+
+  type SponsorNode = {
+    login: string
+    name: string
+    avatarUrl: string
+  }
+
+  type Status = {
+    emoji: string | null | undefined
+  }
+
   const query = `
     query getUser($login: String!) {
       user(login: $login) {
@@ -9,6 +39,7 @@ export async function useGitHub(username: string) {
         status {
           emoji
         }
+        totalSponsorshipAmountAsSponsorInCents
         ... on Sponsorable {
           sponsoring(first: 10) {
             nodes {
@@ -24,7 +55,7 @@ export async function useGitHub(username: string) {
     }
   `
 
-  const { data, pending, error, refresh } = await useFetch(
+  const { data, pending, error, refresh } = await useFetch<Data>(
     `https://api.github.com/graphql`,
     {
       method: 'POST',
@@ -38,7 +69,7 @@ export async function useGitHub(username: string) {
   )
 
   return {
-    data: data.value,
+    data: data.value!.data.user,
     pending,
     error,
     refresh

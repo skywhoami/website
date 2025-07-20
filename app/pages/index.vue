@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { get } from 'node-emoji'
+
 const age = Math.floor(
   (Date.now() - new Date('2006-11-28').getTime()) /
     (1000 * 60 * 60 * 24 * 365.25)
@@ -54,40 +56,38 @@ const getDisplayText = (item: (typeof socials)[number]) => {
   return `@${item.url.split('/').pop()}`
 }
 
-// there's def a easier way to do this
-// but i can't be bothered to see how
-const githubEmojiUnicode = {
-  ':heart:': '\u2764\uFE0F',
-  ':sparkling_heart:': '💖',
-  ':heartbeat:': '💓',
-  ':heartpulse:': '💗',
-  ':two_hearts:': '💕',
-  ':revolving_hearts:': '💞',
-  ':sparkles:': '✨',
-  ':star:': '⭐',
-  ':star2:': '🌟',
-  ':rainbow_flag:': '🏳️‍🌈'
+const { data: github } = await useGitHubUser('skywhoami')
+
+const sponsored = github.sponsoring.nodes || []
+
+function centsToDollars(
+  cents: number,
+  locale = 'en-US',
+  currency = 'USD'
+): string {
+  const dollars = cents / 100
+  return dollars.toLocaleString(locale, {
+    style: 'currency',
+    currency
+  })
 }
-
-const { data: github } = await useGitHub('skywhoami')
-
-const sponsored = github.data.user.sponsoring?.nodes || []
 </script>
 
 <template>
   <Header
     size="medium"
-    :title="`hii, i'm sky ${githubEmojiUnicode[github.data.user.status.emoji]}`"
+    :title="`hii, i'm sky ${get(github.status.emoji || '')}`"
     class="text-purple mb-2!"
   >
     <template #subtitle>
       <p>aka skylar</p>
-      <p class="italic">{{ github.data.user.pronouns }}</p>
+      <p>{{ age }}</p>
+      <p class="italic">{{ github.pronouns }}</p>
     </template>
   </Header>
 
   <section class="mb-4 space-y-4 text-sm leading-relaxed md:text-base">
-    <p>{{ github.data.user.bio }}</p>
+    <p>{{ github.bio }}</p>
     <details class="space-y-2">
       <summary class="hover:cursor-pointer">read more</summary>
       <p>aw, flattered you're curious about me.</p>
@@ -155,13 +155,6 @@ const sponsored = github.data.user.sponsoring?.nodes || []
   </section>
 
   <section aria-labelledby="sponsored" class="mb-16">
-    <div
-      id="sponsored"
-      class="text-lithium-white/60 mb-6 text-xs tracking-wider uppercase"
-    >
-      cool people i sponsor on github
-    </div>
-
     <div class="flex space-y-4 space-x-4">
       <div
         v-for="person in sponsored"
@@ -182,6 +175,14 @@ const sponsored = github.data.user.sponsoring?.nodes || []
           {{ person.name }}
         </div>
       </div>
+    </div>
+    <div
+      id="sponsored"
+      class="text-lithium-white/40 mt-2 text-xs tracking-wider uppercase"
+    >
+      money well misplaced —
+      {{ centsToDollars(github.totalSponsorshipAmountAsSponsorInCents) }}
+      <span class="italic">total since July 10, 2025</span>
     </div>
   </section>
 </template>
