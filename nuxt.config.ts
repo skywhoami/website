@@ -115,7 +115,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare_module',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/uses', '/legal/privacy', '/domains']
+      routes: ['/legal/privacy', '/sitemap.xml', '/robots.txt']
     },
     experimental: { database: true, tasks: true },
 

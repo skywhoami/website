@@ -69,7 +69,7 @@ const githubEmojiUnicode = {
   ':rainbow_flag:': '🏳️‍🌈'
 }
 
-const { profile: github } = await useGitHub('skywhoami')
+const { data: github } = await useGitHub('skywhoami')
 
 const sponsored = github.data.user.sponsoring?.nodes || []
 </script>
@@ -172,7 +172,7 @@ const sponsored = github.data.user.sponsoring?.nodes || []
           <img
             :src="person.avatarUrl"
             :alt="person.login"
-            class="h-10 w-10 rounded-full transition-transform duration-200 group-hover:scale-110"
+            class="h-10 w-10 rounded-full transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12"
           />
         </BaseLink>
 

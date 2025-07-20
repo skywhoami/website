@@ -24,25 +24,21 @@ export async function useGitHub(username: string) {
     }
   `
 
-  const variables = { login: username }
-
-  const {
-    data: profile,
-    pending,
-    error,
-    refresh
-  } = await useFetch(`https://api.github.com/graphql`, {
-    method: 'POST',
-    key: `github-profile-${username}`,
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
-    },
-    body: { query, variables }
-  })
+  const { data, pending, error, refresh } = await useFetch(
+    `https://api.github.com/graphql`,
+    {
+      method: 'POST',
+      key: `github-profile-${username}`,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+      },
+      body: { query, variables: { login: username } }
+    }
+  )
 
   return {
-    profile: profile.value,
+    data: data.value,
     pending,
     error,
     refresh
