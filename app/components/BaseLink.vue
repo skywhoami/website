@@ -53,20 +53,18 @@ const playPopSound = () => {
   }
 }
 
-defineExpose({
-  isExternal
-})
+defineExpose({ isExternal })
 </script>
 
 <template>
   <NuxtLink
-    :class="linkClasses"
-    :external="isExternal"
-    :rel="isExternal ? 'noopener noreferrer' : undefined"
-    :target="isExternal ? '_blank' : undefined"
     :to="to"
-    v-bind="$attrs"
+    :external="isExternal"
+    :class="linkClasses"
+    :target="isExternal ? '_blank' : undefined"
+    :rel="isExternal ? 'noopener noreferrer' : undefined"
     @click="playPopSound"
+    v-bind="$attrs"
     active-class="text-bubblegum"
   >
     <slot />
