@@ -18,5 +18,7 @@ useHead({
     <ContentRenderer :value="data.body" />
   </article>
 
-  <span class="mt-6! mb-6">Last updated on: {{ data.lastUpdated }}</span>
+  <span class="mt-6! mb-6" v-if="data?.lastUpdated"
+    >Last updated on: {{ data.lastUpdated }}</span
+  >
 </template>

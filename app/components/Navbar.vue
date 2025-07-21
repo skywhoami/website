@@ -103,7 +103,6 @@ onUnmounted(() => {
             <BaseLink
               :aria-label="`Go to ${link.label} page`"
               :to="link.to"
-              active-class="text-primary"
               class="group hover:bg-lithium-white/10 relative block rounded-md px-3 py-2 text-sm"
               @click="isMenuOpen = false"
             >

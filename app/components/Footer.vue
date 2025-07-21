@@ -1,16 +1,6 @@
 <script lang="ts" setup>
-interface NavigationLink {
-  to: string
-  label: string
-}
-
-interface Props {
-  showNavigation?: boolean
-}
-
-const { showNavigation = false } = defineProps<Props>()
-
-const navigationLinks: NavigationLink[] = [
+const navigationLinks: { to: string; label: string }[] = [
+  { to: '/legal/credits', label: 'credits' },
   { to: '/legal/privacy', label: 'privacy' }
 ]
 </script>
