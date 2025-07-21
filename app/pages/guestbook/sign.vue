@@ -81,6 +81,12 @@ const submit = async () => {
 
       <NuxtTurnstile v-model="token" />
 
+      <p class="text-lithium-white/60 text-sm">
+        by submitting, you're cool with your message being public and agree to
+        the
+        <BaseLink to="/legal/privacy" underline>Privacy Policy</BaseLink>.
+      </p>
+
       <button
         type="submit"
         :disabled="submitting"

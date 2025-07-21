@@ -102,6 +102,10 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: { h1: true, h2: true, h3: false }
+    },
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
     }
   },
 
