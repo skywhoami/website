@@ -1,12 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'domains',
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://skylar.sh/domains'
-    }
-  ]
+  title: 'domains'
 })
 
 const {

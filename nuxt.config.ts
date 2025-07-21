@@ -90,7 +90,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'canonical', href: 'https://skylar.sh/' },
         { rel: 'sitemap', type: 'application/xml', href: '/sitemap.xml' }
       ]
     },

@@ -1,4 +1,5 @@
 <script setup>
+const route = useRoute()
 useHead({
   titleTemplate: title => (title ? `${title} · skylar.sh` : "sky's site"),
   script: [
@@ -13,6 +14,12 @@ useHead({
         url: 'https://skylar.sh',
         sameAs: ['https://github.com/skywhoami']
       })
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: `https://skylar.sh${route.path}`
     }
   ]
 })

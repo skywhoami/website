@@ -1,12 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'uses',
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://skylar.sh/uses'
-    }
-  ]
+  title: 'uses'
 })
 
 interface UsesItem {
