@@ -1,30 +1,37 @@
 <script lang="ts" setup>
-import type { Track } from '~~/server/api/music'
+import type { Track } from '~/../server/api/music.get'
 
 const {
   data: currentTrack,
   pending,
-  error,
   refresh
 } = await useFetch<Track | null>('/api/music', {
   default: () => null,
   server: false
 })
 
-let refreshInterval: NodeJS.Timeout | null = null
+let refreshInterval = ref<NodeJS.Timeout | null>(null)
 
-onMounted(() => {
-  refreshInterval = setInterval(() => {
-    if (!pending.value) {
-      refresh()
-    }
-  }, 30000)
+watchEffect(onCleanup => {
+  if (refreshInterval.value) {
+    clearInterval(refreshInterval.value)
+    refreshInterval.value = null
+  }
+
+  if (
+    currentTrack.value?.service === 'spotify' &&
+    currentTrack.value.isPlaying
+  ) {
+    const timer = setInterval(() => {
+      if (!pending.value) refresh()
+    }, 30_000)
+    refreshInterval.value = timer
+    onCleanup(() => clearInterval(timer))
+  }
 })
 
-onUnmounted(() => {
-  if (refreshInterval) {
-    clearInterval(refreshInterval)
-  }
+onBeforeUnmount(() => {
+  if (refreshInterval.value) clearInterval(refreshInterval.value)
 })
 
 const getServiceInfo = (service: 'spotify' | 'apple-music') => {
