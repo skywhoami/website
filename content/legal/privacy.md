@@ -17,9 +17,9 @@ That said, there's now a [guestbook](/guestbook). If you leave a message there, 
 
 If you use the [guestbook](/guestbook), you're submitting a **name** and a **message**. These are stored so others can see them, obviously. Don't put anything sensitive in there, treat it like a public shout-out.
 
-* Messages are public once submitted. You can contact me if you'd like yours removed.
-* No hidden tracking, profiling, or fingerprinting.
-* The form uses [Cloudflare Turnstile] to block spam. Turnstile may process some data (e.g. your IP or browser info, I don't see that data — it's between you and Cloudflare) to verify you're human. You can read more in [Cloudflare's Turnstile Privacy Addendum](https://www.cloudflare.com/en-gb/turnstile-privacy-policy/).
+- Messages are public once submitted. You can contact me if you'd like yours removed.
+- No hidden tracking, profiling, or fingerprinting.
+- The form uses [Cloudflare Turnstile] to block spam. Turnstile may process some data (e.g. your IP or browser info, I don't see that data — it's between you and Cloudflare) to verify you're human. You can read more in [Cloudflare's Turnstile Privacy Addendum](https://www.cloudflare.com/en-gb/turnstile-privacy-policy/).
 
 ### Cloudflare & Hosting
 

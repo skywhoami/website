@@ -2,7 +2,7 @@
 title: Credits
 ---
 
-- [Sapphic Angels](https://sapphic.moe/) - huge inspo for my `/uses` and `/guestbook` pages. Their site is *full* of personality.
+- [Sapphic Angels](https://sapphic.moe/) - huge inspo for my `/uses` and `/guestbook` pages. Their site is _full_ of personality.
 - [Erisa A](https://erisa.uk) - inspired my `/domains`, privacy policy structure, and the read more section.
 
 ---
