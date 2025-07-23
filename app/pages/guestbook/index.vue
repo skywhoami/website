@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-useHead({ title: 'guestbook' })
+definePageMeta({ title: 'guestbook', description: 'say hi' })
 
 const {
   data: entries,

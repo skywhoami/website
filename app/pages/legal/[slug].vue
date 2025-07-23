@@ -1,24 +1,22 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data } = await useAsyncData(route.path, () => {
+const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('legal').path(route.path).first()
 })
-if (!data.value)
+if (!page.value)
   throw createError({ statusCode: 404, statusMessage: 'Not found' })
 
-useHead({
-  title: data.value.title || 'Legal'
-})
+route.meta.title = page.value.title
 </script>
 
 <template>
-  <Header show-back-link size="medium" class="-mb-4!" :title="data.title" />
+  <Header show-back-link size="medium" class="-mb-4!" :title="page.title" />
 
   <article class="prose prose-invert text-lithium-white leading-relaxed">
-    <ContentRenderer :value="data.body" />
+    <ContentRenderer :value="page.body" />
   </article>
 
-  <span class="mt-6! mb-6" v-if="data?.lastUpdated"
-    >Last updated on: {{ data.lastUpdated }}</span
+  <span class="mt-6! mb-6" v-if="page?.lastUpdated"
+    >Last updated on: {{ page.lastUpdated }}</span
   >
 </template>

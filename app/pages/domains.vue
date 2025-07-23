@@ -1,26 +1,15 @@
 <script lang="ts" setup>
-useHead({
-  title: 'domains'
+definePageMeta({
+  title: 'domains',
+  description: 'list of root-level domains owned by Skylar'
 })
 
-const {
-  data: domainsContent,
-  pending,
-  error,
-  refresh
-} = await useFetch('/domains.txt', {
+const { data: domainsContent } = await useFetch('/domains.txt', {
   headers: {
     'Cache-Control': 'no-cache'
   },
   key: 'domains-content-' + Date.now(),
   responseType: 'text'
-})
-
-watch(error, (newError: Error) => {
-  if (newError) {
-    console.error('Error fetching domains.txt, retrying...', newError)
-    refresh()
-  }
 })
 
 const domainsList = computed(() => {

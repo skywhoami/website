@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-useHead({
-  title: 'uses'
+definePageMeta({
+  title: 'uses',
+  description: "software and hardware that powers Skylar's workflow"
 })
 
 interface UsesItem {

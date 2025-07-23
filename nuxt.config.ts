@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/turnstile',
     '@nuxt/scripts',
-    'nitro-cloudflare-dev'
+    'nitro-cloudflare-dev',
+    'nuxt-og-image'
   ],
 
   runtimeConfig: {
@@ -77,8 +78,14 @@ export default defineNuxtConfig({
           property: 'og:description',
           content: 'Skylar builds weird digital projects.'
         },
-        { property: 'og:url', content: 'https://skylar.sh' },
         { property: 'og:locale', content: 'en_UK' },
+        {
+          property: 'og:image',
+          content: '/__og-image__/static/og.png',
+          key: 'og:image'
+        },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '600' },
 
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'skylar.sh' },
@@ -111,6 +118,10 @@ export default defineNuxtConfig({
 
   turnstile: {
     siteKey: '0x4AAAAAABlGl3GCGqZycMAD'
+  },
+
+  ogImage: {
+    zeroRuntime: true
   },
 
   nitro: {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NuxtError } from '#app'
+
 const quotes404 = [
   'this page got lost in the void.',
   '404? more like 4-oops.',
@@ -9,8 +11,13 @@ const quotes404 = [
 ]
 const quote404 = quotes404[Math.floor(Math.random() * quotes404.length)]
 
-const props = defineProps({
-  error: Object as () => NuxtError
+const props = defineProps<{
+  error: NuxtError
+}>()
+
+defineOgImageComponent('Default', {
+  title: error.statusCode.toString(),
+  description: error.statusText
 })
 </script>
 
