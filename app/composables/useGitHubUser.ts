@@ -26,7 +26,8 @@ export async function useGitHubUser(username: string) {
   }
 
   type Status = {
-    emoji: string | null | undefined
+    emojiHTML: string | null | undefined
+    message: string | null | undefined
   }
 
   const query = `
@@ -37,7 +38,8 @@ export async function useGitHubUser(username: string) {
         bio
         pronouns
         status {
-          emoji
+          emojiHTML
+          message
         }
         totalSponsorshipAmountAsSponsorInCents
         ... on Sponsorable {

@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { get } from 'node-emoji'
-
 const age = Math.floor(
   (Date.now() - new Date('2006-11-28').getTime()) /
     (1000 * 60 * 60 * 24 * 365.25)
@@ -71,16 +69,25 @@ function centsToDollars(
     currency
   })
 }
+
+const githubStatus = computed(() => {
+  const emoji = github.status?.emojiHTML ?? ''
+  const message = github.status?.message ?? ''
+
+  if (!emoji || !message) return undefined
+
+  const cleanEmoji = emoji
+    .replace(/<div[^>]*>/, '<span>')
+    .replace('</div>', '</span>')
+
+  return `${cleanEmoji}&nbsp;${message}`
+})
 </script>
 
 <template>
-  <Header
-    size="medium"
-    :title="`hii, i'm sky ${get(github.status.emoji || '')}`"
-    class="text-purple mb-2!"
-  >
+  <Header size="medium" title="hii, i'm sky" class="text-purple mb-2!">
     <template #subtitle>
-      <p>aka skylar</p>
+      <span v-if="githubStatus" v-html="githubStatus" class="inline" />
       <p>{{ age }}</p>
       <p class="italic">{{ github.pronouns }}</p>
     </template>
@@ -154,7 +161,7 @@ function centsToDollars(
     </div>
   </section>
 
-  <section aria-labelledby="sponsored" class="mb-16">
+  <section v-if="sponsored" aria-labelledby="sponsored" class="mb-16">
     <div class="flex space-y-4 space-x-4">
       <div
         v-for="person in sponsored"
