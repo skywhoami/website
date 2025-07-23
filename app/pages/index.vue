@@ -69,26 +69,16 @@ function centsToDollars(
     currency
   })
 }
-
-const githubStatus = computed(() => {
-  const emoji = github.status?.emojiHTML ?? ''
-  const message = github.status?.message ?? ''
-
-  if (!emoji || !message) return undefined
-
-  const cleanEmoji = emoji
-    .replace(/<div[^>]*>/, '<span>')
-    .replace('</div>', '</span>')
-
-  return `${cleanEmoji}&nbsp;${message}`
-})
 </script>
 
 <template>
-  <Header size="medium" title="hii, i'm sky" class="text-purple mb-2!">
+  <Header
+    size="medium"
+    :title="`hii, i'm sky ${github.status?.emojiHTML.replace(/<div[^>]*>/, '').replace('</div>', '') || ''}`"
+    class="text-purple mb-2!"
+  >
     <template #subtitle>
-      <span v-if="githubStatus" v-html="githubStatus" class="inline" />
-      <p>{{ age }}</p>
+      <p>{{ age }} y/o</p>
       <p class="italic">{{ github.pronouns }}</p>
     </template>
   </Header>
