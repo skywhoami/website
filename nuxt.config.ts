@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     '@nuxtjs/turnstile',
     '@nuxt/scripts',
     'nitro-cloudflare-dev',
-    'nuxt-og-image'
+    'nuxt-og-image',
+    '@nuxt/image'
   ],
 
   runtimeConfig: {

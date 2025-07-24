@@ -56,8 +56,6 @@ const getDisplayText = (item: (typeof socials)[number]) => {
 
 const { data: github } = await useGitHubUser('skywhoami')
 
-const sponsored = github.sponsoring.nodes || []
-
 function centsToDollars(
   cents: number,
   locale = 'en-US',
@@ -74,7 +72,7 @@ function centsToDollars(
 <template>
   <Header
     size="medium"
-    :title="`hii, i'm sky ${github.status?.emojiHTML.replace(/<div[^>]*>/, '').replace('</div>', '') || ''}`"
+    :title="`hii, i'm sky ${github.status?.emojiHTML?.replace(/<div[^>]*>/, '').replace('</div>', '') || ''}`"
     class="text-purple mb-2!"
   >
     <template #subtitle>
@@ -151,17 +149,22 @@ function centsToDollars(
     </div>
   </section>
 
-  <section v-if="sponsored" aria-labelledby="sponsored" class="mb-16">
+  <section
+    v-if="github.sponsoring.nodes"
+    aria-labelledby="sponsoring"
+    class="mb-16"
+  >
     <div class="flex space-y-4 space-x-4">
       <div
-        v-for="person in sponsored"
+        v-for="person in github.sponsoring.nodes"
         :key="person.login"
         class="group relative"
       >
         <BaseLink :to="`https://github.com/${person.login}`">
-          <img
+          <NuxtImg
             :src="person.avatarUrl"
             :alt="person.login"
+            loading="lazy"
             class="h-10 w-10 rounded-full transition-transform duration-200 group-hover:scale-110 group-hover:rotate-12"
           />
         </BaseLink>
@@ -169,7 +172,13 @@ function centsToDollars(
         <div
           class="bg-velvet-black text-lithium-white pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 transform rounded px-2 py-1 text-sm whitespace-nowrap opacity-0 transition-opacity group-hover:opacity-100"
         >
-          {{ person.name }}
+          {{ person.name }} -
+          {{
+            centsToDollars(
+              person.sponsorshipForViewerAsSponsor?.tier?.monthlyPriceInCents ??
+                0
+            )
+          }}/mo
         </div>
       </div>
     </div>
@@ -179,7 +188,7 @@ function centsToDollars(
     >
       money well misplaced —
       {{ centsToDollars(github.totalSponsorshipAmountAsSponsorInCents) }}
-      <span class="italic">total since July 10, 2025</span>
+      <span class="italic">since July 10, 2025</span>
     </div>
   </section>
 </template>

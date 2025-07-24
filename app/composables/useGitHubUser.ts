@@ -23,6 +23,11 @@ export async function useGitHubUser(username: string) {
     login: string
     name: string
     avatarUrl: string
+    sponsorshipForViewerAsSponsor?: { tier?: SponsorTier }
+  }
+
+  type SponsorTier = {
+    monthlyPriceInCents: number
   }
 
   type Status = {
@@ -43,12 +48,17 @@ export async function useGitHubUser(username: string) {
         }
         totalSponsorshipAmountAsSponsorInCents
         ... on Sponsorable {
-          sponsoring(first: 10) {
+          sponsoring(first: 50) {
             nodes {
               ... on User {
                 login
                 name
                 avatarUrl
+                sponsorshipForViewerAsSponsor {
+                  tier {
+                    monthlyPriceInCents
+                  }
+                }
               }
             }
           }

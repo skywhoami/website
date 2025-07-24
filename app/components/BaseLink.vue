@@ -13,10 +13,6 @@ const {
   underline = false
 } = defineProps<Props>()
 
-const isExternal = computed(
-  () => to.startsWith('http') || to.startsWith('mailto:')
-)
-
 const linkClasses = computed(() => {
   const baseClasses =
     'transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lithium-white focus-visible:ring-offset-2 focus-visible:ring-offset-velvet-black'
@@ -52,19 +48,15 @@ const playPopSound = () => {
     console.warn('Audio not supported:', error)
   }
 }
-
-defineExpose({ isExternal })
 </script>
 
 <template>
   <NuxtLink
     :to="to"
-    :external="isExternal"
     :class="linkClasses"
-    :target="isExternal ? '_blank' : undefined"
-    :rel="isExternal ? 'noopener noreferrer' : undefined"
     @click="playPopSound"
     v-bind="$attrs"
+    :target="to.startsWith('http') ? '_blank' : undefined"
     active-class="text-bubblegum"
   >
     <slot />
