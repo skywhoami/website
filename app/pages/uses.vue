@@ -25,13 +25,17 @@ const hardware: UsesSection[] = [
   {
     items: [
       {
-        name: "MacBook Pro 16'' M3 Pro 18GB",
+        name: "Gloss (MacBook Pro 16'' M3 Pro 18GB)",
         description: 'daily driver'
       },
       {
         name: "MacBook Air 13'' M1 8GB",
-        description:
-          'the laptop i use for uni and also serving as my home server'
+        description: 'mostly used for university'
+      },
+      {
+        name: 'Cherry (Hetzner Cloud CX32)',
+        description: 'a cloud server running nixos used to host some stuff',
+        url: 'https://github.com/skywhoami/dotfiles/tree/main/hosts/cherry'
       },
       {
         name: 'Apple Magic Mouse',
@@ -123,11 +127,6 @@ const software: UsesSection[] = [
             name: 'Oh My Posh',
             url: 'https://ohmyposh.dev/',
             description: 'prompt theme engine'
-          },
-          {
-            name: 'Colima',
-            url: 'https://github.com/abiosoft/colima',
-            description: 'container runtime'
           }
         ]
       },
