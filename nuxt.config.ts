@@ -16,7 +16,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/turnstile',
     '@nuxt/scripts',
-    'nitro-cloudflare-dev',
     'nuxt-og-image',
     '@nuxt/image'
   ],
@@ -110,10 +109,6 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: { h1: true, h2: true, h3: false }
-    },
-    database: {
-      type: 'd1',
-      bindingName: 'DB'
     }
   },
 
@@ -127,39 +122,17 @@ export default defineNuxtConfig({
 
   nitro: {
     compatibilityDate: '2025-07-18',
-    preset: 'cloudflare_module',
+    preset: 'node',
     prerender: {
       crawlLinks: true,
       routes: ['/legal/privacy', '/sitemap.xml', '/robots.txt']
     },
     experimental: { database: true, tasks: true },
-
-    cloudflare: {
-      deployConfig: true,
-      nodeCompat: true,
-      wrangler: {
-        name: 'website',
-        observability: { logs: { enabled: true } },
-        keep_vars: true,
-        d1_databases: [
-          {
-            binding: 'DB',
-            database_name: 'DB',
-            database_id: '2e6393fb-3f43-41f4-bc03-2f76d98e92a2'
-          }
-        ]
-      }
-    }
-  },
-
-  $production: {
-    nitro: {
-      database: {
-        default: {
-          connector: 'cloudflare-d1',
-          options: {
-            bindingName: 'DB'
-          }
+    database: {
+      default: {
+        connector: 'postgresql',
+        options: {
+          url: process.env.DATABASE_URL
         }
       }
     }
