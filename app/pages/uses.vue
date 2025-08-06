@@ -26,14 +26,14 @@ const hardware: UsesSection[] = [
     items: [
       {
         name: "Gloss (MacBook Pro 16'' M3 Pro 18GB)",
-        description: 'daily driver'
+        description: 'daily driver, managed with nix'
       },
       {
         name: "MacBook Air 13'' M1 8GB",
         description: 'mostly used for university'
       },
       {
-        name: 'Cherry (Hetzner Cloud CX32)',
+        name: 'Cherry (Hetzner Cloud CAX21)',
         description: 'a cloud server running nixos used to host some stuff',
         url: 'https://github.com/skywhoami/dotfiles/tree/main/hosts/cherry'
       },
@@ -133,11 +133,11 @@ const software: UsesSection[] = [
       {
         category: 'browser & extensions',
         items: [
-          { name: 'Safari' },
           {
-            name: 'Wipr 2',
-            description: 'ad and tracker blocker for safari',
-            url: 'https://kaylees.site/wipr2.html'
+            name: 'Zen Browser',
+            description:
+              'ever since i got my first macbook i had been using safari but got tired of not having all extensions and stuff i wanted',
+            url: 'https://zen-browser.app/'
           },
           {
             name: '1Password',
@@ -153,6 +153,26 @@ const software: UsesSection[] = [
             name: 'SponsorBlock',
             description: 'skip youtube sponsor segments',
             url: 'https://github.com/ajayyy/SponsorBlock'
+          },
+          {
+            name: 'BetterTTV',
+            description: 'better twitch experience',
+            url: 'https://betterttv.com/'
+          },
+          {
+            name: 'Catppuccin for Web File Explorer Icons',
+            description: 'pretty file explorer icons',
+            url: 'https://github.com/catppuccin/web-file-explorer-icons'
+          },
+          {
+            name: 'uBlock Origin',
+            description: 'ad blocker',
+            url: 'https://github.com/gorhill/uBlock'
+          },
+          {
+            name: 'Stylus',
+            description: 'userstyles',
+            url: 'https://add0n.com/stylus.html'
           }
         ]
       },
@@ -160,11 +180,6 @@ const software: UsesSection[] = [
         category: 'desktop applications',
         items: [
           { name: 'Apple Music' },
-          {
-            name: 'Sketch',
-            description: 'design tool',
-            url: 'https://www.sketch.com'
-          },
           {
             name: '1Password',
             description: 'password manager',
@@ -179,6 +194,31 @@ const software: UsesSection[] = [
             name: 'Steam',
             description: 'that one gaming platform no one can talk bad about',
             url: 'https://store.steampowered.com/'
+          },
+          {
+            name: 'Proton Mail',
+            description: 'private email',
+            url: 'https://proton.me/mail'
+          },
+          {
+            name: 'Vesktop',
+            description: 'custom discord app',
+            url: 'https://github.com/Vencord/Vesktop'
+          }
+        ]
+      },
+      {
+        category: 'services',
+        items: [
+          {
+            name: 'Caddy',
+            description: 'web server',
+            url: 'https://caddyserver.com/'
+          },
+          {
+            name: 'Glance',
+            description: 'dashboard',
+            url: 'https://github.com/glanceapp/glance'
           }
         ]
       }

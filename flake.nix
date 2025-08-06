@@ -6,18 +6,24 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs: inputs.flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = (import (inputs.nixpkgs) { inherit system; });
-    in
-    {
-      devShell = pkgs.mkShell {
-        buildInputs = [
-          pkgs.bun
-          pkgs.nodejs
-        ];
-      };
-      
-      nixosModules.default = {};
-    });
+  outputs =
+    inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = (import (inputs.nixpkgs) { inherit system; });
+      in
+      {
+        devShell = pkgs.mkShell {
+          buildInputs = [
+            pkgs.bun
+            pkgs.nodejs
+            pkgs.prettierd
+            pkgs.nodePackages.prettier
+          ];
+        };
+
+        nixosModules.default = { };
+      }
+    );
 }
