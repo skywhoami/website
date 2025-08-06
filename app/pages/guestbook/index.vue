@@ -7,9 +7,20 @@ const {
   status
 } = await useLazyFetch('/api/guestbook', { server: false })
 
+// holy, have you ever seen a timeAgo function this overengineered?
 const timeAgo = (input: string | number | Date) => {
-  const utc =
-    typeof input === 'string' ? new Date(input + 'Z') : new Date(input)
+  let utc: Date
+
+  if (typeof input === 'string') {
+    if (/[Z+-]/.test(input)) {
+      utc = new Date(input)
+    } else {
+      utc = new Date(input + 'Z')
+    }
+  } else {
+    utc = new Date(input)
+  }
+
   const diff = Date.now() - utc.getTime()
 
   const minutes = Math.floor(diff / 60000)
