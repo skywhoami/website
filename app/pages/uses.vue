@@ -219,6 +219,11 @@ const software: UsesSection[] = [
             name: 'Glance',
             description: 'dashboard',
             url: 'https://github.com/glanceapp/glance'
+          },
+          {
+            name: 'Bluesky PDS',
+            description: 'bluesky personal data server',
+            url: 'https://github.com/bluesky-social/pds'
           }
         ]
       }
