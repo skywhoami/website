@@ -21,7 +21,6 @@
     "@nuxtjs/turnstile": "1.0.0",
     "@tailwindcss/vite": "^4.1.11",
     "@unhead/vue": "^2.0.14",
-    "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.3",
     "nuxt-og-image": "5.1.9",
     "pg": "^8.16.3",
