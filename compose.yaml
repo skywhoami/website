@@ -8,3 +8,5 @@ services:
       update_config:
         order: start-first
       replicas: 1
+    ports:
+      - "127.0.0.1:3000:3000"
