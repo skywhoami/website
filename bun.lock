@@ -16,7 +16,6 @@
         "@unhead/vue": "^2.0.14",
         "nuxt": "^4.0.3",
         "nuxt-og-image": "5.1.9",
-        "ofetch": "^1.4.1",
         "pg": "^8.16.3",
         "tailwindcss": "^4.1.11",
         "unstorage": "^1.16.1",
