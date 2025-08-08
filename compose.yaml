@@ -7,3 +7,5 @@ services:
     deploy:
       update_config:
         order: start-first
+    ports:
+      - "3000:3000"
