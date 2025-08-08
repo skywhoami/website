@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
 
@@ -23,6 +23,7 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/arm64
           tags: |
             ghcr.io/skywhoami/website:latest
             ghcr.io/skywhoami/website:${{ github.sha }}
