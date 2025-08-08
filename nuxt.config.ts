@@ -127,10 +127,6 @@ export default defineNuxtConfig({
   nitro: {
     compatibilityDate: '2025-07-18',
     preset: 'node-server',
-    prerender: {
-      crawlLinks: true,
-      routes: ['/legal/privacy', '/sitemap.xml', '/robots.txt']
-    },
     experimental: { database: true, tasks: true },
     database: {
       default: {

@@ -1,0 +1,11 @@
+**/.DS_Store
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/node_modules
+**/Dockerfile*
+**/compose.y*ml
+**/docker-compose*
+LICENSE
+README.md

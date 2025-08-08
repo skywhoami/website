@@ -1,0 +1,9 @@
+services:
+  website:
+    image: ghcr.io/skywhoami/website:${GIT_COMMIT_HASH:-latest}
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - DATABASE_URL=${DATABASE_URL}
+    deploy:
+      update_config:
+        order: start-first
