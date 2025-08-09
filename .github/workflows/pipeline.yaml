@@ -46,6 +46,6 @@ jobs:
           name: website
           file: compose.yaml
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.HOST_USER }}
+          user: deploy
           ssh_key: ${{ secrets.HOST_SSH_KEY }}
           env_file: ./envfile
