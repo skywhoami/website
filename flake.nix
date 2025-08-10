@@ -15,11 +15,11 @@
       in
       {
         devShell = pkgs.mkShell {
-          buildInputs = [
-            pkgs.bun
-            pkgs.nodejs
-            pkgs.prettierd
-            pkgs.nodePackages.prettier
+          buildInputs = with pkgs; [
+            bun
+            prettierd
+            nodePackages.prettier
+            just
           ];
         };
 

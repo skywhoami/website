@@ -1,12 +1,11 @@
 services:
   website:
     image: ghcr.io/skywhoami/website:${GIT_COMMIT_HASH:-latest}
-    environment:
-      - GITHUB_TOKEN=${GITHUB_TOKEN}
-      - DATABASE_URL=${DATABASE_URL}
+    env_file:
+      - .env
     deploy:
       update_config:
         order: start-first
       replicas: 1
     ports:
-      - "127.0.0.1:3000:3000"
+      - '127.0.0.1:3000:3000'
