@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -23,29 +23,6 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/arm64
           tags: |
             ghcr.io/skywhoami/website:latest
             ghcr.io/skywhoami/website:${{ github.sha }}
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: create env file
-        run: |
-          echo "GIT_COMMIT_HASH=${{ github.sha }}" >> ./envfile
-          echo "GITHUB_TOKEN=${{ secrets.WEBSITE_GITHUB_TOKEN }}" >> ./envfile
-          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> ./envfile
-
-      - uses: cssnr/stack-deploy-action@v1
-        with:
-          name: website
-          file: compose.yaml
-          host: ${{ secrets.HOST }}
-          user: deploy
-          ssh_key: ${{ secrets.HOST_SSH_KEY }}
-          env_file: ./envfile
