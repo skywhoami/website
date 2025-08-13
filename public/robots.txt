@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://skylar.sh/sitemap.xml

@@ -19,7 +19,10 @@ const titleClass = computed(() => {
 
 <template>
   <header class="mb-8">
-    <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-8">
+    <h1 :class="titleClass" class="mb-4 font-bold tracking-tight">
+      {{ title }}
+    </h1>
+    <nav v-if="showBackLink" aria-label="Breadcrumb navigation" class="mb-4">
       <BaseLink
         aria-label="Go back to homepage"
         class="text-lithium-white/60 text-sm"
@@ -28,10 +31,6 @@ const titleClass = computed(() => {
         <span class="font-mono">←</span> back
       </BaseLink>
     </nav>
-
-    <h1 :class="titleClass" class="mb-4 font-bold tracking-tight">
-      {{ title }}
-    </h1>
 
     <div
       v-if="$slots.subtitle"

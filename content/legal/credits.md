@@ -2,8 +2,9 @@
 title: Credits
 ---
 
-- [Sapphic Angels](https://sapphic.moe/) - huge inspo for my `/uses` and `/guestbook` pages. Their site is _full_ of personality.
+- [Sapphic Angels](https://sapphic.moe/) - huge inspo for my `/about`'s `Stuff I Use` section. Their site is _full_ of personality.
 - [Erisa A](https://erisa.uk) - inspired my `/domains`, privacy policy structure, and the read more section.
+- [notnite](https://notnite.com/) - also a big inspiration for my `/about` page.
 
 ---
 
