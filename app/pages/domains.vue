@@ -23,7 +23,7 @@ const domainsList = computed(() => {
 </script>
 
 <template>
-  <Header show-back-link size="medium" title="domain list">
+  <Header show-back-link size="medium" title="Domain list">
     <template #subtitle>
       <p>
         <BaseLink
@@ -31,11 +31,11 @@ const domainsList = computed(() => {
           target="_blank"
           to="/domains.txt"
           underline
-          >raw file
+          >Raw file
         </BaseLink>
       </p>
       <p>
-        inspired by
+        Inspired by
         <BaseLink class="text-[#c63b65]" underline to="https://erisa.uk/domains"
           >Erisa's /domains</BaseLink
         >

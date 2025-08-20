@@ -8,46 +8,14 @@
   --color-lithium-white: #fafaf9;
   --color-purple: #aa66ff;
   --color-velvet-black: #111111;
-  --font-sans: 'Atkinson Hyperlegible Next', sans-serif;
   --font-mono: 'Maple Mono', monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
 }
 
 body {
-  @apply bg-velvet-black text-lithium-white min-h-screen font-sans;
-}
-
-*:focus {
-  outline: none;
-}
-
-*:focus-visible {
-  @apply outline-2 outline-offset-2 outline-white;
-}
-
-button:focus-visible,
-[role='button']:focus-visible,
-a:focus-visible {
-  @apply ring-offset-velvet-black ring-lithium-white ring-2 ring-offset-2;
-}
-
-a {
-  @apply transition-colors duration-200;
-}
-
-a:hover {
-  @apply text-lithium-white;
-}
-
-::selection {
-  @apply text-velvet-black bg-lithium-white;
-}
-
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
+  @apply bg-velvet-black text-lithium-white min-h-screen font-mono;
 }

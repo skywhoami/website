@@ -7,27 +7,15 @@ export default defineNuxtConfig({
     url: 'https://skylar.sh'
   },
 
-  compatibilityDate: '2025-07-18',
+  compatibilityDate: '2025-08-20',
   devtools: { enabled: true },
   modules: [
     '@nuxt/fonts',
     '@nuxtjs/sitemap',
     '@nuxt/icon',
     '@nuxt/content',
-    '@nuxtjs/turnstile',
-    '@nuxt/scripts',
-    'nuxt-og-image',
-    '@nuxt/image'
+    'nuxt-og-image'
   ],
-
-  runtimeConfig: {
-    spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
-    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
-    appleMusicToken: process.env.APPLE_MUSIC_TOKEN,
-    appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
-    githubToken: process.env.GITHUB_TOKEN
-  },
 
   sourcemap: { client: true, server: false },
 
@@ -109,15 +97,7 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: { h1: true, h2: true, h3: false }
-    },
-    database: {
-      type: 'postgres',
-      url: process.env.DATABASE_URL
     }
-  },
-
-  turnstile: {
-    siteKey: '0x4AAAAAABlGl3GCGqZycMAD'
   },
 
   ogImage: {
@@ -125,16 +105,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    compatibilityDate: '2025-07-18',
-    preset: 'bun',
-    experimental: { database: true, tasks: true },
-    database: {
-      default: {
-        connector: 'postgresql',
-        options: {
-          url: process.env.DATABASE_URL
-        }
-      }
-    }
+    compatibilityDate: '2025-08-20',
+    preset: 'bun'
   }
 })

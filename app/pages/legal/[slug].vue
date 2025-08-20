@@ -10,13 +10,15 @@ route.meta.title = page.value.title
 </script>
 
 <template>
-  <Header show-back-link size="medium" class="-mb-4!" :title="page.title" />
+  <Header show-back-link size="medium" :title="page.title" class="-mb-4!">
+    <template #subtitle>
+      <p v-if="page?.lastUpdated">
+        Last updated on: {{ page.lastUpdated }}
+      </p></template
+    >
+  </Header>
 
   <article class="prose prose-invert text-lithium-white leading-relaxed">
     <ContentRenderer :value="page.body" />
   </article>
-
-  <span class="mt-6! mb-6" v-if="page?.lastUpdated"
-    >Last updated on: {{ page.lastUpdated }}</span
-  >
 </template>

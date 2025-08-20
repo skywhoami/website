@@ -6,8 +6,7 @@ definePageMeta({
 
 interface UsesItem {
   name: string
-  description?: string
-  url?: string
+  note?: string
 }
 
 interface UsesSubsection {
@@ -15,240 +14,102 @@ interface UsesSubsection {
   items: UsesItem[]
 }
 
-interface UsesSection {
-  category?: string
-  items?: UsesItem[]
-  subsections?: UsesSubsection[]
-}
-
-const hardware: UsesSection[] = [
+const tools: UsesSubsection[] = [
   {
+    category: 'Hardware',
     items: [
       {
-        name: "Gloss (MacBook Pro 16'' M3 Pro 18GB)",
-        description: 'daily driver, managed with nix'
+        name: 'Gloss',
+        note: "My daily driver, MacBook Pro 16'' M3 Pro 18GB"
       },
       {
         name: "MacBook Air 13'' M1 8GB",
-        description: 'mostly used for university'
+        note: 'The MacBook I use at university'
       },
       {
-        name: 'Cherry (Hetzner Cloud CAX21)',
-        description: 'a cloud server running nixos used to host some stuff',
-        url: 'https://github.com/skywhoami/dotfiles/tree/main/hosts/cherry'
+        name: 'Apple Magic Mouse (USB-C)',
+        note: 'Not very ergonomic, but love the design and gestures'
       },
       {
-        name: 'Apple Magic Mouse',
-        description:
-          "yes it's not ergonomic, but i love the gestures and the design"
+        name: 'AirPods Pro (2nd gen)'
       },
-      {
-        name: 'Logitech G PRO X SUPERLIGHT',
-        description: 'gaming mouse',
-        url: 'https://www.logitechg.com/en-eu/products/gaming-mice/pro-x-superlight-wireless-mouse.html'
-      },
-      {
-        name: 'AirPods Pro (2nd gen)',
-        description:
-          "amazing sound quality and transparency mode for when i'm on the go"
-      },
-      { name: 'Razer BlackShark V2 X' },
       { name: 'iPhone 15 Pro' },
       {
-        name: "iPad Air 11'' M2",
-        description: 'reading, sketching and entertainment'
+        name: "iPad Air 11'' M2"
       },
       { name: 'Apple Pencil Pro' },
       {
-        name: 'Apple Watch Series 8',
-        description: 'fitness and notifications'
-      },
-      {
-        name: "AOC 32'' 240Hz (32G2WG8)",
-        description: 'secondary monitor'
-      },
-      {
-        name: 'FlexiSpot E1',
-        description: 'standing desk',
-        url: 'https://flexispot.co.uk/electric-height-adjustable-standing-desk-e1.html?value=EF1black'
-      },
-      {
-        name: 'FlexiSpot BS5',
-        description:
-          "ergonomic chair, i think it's a bit overpriced but doesn't make my back hurt so",
-        url: 'https://flexispot.co.uk/colorful-ergonomic-chair-bs5'
+        name: 'Apple Watch Series 8'
       }
     ]
-  }
-]
-
-const software: UsesSection[] = [
+  },
   {
-    category: 'software',
-    subsections: [
+    category: 'Editor & Terminal',
+    items: [
       {
-        category: 'editor & terminal',
-        items: [
-          {
-            name: 'Neovim',
-            url: 'https://neovim.io/',
-            description:
-              "it's been a back and forth relationship for a while, but i really want to learn it and use it as my main editor"
-          },
-          {
-            name: 'Xcode',
-            description: 'for iOS & macOS development'
-          },
-          {
-            name: 'Maple Mono',
-            url: 'https://github.com/subframe7536/maple-font',
-            description: 'my font of choice'
-          },
-          {
-            name: 'zsh',
-            description: "comes bundled with macOS and does it's job perfectly"
-          },
-          {
-            name: 'Ghostty',
-            url: 'https://ghostty.org/',
-            description: 'terminal emulator'
-          },
-          {
-            name: 'Bun',
-            url: 'https://bun.sh',
-            description: 'javascript runtime and package manager'
-          },
-          {
-            name: 'Homebrew',
-            url: 'https://brew.sh',
-            description: 'package manager for macOS'
-          },
-          {
-            name: 'Oh My Posh',
-            url: 'https://ohmyposh.dev/',
-            description: 'prompt theme engine'
-          }
-        ]
+        name: 'Neovim',
+        note: "it's been a back and forth relationship for a while, but i really want to learn it and use it as my main editor"
       },
       {
-        category: 'browser & extensions',
-        items: [
-          {
-            name: 'Zen Browser',
-            description:
-              'ever since i got my first macbook i had been using safari but got tired of not having all extensions and stuff i wanted',
-            url: 'https://zen-browser.app/'
-          },
-          {
-            name: '1Password',
-            description: 'browser autofill & integration with desktop app',
-            url: 'https://1password.com'
-          },
-          {
-            name: 'Refined GitHub',
-            description: 'enhanced github experience',
-            url: 'https://github.com/refined-github/refined-github'
-          },
-          {
-            name: 'SponsorBlock',
-            description: 'skip youtube sponsor segments',
-            url: 'https://github.com/ajayyy/SponsorBlock'
-          },
-          {
-            name: 'BetterTTV',
-            description: 'better twitch experience',
-            url: 'https://betterttv.com/'
-          },
-          {
-            name: 'Catppuccin for Web File Explorer Icons',
-            description: 'pretty file explorer icons',
-            url: 'https://github.com/catppuccin/web-file-explorer-icons'
-          },
-          {
-            name: 'uBlock Origin',
-            description: 'ad blocker',
-            url: 'https://github.com/gorhill/uBlock'
-          },
-          {
-            name: 'Stylus',
-            description: 'userstyles',
-            url: 'https://add0n.com/stylus.html'
-          }
-        ]
+        name: 'Xcode',
+        note: 'for iOS & macOS development'
       },
       {
-        category: 'desktop applications',
-        items: [
-          { name: 'Apple Music' },
-          {
-            name: '1Password',
-            description: 'password manager',
-            url: 'https://1password.com/'
-          },
-          {
-            name: 'Signal',
-            description: 'open source private messenger',
-            url: 'https://signal.org/'
-          },
-          {
-            name: 'Steam',
-            description: 'that one gaming platform no one can talk bad about',
-            url: 'https://store.steampowered.com/'
-          },
-          {
-            name: 'Proton Mail',
-            description: 'private email',
-            url: 'https://proton.me/mail'
-          },
-          {
-            name: 'Vesktop',
-            description: 'custom discord app',
-            url: 'https://github.com/Vencord/Vesktop'
-          }
-        ]
+        name: 'Maple Mono'
       },
       {
-        category: 'services',
-        items: [
-          {
-            name: 'Caddy',
-            description: 'web server',
-            url: 'https://caddyserver.com/'
-          },
-          {
-            name: 'Glance',
-            description: 'dashboard',
-            url: 'https://github.com/glanceapp/glance'
-          },
-          {
-            name: 'Bluesky PDS',
-            description: 'bluesky personal data server',
-            url: 'https://github.com/bluesky-social/pds'
-          }
-        ]
+        name: 'kitty'
+      },
+      {
+        name: 'Homebrew',
+        note: 'My preferred macOS package manager'
+      },
+      {
+        name: 'Nix',
+        note: 'I use Nix (with nix-darwin and home-manager) to manage my dotfiles and ensure everything works the same on every machine I own'
+      }
+    ]
+  },
+  {
+    category: 'Desktop Applications',
+    items: [
+      {
+        name: 'Zen Browser',
+        note: 'Ever since I got my first MacBook I had been using Safari but got tired of not having all extensions and stuff I wanted'
+      },
+      {
+        name: 'Signal'
+      },
+      {
+        name: 'Proton Mail'
+      },
+      {
+        name: 'Vesktop'
+      },
+      { name: 'Apple Music' },
+      {
+        name: '1Password'
+      },
+      {
+        name: 'Steam',
+        note: 'That one gaming platform no one can talk bad about'
       }
     ]
   }
 ]
 
-const getSectionId = (section: UsesSection) =>
-  `section-${(section.category || 'hardware')
-    .toLowerCase()
-    .replace(/\s+/g, '-')}`
-
-const getSubsectionId = (subsection: UsesSubsection | UsesSection) =>
-  `subsection-${subsection.category!.toLowerCase().replace(/\s+/g, '-')}`
-
+const getSectionId = (category: string) =>
+  `section-${category.toLowerCase().replace(/\s+/g, '-')}`
 const getItemDescId = (item: UsesItem) =>
   `desc-${item.name.toLowerCase().replace(/\s+/g, '-')}`
 </script>
 
 <template>
-  <Header show-back-link size="medium" title="uses">
+  <Header show-back-link size="medium" title="Uses">
     <template #subtitle
-      ><p>software and hardware that power my workflow</p>
+      ><p>Software and hardware that power my workflow</p>
       <p>
-        inspired by
+        Inspired by
         <BaseLink
           to="https://sapphic.moe/uses"
           class="text-[rgb(245,194,231)]"
@@ -258,84 +119,58 @@ const getItemDescId = (item: UsesItem) =>
       </p></template
     >
   </Header>
-
   <section class="mb-16 space-y-24 text-sm md:text-base">
-    <div
-      v-for="section in [...hardware, ...software]"
-      :key="section.category || 'hardware'"
-    >
+    <div v-for="section in tools" :key="section.category">
       <h2
-        :id="getSectionId(section)"
+        :id="getSectionId(section.category!)"
         class="mb-6 text-2xl font-bold tracking-tight text-white"
       >
-        {{ section.category || 'hardware' }}
+        {{ section.category }}
       </h2>
-
       <div class="space-y-16">
-        <div
-          v-for="subsection in section.subsections || [section]"
-          :key="subsection.category || 'items'"
-          :aria-labelledby="
-            subsection.category
-              ? getSubsectionId(subsection)
-              : getSectionId(section)
-          "
-        >
-          <h3
-            v-if="subsection.category"
-            :id="getSubsectionId(subsection)"
-            class="mb-4 text-lg font-semibold text-zinc-400"
+        <ul class="divide-y divide-white/10">
+          <li
+            v-for="item in section.items"
+            :key="item.name"
+            class="py-4 md:py-3"
+            role="listitem"
           >
-            {{ subsection.category }}
-          </h3>
-
-          <ul class="divide-y divide-white/10">
-            <li
-              v-for="item in subsection.items"
-              :key="item.name"
-              class="py-4 md:py-3"
-              role="listitem"
-            >
-              <div class="grid md:grid-cols-2 md:gap-8">
-                <div class="flex items-center justify-between md:block">
-                  <template v-if="item.url">
-                    <div class="flex items-center gap-1.5">
-                      <BaseLink
-                        :aria-describedby="
-                          item.description ? getItemDescId(item) : undefined
-                        "
-                        :to="item.url"
-                        class="font-medium text-white transition-colors"
-                        underline
-                      >
-                        {{ item.name }}
-                      </BaseLink>
-                    </div>
-                  </template>
-
-                  <template v-else>
+            <div class="grid md:grid-cols-2 md:gap-8">
+              <div class="flex items-center justify-between md:block">
+                <template v-if="item.url">
+                  <div class="flex items-center gap-1.5">
                     <span
                       :aria-describedby="
-                        item.description ? getItemDescId(item) : undefined
+                        item.note ? getItemDescId(item) : undefined
                       "
-                      class="font-medium text-white"
+                      class="font-medium text-white transition-colors"
+                      underline
                     >
                       {{ item.name }}
                     </span>
-                  </template>
-                </div>
-
-                <p
-                  v-if="item.description"
-                  :id="getItemDescId(item)"
-                  class="mt-1 text-sm leading-snug text-zinc-400 md:mt-0"
-                >
-                  {{ item.description }}
-                </p>
+                  </div>
+                </template>
+                <template v-else>
+                  <span
+                    :aria-describedby="
+                      item.note ? getItemDescId(item) : undefined
+                    "
+                    class="font-medium text-white"
+                  >
+                    {{ item.name }}
+                  </span>
+                </template>
               </div>
-            </li>
-          </ul>
-        </div>
+              <p
+                v-if="item.note"
+                :id="getItemDescId(item)"
+                class="mt-1 text-sm leading-snug text-zinc-400 md:mt-0"
+              >
+                {{ item.note }}
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

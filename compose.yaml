@@ -1,8 +1,6 @@
 services:
   website:
     image: ghcr.io/skywhoami/website:${GIT_COMMIT_HASH:-latest}
-    env_file:
-      - .env
     deploy:
       update_config:
         order: start-first
